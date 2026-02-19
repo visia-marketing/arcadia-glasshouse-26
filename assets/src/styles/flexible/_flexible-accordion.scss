@@ -30,7 +30,7 @@
 
   .accordion {
     background: transparent;
-    border-top: 1px solid $grey-border;
+    border-top: 1px solid $gray-border;
 
     &.separated {
       border-top: none;
@@ -41,8 +41,8 @@
 
       .accordion-topic {
        
-        border: 1px solid $grey-border;
-        border-top: 1px solid $grey-border;
+        border: 1px solid $gray-border;
+        border-top: 1px solid $gray-border;
         border-radius: 10px;
 
         overflow: hidden;
@@ -55,7 +55,7 @@
     }
 
     .accordion-topic {
-      border: 1px solid $grey-border;
+      border: 1px solid $gray-border;
       border-top: none;
       padding: 22px 30px;
       position: relative;
@@ -69,7 +69,7 @@
       }
 
       .accordion-arrow {
-        border-left: 1px solid $grey-border;
+        border-left: 1px solid $gray-border;
         display: flex;
          align-items: center;
          justify-content: center;
@@ -125,9 +125,9 @@
     }
 
     .accordion-response {
-      border-left: 1px solid $grey-border;
-      border-right: 1px solid $grey-border;
-      border-bottom: 1px solid $grey-border;
+      border-left: 1px solid $gray-border;
+      border-right: 1px solid $gray-border;
+      border-bottom: 1px solid $gray-border;
       padding: 22px 30px;
       display: none;
 
@@ -170,7 +170,7 @@
 
   & .faq_answer{
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid $grey-border;
+    border-bottom: 1px solid $gray-border;
     margin-bottom: 2.5rem;
   }
 }

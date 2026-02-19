@@ -17,8 +17,6 @@ module.exports = {
     },
     resolve: {
         alias: {
-            'jquery': 'jquery/src/jquery',
-            'foundation': 'foundation-sites/js/foundation.core',
             'slick-carousel': 'slick-carousel/slick/slick.js'
         }
     },
@@ -77,13 +75,10 @@ module.exports = {
             name: 'build',
             color: '#00ff00',
         }),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery',
-            'window.$': 'jquery'
-        })
     ],
+    externals: {
+        jquery: 'jQuery',
+    },
     stats: {
         assets: true,
         assetsSort: "size",

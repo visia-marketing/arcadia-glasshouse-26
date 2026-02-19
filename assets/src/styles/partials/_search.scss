@@ -3,17 +3,17 @@
 
 /* Search Page */
 .main-search { 
-  background-color: $grey-bg;
+  background-color: $gray-bg;
   padding: 20px 0 30px;
   position: relative;
   z-index: 99;
 
   .main-search-bar {
-    background-color: $grey-bg;
+    background-color: $gray-bg;
     position: relative;
 
     .main-search-form {
-      border: 1px solid darken($grey-bg,5%);
+      border: 1px solid darken($gray-bg,5%);
       border-radius: 10px;
       background-color: #fff;
       padding: 0.5rem;
@@ -69,7 +69,7 @@
             }
 
             &::placeholder {
-              color: $dark-grey;
+              color: $dark-gray;
               font-family: $sans;
             }
           }
@@ -241,7 +241,7 @@
 
 /*
 #main-search-wrapper {
-  background-color: darken($grey-bg,7%);
+  background-color: darken($gray-bg,7%);
   display: none;
   height: 110px;
   position: fixed;
