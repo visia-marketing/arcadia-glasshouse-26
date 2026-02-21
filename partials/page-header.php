@@ -23,6 +23,12 @@
         $page_heading_text = $page_header_content['heading_text'];
       }    
     }
+
+    if( array_key_exists( 'page_header_button', $page_header_content) ){
+      if( $page_header_content['page_header_button'] ){
+        $page_header_button = $page_header_content['page_header_button'];
+      }    
+    }
   }
 
   if( is_array( $page_header_style) ){
@@ -41,6 +47,14 @@
         $page_heading_size = $page_header_style['header_size'];
       }    
     }
+
+    if( array_key_exists( 'overlay', $page_header_style) ){
+      if( $page_header_style['overlay'] ){
+        $overlay = $page_header_style['overlay'];
+      }    
+    }
+
+
   }
 
 
@@ -55,9 +69,9 @@
         echo wp_get_attachment_image( $page_heading_background_image, 'large', false, array( "class" => "page-header-image" ) );
     }
     ?>
-    <div class="page-header-content-wrapper fc-section fc-section-<?php echo $page_heading_background;?> page-header-<?php echo $page_heading_size; ?>">
-      <div class="uk-container">
-        <div class="small-12 large-8 large-offset-2 uk-text-center columns">
+    <div class="page-header-content-wrapper fc-section fc-section-<?php echo $page_heading_background;?> overlay-<?php echo $overlay;?> page-header-<?php echo $page_heading_size; ?>">
+      <div class="uk-container uk-container-small">
+        <div class="uk-text-center">
           <div class="page-header-content">
             <?php 
             $header_content = get_field('page_header_content');
@@ -68,14 +82,22 @@
                   <?php echo esc_html($page_sub_heading); ?>
               </p>
               <?php endif; ?>
-              <h1 class="g-section-title">
+              <h1 class="">
                 <?php if ( $page_heading ): echo esc_html($page_heading); else: the_title(); endif; ?>
               </h1>
               <?php if ( !empty($page_heading_text) ): ?>
                 <p>
                     <?php echo esc_html($page_heading_text); ?>
                 </p>
-            <?php  endif; ?>
+              <?php  endif; ?>
+
+              <?php if ( !empty($page_header_button) ): ?>
+                <a href="<?php echo esc_html($page_header_button['url']); ?>" class="uk-button uk-button-primary uk-button-bright uk-button-large">
+                    <?php echo $page_header_button['title']; ?>
+                </a>
+              <?php  endif; ?>
+
+
           </div>
         </div>
       </div>

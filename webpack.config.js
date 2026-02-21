@@ -1,7 +1,10 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
+const CopyPlugin = require('copy-webpack-plugin');
+
 const webpack = require('webpack');
+
 
 module.exports = {
     entry: {
@@ -80,7 +83,15 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
-        })
+        }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'assets/src/svg'),
+                    to: path.resolve(__dirname, 'assets/dist/svg')
+                }
+            ]
+        }),
     ],
     stats: {
         assets: true,

@@ -1,76 +1,136 @@
-.button,
-.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button,
-.wpfFilterButton.wpfButton {
-	background-color: $primary;
-	border-radius: 2px;
-  border: none;
-	color: $white;
-	font-family: $sans;
-	font-size: 13px !important;
-	font-weight: 600;
-  letter-spacing: .75px;
-	margin: 1rem 0 0 0;
-  min-height: 24px;
-	padding: 8px 16px 8px 16px;
-	text-transform: uppercase;
-  text-align: center;
+// .button,
+// .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button,
+// .wpfFilterButton.wpfButton {
+// 	background-color: $primary;
+// 	border-radius: 2px;
+//   border: none;
+// 	color: $white;
+// 	font-family: $sans;
+// 	font-size: 13px !important;
+// 	font-weight: 600;
+//   letter-spacing: .75px;
+// 	margin: 1rem 0 0 0;
+//   min-height: 24px;
+// 	padding: 8px 16px 8px 16px;
+// 	text-transform: uppercase;
+//   text-align: center;
 
-  i {
-    margin-left: 11px;
-    //font-size: 10px;
-  }
+//   i {
+//     margin-left: 11px;
+//     //font-size: 10px;
+//   }
 
-	&:hover, &.active {
-		background-color: darken($primary,7%);
-    color: #fff !important;
-	}
+// 	&:hover, &.active {
+// 		background-color: darken($primary,7%);
+//     color: #fff !important;
+// 	}
 
-  &.grey {
-		background-color: #f3f3f3;
-		color: $primary !important;
+//   &.grey {
+// 		background-color: #f3f3f3;
+// 		color: $primary !important;
 
-		&:hover, &.active {
-      background-color: $primary;
-			color: #fff !important;
-		}
+// 		&:hover, &.active {
+//       background-color: $primary;
+// 			color: #fff !important;
+// 		}
 
-	}
+// 	}
 
-  &.button-arrow {
-    padding-right: 40px;
-    position: relative;
+//   &.button-arrow {
+//     padding-right: 40px;
+//     position: relative;
     
-    &:after {
-      color: #fff;
-      content: "\f178";
-      font-family: $fontawesome;
-      font-weight: 900;
-      position: absolute;
-      right: 15px;
-      top: 7.5px;
+//     &:after {
+//       color: #fff;
+//       content: "\f178";
+//       font-family: $fontawesome;
+//       font-weight: 900;
+//       position: absolute;
+//       right: 15px;
+//       top: 7.5px;
+//     }
+
+//   }
+
+// }
+
+
+// .gform_wrapper.gravity-theme.uavionix_wrapper .gform_button {
+//   padding-right: 28px;
+//   margin-left: auto;
+//   position: relative;
+
+//   &:before {
+//     font-family: $fontawesome;
+//     content: "\f054";
+//     font-weight: 900;
+//     position: absolute;
+//      top: 5px;
+//      right: 14px;
+//     height: 30px;
+//     font-size: 16px;
+//     width: 8px;
+//   }
+
+// }
+
+
+@media (prefers-reduced-motion: reduce) {
+    .uk-button {
+      transition: none;
     }
-
   }
 
+
+.uk-button{
+    border-radius: 6rem;
+    text-transform: none;
+    font-weight: 500;
+    transition: 
+        transform 160ms ease,
+        box-shadow 160ms ease,
+        background-color 160ms ease,
+        color 160ms ease;
+
+        &:hover{
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 104, 72, 0.12);
+        }
+
+        &:active{
+            transform: translateY(0px);
+            box-shadow: 0 4px 12px rgba(0, 104, 72, 0.10);
+        }
+
+        &:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 104, 72, 0.20);
+        }
+
+    
 }
 
 
-.gform_wrapper.gravity-theme.uavionix_wrapper .gform_button {
-  padding-right: 28px;
-  margin-left: auto;
-  position: relative;
+.uk-button.uk-button-primary{
+    border: 1px solid $primary;
 
-  &:before {
-    font-family: $fontawesome;
-    content: "\f054";
-    font-weight: 900;
-    position: absolute;
-     top: 5px;
-     right: 14px;
-    height: 30px;
-    font-size: 16px;
-    width: 8px;
-  }
-
+    &.uk-button-bright{
+        background: $secondary;
+        border: $secondary;
+        color: $primary !important;
+    }
+    
 }
 
+
+.uk-button.uk-button-default{
+    border: 1px solid $primary;
+    &:hover{
+        border-color: $secondary;
+    }
+}
+
+.uk-button.uk-button-secondary{
+    border: 1px solid $secondary;
+
+}

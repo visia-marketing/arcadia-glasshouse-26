@@ -36,3 +36,26 @@ html, body {
 
   }
 }
+
+.ornament-container{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.ornament{
+
+  
+  // &--left{
+  //   left: 0;
+  //   top: 0;
+  //   // transform: translate(-50%, -50%);
+  // }
+
+  // &--right{
+  //   right: 0;
+  //   top: 0;
+  //   transform: translate(50%, -50%);
+  // }
+}
