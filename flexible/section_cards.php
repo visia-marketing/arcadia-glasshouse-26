@@ -37,14 +37,16 @@ switch ($per_row) {
 
 ?>
 
-<div class="fc-section-columns fc-section-cards" id="<?php echo $rand_id;?>">
 
-  <div class="uk-container padding-row" data-equalizer>
     <?php get_template_part('flexible/section_header'); ?>
     
 
-    <?php if($display == "carousel"): ?><div class="carousel-wrapper"  data-slides-to-show="<?php echo $per_row; ?>" data-duration="<?php echo $aos_duration; ?>" data-step="<?php echo $aos_step; ?>"><?php else: ?> <div class="grid-container uk-grid uk-grid-small uk-grid-match"> <?php endif; ?>
-        <?php $delay = 0; ?>
+    <?php if($display == "carousel"): ?>
+        <div id="<?php echo $rand_id;?>" class="fc-section-cards carousel-wrapper"  data-slides-to-show="<?php echo $per_row; ?>" data-duration="<?php echo $aos_duration; ?>" data-step="<?php echo $aos_step; ?>">
+    <?php else: ?>
+        <div id="<?php echo $rand_id;?>" class=fc-section-cards grid-container uk-grid uk-grid-small uk-grid-match">
+    <?php endif; ?>
+    <?php $delay = 0; ?>
 
         <?php foreach( $cards as $card ): ?>
 
@@ -100,11 +102,7 @@ switch ($per_row) {
 
         <?php endforeach; ?>
 
-        
-        </div>
     </div>
-
-</div>
 
 <?php if($display == "carousel"): ?>
 

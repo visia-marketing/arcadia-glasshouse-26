@@ -35,9 +35,12 @@
     }
 
     &.fc-section-image {
-      background: rgba(6, 47, 110, 0.66); // radial-gradient(circle, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
       position: relative;
       background-blend-mode: multiply;
+
+      &.overlay-1{
+        background: $darkGrade; 
+      }
 
       img.fc-section-background-image {
         height: 100%;

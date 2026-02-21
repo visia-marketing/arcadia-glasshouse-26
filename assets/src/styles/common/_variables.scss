@@ -8,8 +8,17 @@
 $avenirNext: "Avenir Next", Avenir, "Canada Type Gibson", sans-serif;
 $fontawesome: "Font Awesome 6 Free";
 
-$sans:      $avenirNext;
-$serif:     $sans;
+$ivyPresto : "ivypresto-text", serif;
+$proximaNova: "proxima-nova", sans-serif;
+
+$sans:      $proximaNova;
+$serif:     $ivyPresto;
+
+
+$global-font-family: $sans;
+$base-heading-font-family: $serif;
+
+$base-heading-font-weight:300;
 
 ///////////////////////////////////////////////
 
@@ -31,29 +40,32 @@ $grey-border: $gray-border;
 $white:       #ffffff;
 
 // Brand Colors - Set the brand colors here
-$yellow:       #FBA919;
-$black:      #000000;
+$primaryGreen: #006848;
+$darkGreen: #005138;
+$brightGreen: #C8F17B;
+$offWhite: #F5F4ED;
+$black: #0D0D0D;
+$white: #ffffff;
 
 $lightGrade: linear-gradient(0deg, rgba(255, 255, 255, 0.00) -6.56%, #EDF4FA 88.2%);
-$darkGrade: linear-gradient(270deg, rgba(0, 43, 73, 0.70) -5%, rgba(0, 34, 57, 0.70) 70%);
+$darkGrade: linear-gradient(0deg, #006848 0%, rgba(0, 81, 56, 0.29) 84.82%);
 
-
-$primary: $yellow;
-$secondary: $dark-gray;
-$dark: darken($primary, 10%);
+$primary: $primaryGreen;
+$secondary: $brightGreen;
+$dark: $darkGreen;
 
 
 // Top Bar
-$top-header-background: #f3f3f3;
-$top-header-color: $black;
-$top-header-link-color: $black;
+$top-header-background: $primary;
+$top-header-color: $white;
+$top-header-link-color: $white;
 
 // Main Header - this is confusing - header nav or headings
-$main-header-background: $light-gray;
+$main-header-background: $white;
 $main-header-link-color: $black;
 $main-header-link-font: $sans;
-$main-header-button-background-color: $primary;
-$main-header-button-link-color: $white;
+$main-header-button-background-color: $white;
+$main-header-button-link-color: $primary;
 
 // Containers
 $container-xsmall-max-width: 768px;
@@ -83,6 +95,97 @@ $accordion-default-title-color: $global-emphasis-color !default;
 $global-color: #666 !default;
 $accordion-default-title-hover-color: $global-color !default;
 $accordion-default-content-margin-top: $global-margin !default;
+
+
+$global-small-font-size: 0.875rem;
+$global-medium-font-size: 1.25rem;
+$global-font-size: 16px;
+$global-large-font-size: 1.875rem;
+$global-xlarge-font-size: 2.1875rem;
+$global-2xlarge-font-size: 3.75rem;
+
+
+$base-h1-font-size-m: $global-2xlarge-font-size !default;
+$base-h1-font-size: $base-h1-font-size-m * 0.85 !default;
+$base-h1-line-height: 1 !default;
+
+$base-h2-font-size-m: $global-xlarge-font-size !default;
+$base-h2-font-size: $base-h2-font-size-m * 0.85 !default;
+$base-h2-line-height: 1.15 !default;
+
+$base-h3-font-size: $global-large-font-size !default;
+$base-h3-line-height: 1.4 !default;
+
+$base-h4-font-size: $global-medium-font-size !default;
+$base-h4-line-height: 1.4 !default;
+
+$base-h5-font-size: $global-font-size !default;
+$base-h5-line-height: 1.4 !default;
+
+$base-h6-font-size: $global-small-font-size !default;
+$base-h6-line-height: 1.4 !default;
+
+$global-gutter: 30px !default;
+$global-small-gutter: 15px !default;
+$global-medium-gutter: 40px !default;
+$global-large-gutter: 70px !default;
+
+
+$global-control-height: 40px;
+
+$button-line-height: $global-control-height;
+$global-control-small-height: 30px;
+$button-small-line-height: $global-control-small-height;
+$global-control-large-height: 55px;
+$button-large-line-height: $global-control-large-height;
+$button-font-size: $global-font-size;
+$button-small-font-size: $global-small-font-size;
+$button-large-font-size: $global-medium-font-size;
+$button-padding-horizontal: $global-gutter;
+
+$button-small-padding-horizontal: $global-small-gutter;
+$button-large-padding-horizontal: $global-medium-gutter;
+
+$button-default-background: $primary;
+$button-default-color: $white;
+$button-default-hover-background: $secondary;
+$button-default-hover-color: $primary;
+$button-default-active-background: $secondary;
+$button-default-active-color: $primary;
+
+$button-primary-background: transparent;
+$button-primary-color: $primary;
+$button-primary-hover-background: $primary;
+$button-primary-hover-color: $white;
+$button-primary-active-background: $primary;
+$button-primary-active-color: $white;
+
+$button-secondary-background: transparent;
+$button-secondary-color: $secondary;
+$button-secondary-hover-background:  $secondary;
+$button-secondary-hover-color: $primary;
+$button-secondary-active-background: $primary;
+$button-secondary-active-color:  $secondary;
+
+// $button-danger-background: $global-danger-background !default;
+// $button-danger-color: $global-inverse-color !default;
+// $button-danger-hover-background: color.adjust($button-danger-background, $lightness: -5%) !default;
+// $button-danger-hover-color: $global-inverse-color !default;
+// $button-danger-active-background: color.adjust($button-danger-background, $lightness: -10%) !default;
+// $button-danger-active-color: $global-inverse-color !default;
+// $button-disabled-background: $global-muted-background !default;
+// $button-disabled-color: $global-muted-color !default;
+// $button-text-line-height: $global-line-height !default;
+// $button-text-color: $global-emphasis-color !default;
+// $button-text-hover-color: $global-muted-color !default;
+// $button-text-disabled-color: $global-muted-color !default;
+// $button-link-line-height: $global-line-height !default;
+// $button-link-color: $global-emphasis-color !default;
+// $button-link-hover-color: $global-muted-color !default;
+// $button-link-hover-text-decoration: none !default;
+// $button-link-disabled-color: $global-muted-color !default;
+
+
 
 
 
