@@ -90,8 +90,20 @@ function get_flexible_content() {
       $top_padding = get_sub_field('top_padding') ?: 0;
       $bottom_padding = get_sub_field('bottom_padding') ?: 0;
       $content_spacing = get_sub_field('content_spacing') ?: 0;
-      $vertical_align = get_sub_field('vertical_align') ?: '';
       $horizontal_align = get_sub_field('horizontal_align') ?: '';
+
+      $containerWidth = get_sub_field('container_width') ?: 'uk-container-expand uk-width-1-1'; // Container width class (default, wide, full)
+
+      // ornamentation
+      $ornament = get_sub_field('ornament');
+      // if ornament align == 0 value is 'right' if 1 value is 'left'
+      $ornament_align = get_sub_field('ornament_alignment') == '0' ? 'left' : 'right';
+      // get the relatiuve path to the svgs directory in the theme assets assets/src/svg folder
+      $svg_path = get_template_directory() . '/assets/src/svg/';
+      $ornament_svg = '';
+      $ornament_svg = file_get_contents($svg_path.'ornament_'.$ornament.'.svg');
+      // get svg file contents
+
 
       //echo get_row_layout();
       echo '<style>
@@ -106,7 +118,7 @@ function get_flexible_content() {
           flex-direction: column;
           gap: ' . esc_html( ($content_spacing * 1.5) ) . 'rem;
           align-items: center;
-          justify-content: ' . esc_html($horizontal_align) . ';
+          /* justify-content: ' . esc_html($horizontal_align) . '; */
         }
 
         #' . esc_html($id) . ' > .fc-section-columns {
@@ -148,22 +160,20 @@ function get_flexible_content() {
        * - Custom classes from ACF fields
        */
       echo '<section class="fc-section fc-section-' . esc_attr(get_row_index()) . ' fc-section-' . esc_attr($background) . ' ' . esc_attr($class) . '" id="' . esc_attr($id) . '">';
+        if ($ornament) { 
+          echo '<div id="ornament_'.$id.'" class="uk-container uk-container-xlarge ornament-container uk-flex uk-flex-'.$ornament_align.'">';
+            echo '<div class="ornament">';
+              echo $ornament_svg;
+            echo '</div>';
+          echo '</div>';
+        }
+        echo '<div class="' . esc_attr($containerWidth) . ' uk-flex uk-flex-column uk-flex-'.$horizontal_align.'">';
 
-      /**
-       * Output background image if applicable
-       * Only displays if background type is 'image' and an image is selected
-       */
-      // if ($background === 'image' && $background_image_id) {
-      //   echo wp_get_attachment_image($background_image_id, 'full', false, ['class' => 'fc-section-background-image']);
-      // }
 
-      /**
-       * Include the template part for this layout type
-       * Template should be located at: /flexible/[layout-name].php
-       */
 
-      get_template_part('flexible/'.get_row_layout());// ' . $layout);
-      
+          get_template_part('flexible/'.get_row_layout() );
+
+        echo '</div>';  
       echo '</section>';
 
     endwhile;

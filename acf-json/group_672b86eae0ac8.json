@@ -3,6 +3,35 @@
     "title": "COMPONENT: Cards",
     "fields": [
         {
+            "key": "field_699c9999b3cf5",
+            "label": "Source",
+            "name": "card_source",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "15",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "custom": "Custom",
+                "greenhouse": "Greenhouses"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
             "key": "field_699505fab74b7",
             "label": "Display",
             "name": "cards_display",
@@ -175,7 +204,15 @@
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_699c9999b3cf5",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -277,6 +314,44 @@
                     "parent_repeater": "field_672b87402abce"
                 }
             ]
+        },
+        {
+            "key": "field_699c99f618da2",
+            "label": "Greenhouses",
+            "name": "greenhouses",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_699c9999b3cf5",
+                        "operator": "==",
+                        "value": "greenhouse"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "greenhouse"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "return_format": "id",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "elements": "",
+            "bidirectional": 0,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -294,9 +369,9 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": true,
+    "active": false,
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771382958
+    "modified": 1771870756
 }

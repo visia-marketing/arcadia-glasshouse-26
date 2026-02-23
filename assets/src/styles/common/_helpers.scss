@@ -1,71 +1,71 @@
-// Used to align content in center
-.center {
-  text-align: center;
-}
+// // Used to align content in center
+// .center {
+//   text-align: center;
+// }
 
-// Remove focus outline
-:focus {
-  outline: none;
-}
+// // Remove focus outline
+// :focus {
+//   outline: none;
+// }
 
-// anchor transitions
-a, button, .button, [type=submit] {
-  color: $primary;
-  //text-decoration: underline;
-  transition: all 0.25s ease;
-}
-
-
+// // anchor transitions
+// a, button, .button, [type=submit] {
+//   color: $primary;
+//   //text-decoration: underline;
+//   transition: all 0.25s ease;
+// }
 
 
-.pagination {
-	border: none;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  font-size: 12px;
-  display: flex;
 
-  ul.page-numbers {
-    text-align: center;
-    margin: 0 0.25em;
-    border: none !important;
-    display: flex;
-    color: $primary;
-    padding: 0 0.5rem;
 
-    list-style: none;
+// .pagination {
+// 	border: none;
+//   margin-top: 2rem;
+//   margin-bottom: 2rem;
+//   font-size: 12px;
+//   display: flex;
 
-    li {
-    	border-right: none;
-    }
+//   ul.page-numbers {
+//     text-align: center;
+//     margin: 0 0.25em;
+//     border: none !important;
+//     display: flex;
+//     color: $primary;
+//     padding: 0 0.5rem;
 
-    .page-numbers {
-	    text-align: center;
-	    margin: 0 0.25em;
-	    border-bottom: 2px solid transparent;
-	    border-right: none;
-	    display: block;
-	    color: $primary;
-	    padding: 0 0.5rem;
+//     list-style: none;
 
-	    list-style: none;
+//     li {
+//     	border-right: none;
+//     }
 
-	    &:hover {
-	      color: #202020;
-	    }
+//     .page-numbers {
+// 	    text-align: center;
+// 	    margin: 0 0.25em;
+// 	    border-bottom: 2px solid transparent;
+// 	    border-right: none;
+// 	    display: block;
+// 	    color: $primary;
+// 	    padding: 0 0.5rem;
 
-	    &.current {
-	    	background: transparent;
-	      border-color: $primary;
-	      color: #202020;
-	      font-weight: bold;
-	    }
+// 	    list-style: none;
 
-	    &.next,
-	    &.prev {
-	      color: $primary;
-	    }
+// 	    &:hover {
+// 	      color: #202020;
+// 	    }
 
-	   }
-  }
-}
+// 	    &.current {
+// 	    	background: transparent;
+// 	      border-color: $primary;
+// 	      color: #202020;
+// 	      font-weight: bold;
+// 	    }
+
+// 	    &.next,
+// 	    &.prev {
+// 	      color: $primary;
+// 	    }
+
+// 	   }
+//   }
+// }

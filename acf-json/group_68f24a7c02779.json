@@ -264,7 +264,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -279,6 +279,27 @@
                     "allow_in_bindings": 0,
                     "layout": "horizontal",
                     "save_other_choice": 0
+                },
+                {
+                    "key": "field_6998a35567cab",
+                    "label": "Overlay",
+                    "name": "overlay",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 }
             ]
         }
@@ -304,5 +325,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1761320809
+    "modified": 1771611231
 }

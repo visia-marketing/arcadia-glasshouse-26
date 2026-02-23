@@ -11,6 +11,7 @@
     "@babel/preset-env": "^7.22.0",
     "autoprefixer": "^10.4.20",
     "babel-loader": "^9.1.2",
+    "copy-webpack-plugin": "^13.0.1",
     "css-loader": "^6.11.0",
     "file-loader": "^6.2.0",
     "mini-css-extract-plugin": "^2.9.2",
@@ -29,11 +30,10 @@
     "bourbon": "^4.2.7",
     "countup.js": "^2.9.0",
     "font-awesome": "^4.7.0",
-    "foundation-sites": "6.3.1",
-    "motion-ui": "^2.0.8",
     "simple-lightbox": "^2.1.0",
     "simplelightbox": "^2.14.3",
     "slick-carousel": "^1.8.1",
-    "style-loader": "^4.0.0"
+    "style-loader": "^4.0.0",
+    "uikit": "^3.25.11"
   }
 }

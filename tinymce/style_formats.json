@@ -18,8 +18,18 @@
     "wrapper": true
   },
   {
-    "title": "Button with Arrow",
+    "title": "Button Primary",
     "selector": "a",
-    "classes": "button button-arrow"
+    "classes": "button uk-button uk-button-default"
+  },
+  {
+    "title": "Button Secondary",
+    "selector": "a",
+    "classes": "button uk-button uk-button-primary"
+  },
+  {
+    "title": "Button Solid",
+    "selector": "a",
+    "classes": "button uk-button uk-button-secondary"
   }
 ]
