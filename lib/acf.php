@@ -108,8 +108,8 @@ function get_flexible_content() {
       //echo get_row_layout();
       echo '<style>
         #' . esc_html($id) . ' {
-          padding-top: ' . esc_html( ($top_padding * 1.5) ) . 'rem;
-          padding-bottom: ' . esc_html( ($bottom_padding * 1.5 ) ) . 'rem;
+          padding-top: ' . esc_html( $top_padding  ) . 'rem;
+          padding-bottom: ' . esc_html( $bottom_padding  ) . 'rem;
           position: relative;
         }
 

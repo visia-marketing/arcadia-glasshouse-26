@@ -3085,8 +3085,8 @@ select.uk-form-width-xsmall {
 /* Title
  ========================================================================== */
 .uk-card-title {
-  font-size: 1.875rem;
-  line-height: 1.4;
+  font-size: 2rem;
+  line-height: 1.1;
 }
 
 /* Badge
@@ -15361,43 +15361,36 @@ body#tinymce {
   padding-right: 1rem;
   padding-left: 1rem;
 }
-.fc-section-cards .card-body {
-  background: #fff;
+.fc-section-cards .uk-card > div {
+  border-radius: 0.75rem;
+  overflow: hidden;
 }
-.fc-section-cards .content-cards {
-  background: #fff;
-  margin-bottom: 2.5rem;
-  height: 100%;
+.fc-section-cards a.card-body {
+  padding: 2rem 1.5rem;
+  background-image: linear-gradient(0deg, rgba(48, 86, 72, 0.69) 49.04%, rgba(48, 86, 72, 0) 100%);
+  gap: 0.5rem;
 }
-.fc-section-cards .content-cards--inner {
-  padding: 2rem;
+.fc-section-cards a.card-body, .fc-section-cards a.card-body * {
+  text-decoration: none;
 }
-.fc-section-cards .content-cards--inner h3 a {
-  font-size: 1.75rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.3;
-  color: #0D0D0D;
+.fc-section-cards a.card-body span.g-section-subtitle {
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  color: #fff;
 }
-.fc-section-cards .content-cards--inner > a {
-  color: #0D0D0D;
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.45;
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-  -webkit-text-decoration-skip-ink: none;
-          text-decoration-skip-ink: none;
-  text-decoration-thickness: auto;
-  text-underline-offset: auto;
-  text-underline-position: from-font;
+.fc-section-cards a.card-body h3 {
+  color: #ffffff;
+  transition: color 0.3s ease-in-out;
 }
-.fc-section-cards .content-cards img {
-  aspect-ratio: 3/2;
-  -o-object-fit: cover;
-     object-fit: cover;
-  min-width: 100%;
+.fc-section-cards a.card-body h3.card-title > a {
+  color: #ffffff !important;
+}
+.fc-section-cards a.card-body:hover h3 {
+  color: #C8F17B;
+}
+.fc-section-cards a.card-body p {
+  color: #ffffff !important;
+  font-size: 1rem;
 }
 .fc-section-cards .slick-arrow {
   height: 100% !important;
@@ -15690,6 +15683,11 @@ body#tinymce {
     padding: 50px 0;
   }
 }
+.fc-wrapper .fc-section.page-header-,
+.fc-page-header .fc-section.page-header- {
+  padding-bottom: 4.5rem;
+  padding-top: 20rem;
+}
 .fc-wrapper .fc-section.fc-section-1,
 .fc-page-header .fc-section.fc-section-1 {
   padding: 30px 0 30px;
@@ -15697,7 +15695,7 @@ body#tinymce {
 @media (min-width: 1100px) {
   .fc-wrapper .fc-section.fc-section-1,
   .fc-page-header .fc-section.fc-section-1 {
-    padding: 70px 0 50px;
+    padding: 124px 0;
   }
 }
 .fc-wrapper .fc-section.fc-section-image,
@@ -15739,10 +15737,6 @@ body#tinymce {
 .fc-page-header .fc-section.center {
   text-align: center;
 }
-.fc-wrapper .fc-section h2,
-.fc-page-header .fc-section h2 {
-  padding-top: 2.5rem;
-}
 .fc-wrapper .fc-section p:has(.g-section-subtitle),
 .fc-page-header .fc-section p:has(.g-section-subtitle) {
   margin-bottom: 0;
@@ -15759,7 +15753,7 @@ body#tinymce {
 body * .background--light, body * .fc-section-light {
   background-color: #ffffff;
 }
-body * .background--light *, body * .fc-section-light * {
+body * .background--light *:not(.uk-button, .uk-card *), body * .fc-section-light *:not(.uk-button, .uk-card *) {
   color: #0D0D0D;
 }
 body * .background--light a.button.grey, body * .fc-section-light a.button.grey {
@@ -15768,7 +15762,7 @@ body * .background--light a.button.grey, body * .fc-section-light a.button.grey 
 body * .fc-section-dark {
   background-color: #0D0D0D;
 }
-body * .fc-section-dark * {
+body * .fc-section-dark *:not(.uk-button, .uk-card *) {
   color: #fff;
 }
 body * .fc-section-dark a.button.grey {
@@ -15777,13 +15771,13 @@ body * .fc-section-dark a.button.grey {
 body * .fc-section-grey, body * .fc-section-gray, body * .background--gray, body * .background--grey {
   background-color: #F6F5F3;
 }
-body * .background--image * {
+body * .background--image *:not(.uk-button) {
   color: #fff;
 }
-body * .background--image.background--light * {
+body * .background--image.background--light *:not(.uk-button, .uk-card *) {
   color: #0D0D0D;
 }
-body * .background--image.background--dark * {
+body * .background--image.background--dark *:not(.uk-button, .uk-card *) {
   color: #fff;
 }
 
