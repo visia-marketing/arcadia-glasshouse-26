@@ -1,4 +1,5 @@
 <?php
+$card_source = get_sub_field('card_source'); // Manual or Post Type
 $cards = get_sub_field('cards');
 $display = get_sub_field('cards_display'); // Grid or Slider
 $per_row = get_sub_field('cards_per_row'); // 3, 4, 5
@@ -6,6 +7,30 @@ $per_row = get_sub_field('cards_per_row'); // 3, 4, 5
 $aos = get_sub_field('animate_in');
 $aos_duration = 0;
 $aos_step = 0;
+
+if( $card_source == "greenhouse" ){
+
+    $cards = array();
+    $gh_cards = get_sub_field('greenhouses');
+    foreach( $gh_cards as $gh  ){
+        $card = array();
+
+        // get card term "collection"
+        $terms = get_the_terms($gh, 'collection');
+        if( $terms && ! is_wp_error( $terms ) ){
+            $term = $terms[0];
+            $card['card_collection'] = $term->name;
+        }
+
+        $card['card_title'] = get_the_title($gh);
+        $card['card_description'] = get_field('short_excerpt', $gh);
+        $card['card_link']['url'] = get_permalink($gh);
+        $card['card_icon'] = get_post_thumbnail_id($gh);
+        $cards[] = $card;
+
+    }
+
+}
 
 
 $rand_id = $display . '_' . wp_generate_uuid4();
@@ -18,7 +43,7 @@ if ($aos == 'no_animation') {
 
 }
 
-$class = ' uk-card uk-margin-bottom';
+$class = ' uk-card uk-margin-bottom ';
 
 switch ($per_row) {
     case 2:
@@ -52,42 +77,38 @@ switch ($per_row) {
 
         <?php $delay += $aos_step; ?>
         <div class="<?php echo $class; ?>" <?php if($aos != false): ?>data-aos="<?php echo $aos; ?>" data-aos-duration="<?php echo $aos_duration; ?>" data-aos-delay="<?php echo $delay; ?>"<?php endif; ?>> 
-            <div class="uk-height-1-1 uk-flex uk-flex-column" >
+            <div class="uk-height-1-1 uk-flex uk-flex-column uk-position-relative" >
 
-            <?php $image = wp_get_attachment_image($card['card_icon'], 'thumbnail', false, array( 'class' => 'uk-width-1-1')); ?>
-                    
-            <?php if( $image ): ?>
-                <div class="card-media uk-card-media-top">
-                    <?php echo $image; ?>
-                </div>
-            <?php endif; ?>
+                <?php $image = wp_get_attachment_image($card['card_icon'], 'thumbnail', false, array( 'class' => 'uk-width-1-1')); ?>
+                        
+                <?php if( $image ): ?>
+                    <div class="card-media uk-card-media-top">
+                        <?php echo $image; ?>
+                    </div>
+                <?php endif; ?>
                 
-                <div class="card-body uk-card-body uk-flex-1">
 
-                    <h3 class="card-title uk-card-title">
-                        <a href="<?php echo $card['card_link']; ?>">
+                    <a href="<?php echo $card['card_link']['url']; ?>" class="card-body uk-card-body uk-height-1-1 uk-position-absolute uk-flex uk-flex-column uk-flex-right">
+
+
+                        <span class="g-section-subtitle">
+                            <?php echo $card['card_collection']; ?>
+                        </span>
+
+                        <h3 class="card-title uk-card-title uk-margin-remove">
                             <?php echo $card['card_title']; ?>
-                        </a>
-                    </h3>
-                
-                    <p class="card-p">
-                        <?php echo $card['card_description']; ?>
-                    </p>
-
-                    <?php if( array_key_exists( 'card_link', $card) ): ?>
-                        <?php if( is_array( $card['card_link']) ): ?>
-                            <a href="<?php echo $card['card_link']['url']; ?>">
-                                <?php if($card['card_link']['title']): ?>
-                                    <?php echo $card['card_link']['title']; ?>
-                                <?php else: ?>
-                                    Read More
-                                <?php endif; ?>
-                            </a>
+                        </h3>
+                    
+                        <?php if( $card['card_description'] != ''): ?>
+                        <p class="card-p uk-margin-remove">
+                            <?php echo $card['card_description']; ?>
+                        </p>
                         <?php endif; ?>
-                    <?php endif; ?>
 
 
-                </div>
+
+
+                    </a>
 
 
 

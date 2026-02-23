@@ -34,7 +34,7 @@
       padding: 30px 0 30px;
 
       @include breakpoint(medium) {
-        padding: 70px 0 50px;
+        padding: 124px 0;
       }
 
     }
@@ -101,7 +101,7 @@ body *{
     background-color: $white;
   
     //h1, h2, h3, h4, h5, h6, p, a, li, blockquote, .g-style-section-title, .g-style-section-heading, .g-section-subtitle {
-    &  *:not(.uk-button)  {
+    &  *:not(.uk-button, .uk-card *)  {
       color: $black;
     }
   
@@ -115,7 +115,7 @@ body *{
     background-color: $black;
   
     //h1, h2, h3, h4, h5, h6, p, a, li, blockquote, .g-style-section-title, .g-style-section-heading, .g-section-subtitle {
-    &  *:not(.uk-button)  {
+    &  *:not(.uk-button, .uk-card *)  {
       color: #fff;
     }
   
@@ -139,13 +139,13 @@ body *{
   }
 
   & .background--image.background--light{
-    & *:not(.uk-button) {
+    & *:not(.uk-button, .uk-card *) {
       color: $black;
     }
   }
 
   & .background--image.background--dark{
-    & *:not(.uk-button) {
+    & *:not(.uk-button, .uk-card *) {
       color: #fff;
     }
   }
