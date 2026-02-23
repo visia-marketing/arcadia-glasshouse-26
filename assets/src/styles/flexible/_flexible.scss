@@ -127,6 +127,12 @@ body *{
     background-color: $gray-bg;
   }
 
+  & .background--image{
+    & * {
+      color: #fff;
+    }
+  }
+
   & .background--image.background--light{
     & * {
       color: $black;

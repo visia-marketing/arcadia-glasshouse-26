@@ -337,7 +337,7 @@ h6, .uk-h6,
 .uk-heading-2xlarge,
 .uk-heading-3xlarge {
   margin: 0 0 20px 0;
-  font-family: "ivypresto-text", serif;
+  font-family: "ivypresto-display", serif;
   font-weight: 300;
   color: #333;
   text-transform: none;
@@ -14300,7 +14300,7 @@ body#tinymce {
 .g-section-title {
   color: #0D0D0D;
   display: block;
-  font-family: "ivypresto-text", serif;
+  font-family: "ivypresto-display", serif;
   font-size: 26px;
   font-weight: 800;
   margin: 0 0 30px;
@@ -15776,6 +15776,9 @@ body * .fc-section-dark a.button.grey {
 }
 body * .fc-section-grey, body * .fc-section-gray, body * .background--gray, body * .background--grey {
   background-color: #F6F5F3;
+}
+body * .background--image * {
+  color: #fff;
 }
 body * .background--image.background--light * {
   color: #0D0D0D;
