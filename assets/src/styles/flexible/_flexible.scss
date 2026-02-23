@@ -25,6 +25,11 @@
       padding: 50px 0;
     }
 
+    &.page-header-{
+      padding-bottom: 4.5rem;
+      padding-top: 20rem;
+    }
+
     &.fc-section-1 {
       padding: 30px 0 30px;
 
@@ -66,7 +71,7 @@
 
 
     & h2{
-      padding-top: 2.5rem;
+      // padding-top: 2.5rem;
     }
 
     & p:has(.g-section-subtitle){
@@ -96,7 +101,7 @@ body *{
     background-color: $white;
   
     //h1, h2, h3, h4, h5, h6, p, a, li, blockquote, .g-style-section-title, .g-style-section-heading, .g-section-subtitle {
-    & * {
+    &  *:not(.uk-button)  {
       color: $black;
     }
   
@@ -110,7 +115,7 @@ body *{
     background-color: $black;
   
     //h1, h2, h3, h4, h5, h6, p, a, li, blockquote, .g-style-section-title, .g-style-section-heading, .g-section-subtitle {
-    & * {
+    &  *:not(.uk-button)  {
       color: #fff;
     }
   
@@ -128,19 +133,19 @@ body *{
   }
 
   & .background--image{
-    & * {
+    & *:not(.uk-button) {
       color: #fff;
     }
   }
 
   & .background--image.background--light{
-    & * {
+    & *:not(.uk-button) {
       color: $black;
     }
   }
 
   & .background--image.background--dark{
-    & * {
+    & *:not(.uk-button) {
       color: #fff;
     }
   }
