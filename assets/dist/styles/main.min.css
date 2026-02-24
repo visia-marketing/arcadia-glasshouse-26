@@ -15729,6 +15729,15 @@ body#tinymce {
   border-radius: 2.5rem;
 }
 
+.fc-section-image .icon-grid .uk-card-media,
+.fc-section-dark .icon-grid .uk-card-media {
+  background: #C8F17B;
+}
+.fc-section-image .icon-grid .uk-card-media svg path,
+.fc-section-dark .icon-grid .uk-card-media svg path {
+  fill: #006848;
+}
+
 .greenhouses hr {
   background-color: #D7D7D5;
 }

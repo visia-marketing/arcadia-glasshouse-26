@@ -1,7 +1,7 @@
 .icon-grid{
     position: relative;
     row-gap: $global-large-gutter;
-    
+
     & .uk-card-media{
         width: 2.5rem;
         background: $primary;
@@ -67,4 +67,23 @@
 
 
     }
+}
+
+.fc-section-image,
+.fc-section-dark{
+    .icon-grid{
+        & .uk-card-media{
+            
+            background: $secondary;
+    
+            & svg{
+
+                & path{
+                    fill: $primary;
+    
+                }
+            }
+        }
+    }
+
 }
