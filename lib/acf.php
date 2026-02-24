@@ -116,10 +116,13 @@ function get_flexible_content() {
         #' . esc_html($id) . '.fc-section {
           display: flex;
           flex-direction: column;
-          gap: ' . esc_html( ($content_spacing * 1.5) ) . 'rem;
           align-items: center;
-          /* justify-content: ' . esc_html($horizontal_align) . '; */
         }
+
+        #' . esc_html($id) . '.fc-section > .uk-container{
+            row-gap: ' . esc_html( ($content_spacing * 1.5) ) . 'rem;
+        }
+
 
         #' . esc_html($id) . ' > .fc-section-columns {
           min-width: calc(100% - 4rem);
@@ -167,7 +170,7 @@ function get_flexible_content() {
             echo '</div>';
           echo '</div>';
         }
-        echo '<div class="' . esc_attr($containerWidth) . ' uk-flex uk-flex-column uk-flex-'.$horizontal_align.'">';
+        echo '<div class="' . esc_attr($containerWidth) . ' uk-grid uk-flex-column uk-flex-'.$horizontal_align.'">';
 
 
 
