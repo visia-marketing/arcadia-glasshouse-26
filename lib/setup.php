@@ -80,8 +80,8 @@ function setup() {
   //set_post_thumbnail_size( 300, 190, true ); // Set featured image size (width, height, crop)
 
 
-  update_option( 'thumbnail_size_w', 534 ); // Set your desired width
-	update_option( 'thumbnail_size_h', 492 );  // Set your desired height
+  update_option( 'thumbnail_size_w', 492 ); // Set your desired width
+	update_option( 'thumbnail_size_h', 534 );  // Set your desired height
 	update_option( 'thumbnail_size_crop', 1 ); // 0 for soft crop (resize), 1 for hard crop (crop to exact dimensions)
 
 	update_option( 'large_size_w', 1440 ); // Set your desired width
