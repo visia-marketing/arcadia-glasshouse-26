@@ -1,6 +1,7 @@
 <?php
 $per_row = get_sub_field('cards_per_row');
 $divider = get_sub_field('columns_divider');
+$button_style = get_sub_field('button_style');
 $icon_grid = get_sub_field('icon_grid');
 
 switch ($per_row) {
@@ -32,8 +33,23 @@ switch ($per_row) {
                 </div>
 
                 <div class="uk-card-body uk-padding-remove">
-                    <h3 class="uk-margin-top-remove g-section-caps-title"><?php echo $card['cell_content']['cell_title']; ?></h3>
-                    <?php echo $card['cell_content']['card_text']; ?>
+
+                    <?php if( $card['cell_content']['card_title']): ?>
+                        <h3 class="uk-margin-top-remove g-section-caps-title"><?php echo $card['cell_content']['card_title']; ?></h3>
+                    <?php endif; ?>
+                    
+                    
+                    <?php if( $card['cell_content']['card_text']): ?>
+                        <?php echo $card['cell_content']['card_text']; ?>
+                    <?php endif; ?>
+
+                    <?php if( !empty($card['cell_content']['card_button'])): ?>
+                        <a class="uk-button uk-button-<?php echo $button_style; ?>" href="<?php echo $card['cell_content']['card_button']['url']; ?>" target="<?php echo $card['cell_content']['card_button']['target']; ?>">
+                            <?php echo $card['cell_content']['card_button']['title']; ?>
+                        </a>
+                        
+                    <?php endif; ?>
+
                 </div>
 
             </div>
