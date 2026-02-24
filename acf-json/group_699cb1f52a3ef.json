@@ -37,7 +37,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "View Series",
             "maxlength": "",
             "allow_in_bindings": 0,
             "placeholder": "",
@@ -85,5 +85,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771941296
+    "modified": 1771952727
 }
