@@ -326,7 +326,7 @@
         },
         {
             "key": "field_68f23f994ea4d",
-            "label": "Content Spacing",
+            "label": "Row Gap",
             "name": "content_spacing",
             "aria-label": "",
             "type": "select",
@@ -338,14 +338,14 @@
                 "class": "",
                 "id": ""
             },
-            "choices": [
-                "None",
-                "Tiny",
-                "Small",
-                "Medium",
-                "Large",
-                "X Large"
-            ],
+            "choices": {
+                "0": "None",
+                "2.5": "Tiny",
+                "5": "Small",
+                "7": "Medium",
+                "9.5": "Large",
+                "11.5": "X Large"
+            },
             "default_value": 0,
             "return_format": "value",
             "multiple": 0,
@@ -455,5 +455,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771880022
+    "modified": 1771941098
 }

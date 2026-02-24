@@ -18,6 +18,7 @@ foreach( $objects as $gh  ){
 
     $greenhouse['card_title'] = get_the_title($gh);
     $greenhouse['card_description'] = get_field('long_excerpt', $gh);
+    $greenhouse['card_button_label'] = get_field('button_label', $gh);
     $greenhouse['card_link'] = get_permalink($gh);
     $greenhouse['card_icon'] = get_post_thumbnail_id($gh);
 
@@ -41,7 +42,7 @@ foreach( $objects as $gh  ){
                 <h3 class="uk-margin-top-remove"><?php echo $greenhouse['card_title']; ?></h3>
                 <?php echo $greenhouse['card_description']; ?>
 
-                <a href="<?php echo $greenhouse['card_link'] ?>" class="uk-button uk-button-primary uk-margin-top">View <?php echo $greenhouse['card_title']; ?> Series</a>
+                <a href="<?php echo $greenhouse['card_link'] ?>" class="uk-button uk-button-primary uk-margin-top"><?php echo $greenhouse['card_button_label'];?></a>
 
             </div>
 
