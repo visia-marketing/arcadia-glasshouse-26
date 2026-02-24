@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_699cb1f5fe025",
-            "label": "Short Excerpt",
+            "label": "Card Excerpt (Short)",
             "name": "short_excerpt",
             "aria-label": "",
             "type": "text",
@@ -12,7 +12,28 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "75",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_699dad768e0cd",
+            "label": "Button Label",
+            "name": "button_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -25,7 +46,7 @@
         },
         {
             "key": "field_699cb208fe026",
-            "label": "Long Excerpt",
+            "label": "Row Excerpt (Long)",
             "name": "long_excerpt",
             "aria-label": "",
             "type": "wysiwyg",
@@ -64,5 +85,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771876958
+    "modified": 1771941296
 }
