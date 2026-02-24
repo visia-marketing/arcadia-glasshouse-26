@@ -92,6 +92,9 @@ function setup() {
 	update_option( 'medium_size_h', 768 );  // Set your desired height
 	update_option( 'medium_size_crop', 0 ); // 0 for soft crop (resize), 1 for hard crop (crop to exact dimensions)
 
+  add_image_size( 'square', 580, 570, 1 );
+
+
 
   /**
    * Post Formats

@@ -90,7 +90,6 @@ switch ($per_row) {
 
                     <a href="<?php echo $card['card_link']['url']; ?>" class="card-body uk-card-body uk-height-1-1 uk-position-absolute uk-flex uk-flex-column uk-flex-right">
 
-
                         <span class="g-section-subtitle">
                             <?php echo $card['card_collection']; ?>
                         </span>
@@ -105,14 +104,8 @@ switch ($per_row) {
                         </p>
                         <?php endif; ?>
 
-
-
-
                     </a>
 
-
-
-            
             </div>
         </div>
         <?php
