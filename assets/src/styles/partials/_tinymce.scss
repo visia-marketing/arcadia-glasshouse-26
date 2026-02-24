@@ -31,6 +31,7 @@ body#tinymce {
     font-weight: 800;
     margin: 0 0 30px;
 
+
     @include breakpoint(medium) {
       font-size: 36px;
     }
@@ -39,6 +40,16 @@ body#tinymce {
       font-size: 46px;
     }
 
+  }
+
+  &-section-caps-title {
+    color: $primary;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.1875rem;
+    font-family: $sans;
   }
 
   &-section-intro {

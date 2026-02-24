@@ -5,7 +5,10 @@
 @import "../flexible/flexible-section-heading";
 @import "../flexible/flexible-styles";
 
-@import "../flexible/animated_numbers";
+@import "../flexible/flexible-animated-numbers";
+
+@import "../flexible/flexible-icon-grid";
+@import "../flexible/flexible-greenhouses";
 
 .fc-wrapper,
 .fc-page-header
@@ -72,6 +75,7 @@
 
     & h2{
       // padding-top: 2.5rem;
+      margin-top: 0.5rem;
     }
 
     & p:has(.g-section-subtitle){

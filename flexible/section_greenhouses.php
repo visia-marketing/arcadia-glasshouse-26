@@ -32,19 +32,28 @@ foreach( $objects as $gh  ){
     <?php foreach( $greenhouses as $i => $greenhouse ): ?>
         <div class="uk-grid uk-grid-large">
 
-            <div class="uk-width-1-2@m">
-                <?php echo wp_get_attachment_image( $greenhouse['card_icon'], 'square' ); ?>
+            <?php 
+            
+            // if the index is odd, align the image to the right
+            $align = ($i % 2) ? 'uk-align-right' : 'uk-align-left';
+            ?>
+
+            <div class="uk-width-1-2@m" >
+                <?php echo wp_get_attachment_image( $greenhouse['card_icon'], 'square' , false, array('class' =>  $align ) ); ?>
             </div>
 
-            <div class="uk-width-1-2@m <?php if($i % 2): echo "uk-flex-first@m"; endif; ?>">
+            <div class="uk-width-1-2@m <?php if($i % 2): echo "uk-flex-first@m"; endif; ?> uk-flex uk-flex-column uk-flex-center">
 
-                <span class="g-section-subtitle"><?php echo $greenhouse['card_collection'] ?></span>
-                <h3 class="uk-margin-top-remove"><?php echo $greenhouse['card_title']; ?></h3>
-                <?php echo $greenhouse['card_description']; ?>
+                <div class="row-content">
+                    <span class="g-section-subtitle"><?php echo $greenhouse['card_collection'] ?></span>
+                    <h2 class="uk-margin-top-remove"><?php echo $greenhouse['card_title']; ?></h2>
+                    <?php echo $greenhouse['card_description']; ?>
 
-                <a href="<?php echo $greenhouse['card_link'] ?>" class="uk-button uk-button-primary uk-margin-top"><?php echo $greenhouse['card_button_label'];?></a>
-
+                    <a href="<?php echo $greenhouse['card_link'] ?>" class="uk-button uk-button-primary uk-margin-top"><?php echo $greenhouse['card_button_label'];?></a>
+                </div>
             </div>
+
+            <hr class="uk-width-1-1 uk-margin-large-left uk-margin-large-top"/>
 
         </div>
     <?php endforeach; ?>

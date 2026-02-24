@@ -14315,6 +14315,15 @@ body#tinymce {
     font-size: 46px;
   }
 }
+.g-section-caps-title {
+  color: #006848;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.1875rem;
+  font-family: "proxima-nova", sans-serif;
+}
 .g-section-intro {
   color: #0D0D0D;
   display: block;
@@ -15666,6 +15675,63 @@ body#tinymce {
   text-transform: none !important;
 }
 
+.icon-grid {
+  position: relative;
+  row-gap: 70px;
+}
+.icon-grid .uk-card-media {
+  width: 2.5rem;
+  background: #006848;
+  height: 2.5rem;
+  border-radius: 2.5rem;
+  aspect-ratio: 1;
+  margin-right: 1.4rem;
+}
+.icon-grid .uk-card-media svg {
+  width: 1.5rem;
+  max-width: unset;
+}
+.icon-grid .uk-card-media svg path {
+  fill: #C8F17B;
+}
+.icon-grid.divider-2:before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(50% + 59.5px);
+  width: 1px;
+  height: 100%;
+  background: #006848;
+  border-radius: 2.5rem;
+}
+.icon-grid.divider-3:before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(33.33% + 59.5px);
+  width: 1px;
+  height: 100%;
+  background: #006848;
+  border-radius: 2.5rem;
+}
+.icon-grid.divider-3:after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(66.66% + 50px);
+  width: 1px;
+  height: 100%;
+  background: #006848;
+  border-radius: 2.5rem;
+}
+
+.greenhouses hr {
+  background-color: #D7D7D5;
+}
+
 .fc-wrapper .top-border > .fc-section-heading,
 .fc-page-header .top-border > .fc-section-heading {
   border-top: 1px solid #0D0D0D;
@@ -15736,6 +15802,10 @@ body#tinymce {
 .fc-wrapper .fc-section.center,
 .fc-page-header .fc-section.center {
   text-align: center;
+}
+.fc-wrapper .fc-section h2,
+.fc-page-header .fc-section h2 {
+  margin-top: 0.5rem;
 }
 .fc-wrapper .fc-section p:has(.g-section-subtitle),
 .fc-page-header .fc-section p:has(.g-section-subtitle) {
