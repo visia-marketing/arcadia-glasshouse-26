@@ -26,6 +26,8 @@ foreach( $objects as $gh  ){
 
 }
 ?>
+
+<div class="greenhouses">
     <?php foreach( $greenhouses as $i => $greenhouse ): ?>
         <div class="uk-grid uk-grid-large">
 
@@ -36,16 +38,14 @@ foreach( $objects as $gh  ){
             <div class="uk-width-1-2@m <?php if($i % 2): echo "uk-flex-first@m"; endif; ?>">
 
                 <span class="g-section-subtitle"><?php echo $greenhouse['card_collection'] ?></span>
-                <h3><?php echo $greenhouse['card_title']; ?></h3>
+                <h3 class="uk-margin-top-remove"><?php echo $greenhouse['card_title']; ?></h3>
                 <?php echo $greenhouse['card_description']; ?>
 
                 <a href="<?php echo $greenhouse['card_link'] ?>" class="uk-button uk-button-primary uk-margin-top">View <?php echo $greenhouse['card_title']; ?> Series</a>
-
-
 
             </div>
 
         </div>
     <?php endforeach; ?>
-
+</div>
 
