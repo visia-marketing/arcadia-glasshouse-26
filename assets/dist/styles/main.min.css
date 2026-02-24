@@ -14323,6 +14323,7 @@ body#tinymce {
   line-height: 1.5;
   letter-spacing: 0.1875rem;
   font-family: "proxima-nova", sans-serif;
+  text-transform: uppercase;
 }
 .g-section-intro {
   color: #0D0D0D;
@@ -15786,17 +15787,17 @@ body#tinymce {
   width: 100%;
   z-index: -1;
 }
-.fc-wrapper .fc-section.fc-section-image h1, .fc-wrapper .fc-section.fc-section-image h2, .fc-wrapper .fc-section.fc-section-image h3, .fc-wrapper .fc-section.fc-section-image h4, .fc-wrapper .fc-section.fc-section-image h5, .fc-wrapper .fc-section.fc-section-image h6, .fc-wrapper .fc-section.fc-section-image p, .fc-wrapper .fc-section.fc-section-image li, .fc-wrapper .fc-section.fc-section-image a, .fc-wrapper .fc-section.fc-section-image .g-section-subtitle,
-.fc-page-header .fc-section.fc-section-image h1,
-.fc-page-header .fc-section.fc-section-image h2,
-.fc-page-header .fc-section.fc-section-image h3,
-.fc-page-header .fc-section.fc-section-image h4,
-.fc-page-header .fc-section.fc-section-image h5,
-.fc-page-header .fc-section.fc-section-image h6,
-.fc-page-header .fc-section.fc-section-image p,
-.fc-page-header .fc-section.fc-section-image li,
-.fc-page-header .fc-section.fc-section-image a,
-.fc-page-header .fc-section.fc-section-image .g-section-subtitle {
+.fc-wrapper .fc-section.fc-section-image h1:not(.uk-button), .fc-wrapper .fc-section.fc-section-image h2:not(.uk-button), .fc-wrapper .fc-section.fc-section-image h3:not(.uk-button), .fc-wrapper .fc-section.fc-section-image h4:not(.uk-button), .fc-wrapper .fc-section.fc-section-image h5:not(.uk-button), .fc-wrapper .fc-section.fc-section-image h6:not(.uk-button), .fc-wrapper .fc-section.fc-section-image p:not(.uk-button), .fc-wrapper .fc-section.fc-section-image li:not(.uk-button), .fc-wrapper .fc-section.fc-section-image a:not(.uk-button), .fc-wrapper .fc-section.fc-section-image .g-section-subtitle:not(.uk-button),
+.fc-page-header .fc-section.fc-section-image h1:not(.uk-button),
+.fc-page-header .fc-section.fc-section-image h2:not(.uk-button),
+.fc-page-header .fc-section.fc-section-image h3:not(.uk-button),
+.fc-page-header .fc-section.fc-section-image h4:not(.uk-button),
+.fc-page-header .fc-section.fc-section-image h5:not(.uk-button),
+.fc-page-header .fc-section.fc-section-image h6:not(.uk-button),
+.fc-page-header .fc-section.fc-section-image p:not(.uk-button),
+.fc-page-header .fc-section.fc-section-image li:not(.uk-button),
+.fc-page-header .fc-section.fc-section-image a:not(.uk-button),
+.fc-page-header .fc-section.fc-section-image .g-section-subtitle:not(.uk-button) {
   color: #fff;
 }
 .fc-wrapper .fc-section.center,
