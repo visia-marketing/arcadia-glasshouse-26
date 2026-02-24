@@ -101,7 +101,7 @@ body *{
     background-color: $white;
   
     //h1, h2, h3, h4, h5, h6, p, a, li, blockquote, .g-style-section-title, .g-style-section-heading, .g-section-subtitle {
-    &  *:not(.uk-button, .uk-card *)  {
+    &  *:not(.uk-button, .uk-card *, [class*="g-"])  {
       color: $black;
     }
   
