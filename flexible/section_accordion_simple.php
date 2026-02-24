@@ -18,7 +18,7 @@ $accordion = $fields;
  
   <?php if( is_array( $accordion ) ): ?>
 
-    <div class="uk-container"> 
+    <!-- <div class="uk-container">  -->
 
         <ul class="uk-accordion uk-accordion-default" uk-accordion>
 
@@ -31,7 +31,7 @@ $accordion = $fields;
 
         </ul>
 
-    </div>
+    <!-- </div> -->
 
   <?php endif; ?>
 </div>
