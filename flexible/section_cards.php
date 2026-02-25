@@ -22,7 +22,7 @@ if( $card_source == "greenhouse" ){
             $card['card_collection'] = $term->name;
         }
 
-        $card['card_title'] = get_the_title($gh);
+        $card['card_title'] = get_field('long_name', $gh) ? get_field('long_name', $gh) : get_the_title($gh);
         $card['card_description'] = get_field('short_excerpt', $gh);
         $card['card_link']['url'] = get_permalink($gh);
         $card['card_icon'] = get_post_thumbnail_id($gh);

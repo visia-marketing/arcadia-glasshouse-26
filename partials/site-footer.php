@@ -11,62 +11,78 @@ if ( $footer_form && (!empty($footer_form['heading']) || !empty($footer_form['ti
 <?php endif; */ ?>
 
 <footer class="main-footer">
-  <div class="uk-container uk-flex">   
-    <div class="uk-width-1-1@xs uk-width-1-5@m">
+
+  <div class="uk-container uk-container-xlarge uk-flex uk-flex-wrap">   
+
+    <div class="uk-width-1-1@s uk-width-1-3@m uk-width-1-2@xl">
       <div class="footer-logo uk-margin-medium-right">
         <a href="<?= esc_url(home_url('/')); ?>"><img src="<?php the_field('footer_logo', 'option');?>" alt="<?php bloginfo('name'); ?>"></a>
       </div>
     </div>
-    <div class="uk-width-1-1@xs uk-width-1-5@m ">   
-      <?php
-      if (has_nav_menu('footer_navigation_1')) :
-      wp_nav_menu(['theme_location' => 'footer_navigation_1', 'depth' => 2, 'menu_class' => 'footer-menu uk-margin-medium-left uk-margin-medium-right' ]); 
-      endif;
-      ?>
-    </div>
-    <div class="uk-width-1-1@xs uk-width-1-5@m">   
-      <?php
-      if (has_nav_menu('footer_navigation_2')) :
-      wp_nav_menu(['theme_location' => 'footer_navigation_2', 'depth' => 2, 'menu_class' => 'footer-menu uk-margin-medium-left uk-margin-medium-right' ]); 
-      endif;
-      ?>
-    </div>
-    <div class="uk-width-1-1@xs uk-width-1-5@m ">   
-      <?php
-      if (has_nav_menu('footer_navigation_3')) :
-      wp_nav_menu(['theme_location' => 'footer_navigation_3', 'depth' => 2, 'menu_class' => 'footer-menu uk-margin-medium-left uk-margin-medium-right' ]); 
-      endif;
-      ?>
-    </div>
-    <div class="uk-width-1-1@xs uk-width-1-5@m">
-      <div class="uk-margin-medium-left uk-margin-medium-right">
-        <?php echo get_field('footer_contact', 'options');?>
-      </div>
-    </div>
-  </div>
-  <div class="uk-container uk-margin-top">
-    <?php if( have_rows('footer_badges', 'options') ): ?>
-      <div class="footer-badges">
-          <?php while (have_rows('footer_badges', 'options')): the_row(); 
-              $image = get_sub_field('badge_image', 'options');
-              $text = get_sub_field('badge_text', 'options');
-              $url = get_sub_field('badge_url', 'options');
-              ?>
-              <div class="badge">
-                <?php if($url): echo '<a href="' . esc_url($url) . '">'; endif;?>
-                  <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
-                <?php if($url): echo '</a>'; endif;?>
-                <?php if($url): echo '<a href="' . esc_url($url) . '">'; endif;?>
-                  <p><?php echo esc_html($text); ?></p>
-                <?php if($url): echo '</a>'; endif;?>
-              </div>
-          <?php endwhile; ?>
-      </div>
-    <?php endif; ?>
-  </div>
-  <div class="uk-container uk-margin-top">
+
+    <div class="uk-width-1-1@s uk-width-2-3@m uk-width-1-2@xl">
+      <div class="uk-grid uk-grid-small">
+
+        <div class="uk-width-1-1@s uk-width-1-4@m ">   
+          <?php
+          if (has_nav_menu('footer_navigation_1')) :
+          wp_nav_menu(['theme_location' => 'footer_navigation_1', 'depth' => 2, 'menu_class' => 'footer-menu' ]); 
+          endif;
+          ?>
+        </div>
+
+        <div class="uk-width-1-1@s uk-width-1-4@m">   
+          <?php
+          if (has_nav_menu('footer_navigation_2')) :
+          wp_nav_menu(['theme_location' => 'footer_navigation_2', 'depth' => 2, 'menu_class' => 'footer-menu ' ]); 
+          endif;
+          ?>
+        </div>
+
+        <div class="uk-width-1-1@s uk-width-1-4@m ">   
+          <?php
+          if (has_nav_menu('footer_navigation_3')) :
+          wp_nav_menu(['theme_location' => 'footer_navigation_3', 'depth' => 2, 'menu_class' => 'footer-menu ' ]); 
+          endif;
+          ?>
+        </div>
+
+        <div class="uk-width-1-1@s uk-width-1-4@m">
+          <div class="">
+            <p class="connect">Connect with Us</p>
+
+            <?php $social_media = get_field('social_media', 'options'); ?>
+            <div class="social-icons uk-margin-medium-top uk-flex uk-flex-wrap uk-flex-left">
+              <?php foreach( $social_media as $social ): ?>
+                <a href="<?php echo $social['url']; ?>" target="_blank" class="uk-margin-small-right">
+                  <i class="fa-brands fa-<?php echo $social['social_icon']; ?> fa-2xl"></i>
+                </a>
+              <?php endforeach; ?>
+            </div>
+
+            <?php $footer_badges = get_field('footer_badges', 'options'); ?>
+            <div class="badges uk-margin-medium-top uk-flex uk-flex-wrap uk-flex-left">
+              <?php foreach( $footer_badges as $badge ): ?>
+                <a href="<?php echo $badge['badge_url']; ?>" target="_blank" class="uk-margin-small-right">
+                  <?php echo wp_get_attachment_image( $badge['badge_image'], 'medium' , false, array('class' => 'footer-badge') ); ?>
+                </a>
+              <?php endforeach; ?>
+            </div>
+            
+
+
+
+        </div>
+
+      </div> <!-- .uk-grid -->
+    </div><!-- .uk-width-1-2 -->
+
+    
+  </div> <!-- uk container -->
+  
+  <div class="uk-container uk-container-xlarge uk-margin-xlarge-top uk-flex uk-flex-left uk-width-1-1 copyright-container">
     <div class="footer-copyright">
-      <div class="copyright">
+      <div class="copyright ">
         <?php echo get_field('copyright', 'options');?>
       </div>
       <?php
@@ -76,11 +92,5 @@ if ( $footer_form && (!empty($footer_form['heading']) || !empty($footer_form['ti
       ?>
     </div>
   </div>
-  <div class="uk-container">
-    <div class="small-12 columns">
-      <strong class="footer-tagline">
-        <?php echo get_field('footer_tagline', 'options');?>
-      </strong>
-    </div>
-  </div>
+
 </footer>

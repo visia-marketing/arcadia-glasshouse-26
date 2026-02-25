@@ -73,7 +73,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "15",
+                "width": "20",
                 "class": "",
                 "id": ""
             },
@@ -112,7 +112,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "25",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
@@ -125,7 +125,7 @@
             "max_height": "",
             "max_size": "",
             "mime_types": "",
-            "allow_in_bindings": 1,
+            "allow_in_bindings": 0,
             "preview_size": "medium"
         },
         {
@@ -146,7 +146,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "25",
+                "width": "20",
                 "class": "",
                 "id": ""
             },
@@ -166,6 +166,50 @@
             "save_options": 0
         },
         {
+            "key": "field_699f46a68c2a8",
+            "label": "CTA Content",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_699f4623dee6a",
+            "label": "CTA Foreground Image",
+            "name": "cta_foreground_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
+        },
+        {
             "key": "field_65dca6545d548",
             "label": "CTA Content",
             "name": "cta_content",
@@ -175,13 +219,13 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "66",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
             "allow_in_bindings": 1,
-            "tabs": "visual",
+            "tabs": "all",
             "toolbar": "full",
             "media_upload": 1,
             "delay": 0
@@ -283,12 +327,15 @@
                         "id": ""
                     },
                     "choices": {
-                        "facebook": "Facebook",
+                        "square-facebook": "Facebook",
                         "youtube": "YouTube",
-                        "twitter-x": "Twitter",
-                        "linkedin": "LinkedIn",
                         "instagram": "Instagram",
-                        "bluesky": "Bluesky"
+                        "x-twitter": "Twitter",
+                        "square-linkedin": "LinkedIn",
+                        "bluesky": "BlueSky",
+                        "threads": "Threads",
+                        "tiktok": "TikTok",
+                        "snapchat": "Snapchat"
                     },
                     "default_value": false,
                     "return_format": "value",
@@ -348,7 +395,7 @@
                 {
                     "key": "field_699f2734ed893",
                     "label": "Badge",
-                    "name": "social_icon",
+                    "name": "badge_image",
                     "aria-label": "",
                     "type": "image",
                     "instructions": "",
@@ -359,7 +406,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
+                    "return_format": "id",
                     "library": "all",
                     "min_width": "",
                     "min_height": "",
@@ -513,5 +560,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1772037997
+    "modified": 1772046694
 }
