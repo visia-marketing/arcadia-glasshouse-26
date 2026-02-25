@@ -13085,6 +13085,16 @@ html, body {
   scroll-behavior: smooth;
 }
 
+ul li.download-icon a:before {
+  content: "";
+  background-image: url("data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"17\" height=\"22\" viewBox=\"0 0 17 22\" fill=\"none\"><g clip-path=\"url%28%23clip0_615_69%29\"><path d=\"M0 0H10.625L17 6.1875V22H0V0ZM9.20833 2.51367V7.5625H14.4102L9.20833 2.51367ZM7.7474 18.9492L8.5 19.6797C8.65495 19.5293 9.85026 18.3691 12.0859 16.1992L12.8385 15.4688L11.3378 14.0121C10.8818 14.4547 10.293 15.0262 9.56693 15.7309V11H7.44193V15.7309C6.71589 15.0262 6.12708 14.4547 5.67109 14.0121L4.16589 15.4688C4.32083 15.6191 5.51615 16.7793 7.75182 18.9492H7.7474Z\" fill=\"%23C8F17B\"/></g><defs><clipPath id=\"clip0_615_69\"><rect width=\"17\" height=\"22\" fill=\"white\"/></clipPath></defs></svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 1.0625rem;
+  height: 1.375rem;
+}
+
 .menu-icon {
   margin-top: 9px;
   float: right;
@@ -13890,9 +13900,13 @@ html, body {
 .top-header .top-header-navigation li a {
   color: #ffffff;
   display: inline-block;
-  font-size: 13px;
+  font-size: 1.0625rem;
   font-weight: 400;
   line-height: 40px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 0.66rem;
 }
 .top-header .top-header-navigation li.top-menu-fa-email, .top-header .top-header-navigation li.top-menu-fa-phone {
   position: relative;
