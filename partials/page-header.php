@@ -70,7 +70,7 @@
     }
     ?>
     <div class="page-header-content-wrapper fc-section fc-section-<?php echo $page_heading_background;?> overlay-<?php echo $overlay;?> page-header-<?php echo $page_heading_size; ?>">
-      <div class="uk-container <?php if( !$page_heading_size ): echo "uk-container-large"; else: echo "uk-container-small"; endif; ?>">
+      <div class="uk-container <?php if( !$page_heading_size ): echo "uk-container-large"; else: echo "uk-container-large"; endif; ?>">
         <div class="uk-text-center">
           <div class="page-header-content">
             <?php 
