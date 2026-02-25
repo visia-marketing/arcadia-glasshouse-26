@@ -14118,7 +14118,7 @@ html, body {
 }
 
 .main-footer {
-  background: #c8c8c8;
+  background: #005138;
   color: #ffffff;
   padding: 2rem 0 2rem;
   position: relative;
@@ -15731,11 +15731,11 @@ body#tinymce {
 
 .fc-section-image .icon-grid .uk-card-media,
 .fc-section-dark .icon-grid .uk-card-media {
-  background: #C8F17B;
+  background: #C8F17B !important;
 }
 .fc-section-image .icon-grid .uk-card-media svg path,
 .fc-section-dark .icon-grid .uk-card-media svg path {
-  fill: #006848;
+  fill: #006848 !important;
 }
 
 .greenhouses hr {
