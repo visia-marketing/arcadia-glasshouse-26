@@ -13155,10 +13155,17 @@ ul li.download-icon a:before {
   line-height: 1.2;
   padding-top: 0.7rem;
   padding-bottom: 0.7rem;
+  margin: 0.5rem;
+}
+.uk-button:first-child {
+  margin-left: 0;
+}
+.uk-button:last-child {
+  margin-right: 0;
 }
 @media screen and (max-width: 950px) {
-  .uk-button + .uk-button {
-    margin-top: 1.5rem;
+  .uk-button {
+    margin: 0.5rem;
   }
 }
 .uk-button {

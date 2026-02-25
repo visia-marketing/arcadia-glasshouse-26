@@ -48,13 +48,13 @@ if ( $source === 'default' ){
 
     <!-- <div class="call-to-action--inner uk-container uk-container-small"> -->
 
-        <div class="uk-container uk-container-small uk-flex uk-flex-wrap uk-margin-left uk-margin-auto-left@m uk-margin-right uk-margin-auto-right@m">
+        <div class="uk-container uk-container-small uk-flex uk-flex-middle uk-flex-column uk-flex-row@m uk-margin-left uk-margin-auto-left@m uk-margin-right uk-margin-auto-right@m">
 
             <div class="uk-margin-large-right">
                 <?php echo $fg_image; ?>
             </div>
 
-            <div class="uk-width-large uk-flex uk-flex-column uk-flex-center">
+            <div class="uk-width-xlarge uk-flex uk-flex-column uk-flex-center">
             <?php echo $content; ?>
             </div>
 
