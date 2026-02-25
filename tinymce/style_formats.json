@@ -18,17 +18,17 @@
     "wrapper": true
   },
   {
-    "title": "Button Primary",
+    "title": "Button Primary (Green)",
     "selector": "a",
     "classes": "button uk-button uk-button-default"
   },
   {
-    "title": "Button Secondary",
+    "title": "Button Secondary (White)",
     "selector": "a",
     "classes": "button uk-button uk-button-primary"
   },
   {
-    "title": "Button Solid",
+    "title": "Button Outline (Bright)",
     "selector": "a",
     "classes": "button uk-button uk-button-secondary"
   }

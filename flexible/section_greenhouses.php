@@ -16,7 +16,9 @@ foreach( $objects as $gh  ){
         $greenhouse['card_collection'] = $term->name;
     }
 
-    $greenhouse['card_title'] = get_the_title($gh);
+    $greenhouse['card_title'] = get_field('long_name', $gh) ? get_field('long_name', $gh) : get_the_title($gh);
+
+
     $greenhouse['card_description'] = get_field('long_excerpt', $gh);
 
     $greenhouse['card_button_label'] = get_field('button_label', $gh) ? get_field('button_label', $gh) : 'View Series';

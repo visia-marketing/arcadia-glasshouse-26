@@ -32,15 +32,17 @@
 
     li {
       padding: 0;
+      margin-bottom: 0.6rem;
 
       > a {
         color: $white;
         display: inline-block;
-        font-size: 15px;
+        font-size: 1.0625rem;
         font-weight: 700;
-        line-height: 30px;
+        line-height: 1;
         padding: 0;
         vertical-align: top;
+        padding: 0 0 0.62rem 0;
       }
 
       ul {
@@ -53,16 +55,16 @@
           padding: 0;
 
           a {
-            color: $white;
-            display: inline-block;
-            font-size: 15px;
+            // color: $white;
+            // display: inline-block;
+            // font-size: 15px;
             font-weight: 400;
-            line-height: 1.2;
-            padding: 11px 0;
-            vertical-align: top;
+            // line-height: 1.2;
+
+            // vertical-align: top;
     
             &:hover {
-              color: $primary;
+              color: $secondary;
             }
     
           }
@@ -75,52 +77,10 @@
 
   }
 
-  .footer-badges {
-    border-bottom: 1px solid rgba(#fff,.7);
-    margin-top: 50px;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-
-    @include breakpoint(medium) {
-      flex-direction: row;
-      gap: 40px;
-    }
-
-    .badge {
-      display: flex;
-      gap: 10px;
-      font-size: 14px;
-      color: rgba(#fff,.8);
-      justify-content: center;
-      align-items: center;
-
-      @include breakpoint(medium) {
-        justify-content: flex-start;
-      }
-
-      a {
-        color: #fff;
-
-        &:hover {
-          text-decoration: underline;
-        }
-
-      }
-
-      p {
-        margin-bottom: 0;
-      }
-
-      img {
-        height: 20px;
-        width: auto;
-      }
-    }
-
+  & p.connect{
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1;
   }
 
   .footer-social {
@@ -149,9 +109,16 @@
 
   }
 
+
+  .copyright-container{
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.50);    
+  }
+
   .footer-copyright {
     display: flex;
     justify-content: space-between;
+
 
     ul {
       display: flex;
