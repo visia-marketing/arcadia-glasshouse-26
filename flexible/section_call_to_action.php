@@ -48,7 +48,7 @@ if ( $source === 'default' ){
 
     <!-- <div class="call-to-action--inner uk-container uk-container-small"> -->
 
-        <div class="uk-container uk-container-small uk-flex">
+        <div class="uk-container uk-container-small uk-flex uk-flex-wrap uk-margin-left uk-margin-right">
 
             <div class="uk-margin-large-right">
                 <?php echo $fg_image; ?>
