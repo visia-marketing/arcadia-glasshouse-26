@@ -77,7 +77,7 @@ switch ($per_row) {
 
         <?php $delay += $aos_step; ?>
         <div class="<?php echo $class; ?>" <?php if($aos != false): ?>data-aos="<?php echo $aos; ?>" data-aos-duration="<?php echo $aos_duration; ?>" data-aos-delay="<?php echo $delay; ?>"<?php endif; ?>> 
-            <div class="uk-height-1-1 uk-flex uk-flex-column uk-position-relative" >
+            <div class="uk-height-1-1 uk-width-1-1 uk-flex uk-flex-column uk-position-relative" >
 
                 <?php $image = wp_get_attachment_image($card['card_icon'], 'thumbnail', false, array( 'class' => 'uk-width-1-1')); ?>
                         

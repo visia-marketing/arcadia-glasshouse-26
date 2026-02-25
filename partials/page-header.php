@@ -92,7 +92,7 @@
               <?php  endif; ?>
 
               <?php if ( !empty($page_header_button) ): ?>
-                <a href="<?php echo esc_html($page_header_button['url']); ?>" class="uk-button uk-button-primary uk-button-bright uk-button-large">
+                <a href="<?php echo esc_html($page_header_button['url']); ?>" class="uk-button uk-button-primary uk-button-bright uk-button-large uk-margin-top">
                     <?php echo $page_header_button['title']; ?>
                 </a>
               <?php  endif; ?>
