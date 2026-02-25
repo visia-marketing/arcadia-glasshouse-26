@@ -90,9 +90,12 @@
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
    
-    & + .uk-button{
-        margin-top: 1rem;
+    @media screen and (max-width: 950px) {
+        & + .uk-button{
+            margin-top: 1.5rem;
+        }
     }
+    
 
     transition: 
         transform 160ms ease,
