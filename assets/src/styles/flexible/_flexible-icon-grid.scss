@@ -1,0 +1,86 @@
+.icon-grid{
+    position: relative;
+    row-gap: $global-large-gutter;
+
+    & .uk-card-media{
+        width: 2.5rem;
+        background: $primary;
+        height: 2.5rem;
+        border-radius: 2.5rem;
+        aspect-ratio: 1;
+        margin-right: 1.4rem;
+
+        & svg{
+            width: 1.5rem;
+            max-width: unset;
+
+            & path{
+                fill: $secondary;
+
+            }
+        }
+    }
+
+    $totalGutter:  $global-large-gutter * .85;
+
+    &.divider{
+
+        &-2{
+            &:before{
+                pointer-events: none;
+                content: "";
+                position: absolute;
+                top: 0;
+                left: calc(50% + $totalGutter);
+                width: 1px;
+                height: 100%;
+                background: $primary;
+                border-radius: 2.5rem;
+            }
+        }
+        
+        &-3{
+            &:before{
+                pointer-events: none;
+                content: "";
+                position: absolute;
+                top: 0;
+                left: calc(33.33% + $totalGutter);
+                width: 1px;
+                height: 100%;
+                background: $primary;
+                border-radius: 2.5rem;
+            }
+
+            &:after{
+                pointer-events: none;
+                content: "";
+                position: absolute;
+                top: 0;
+                left: calc(66.66% + 50px);
+                width: 1px;
+                height: 100%;
+                background: $primary;
+                border-radius: 2.5rem;
+            }
+        }
+
+
+    }
+}
+
+.fc-section-image,
+.fc-section-dark{
+    & .icon-grid{
+        & .uk-card-media{
+            background: $secondary !important;
+    
+            & svg{
+                & path{
+                    fill: $primary !important;
+                }
+            }
+        }
+    }
+
+}

@@ -108,18 +108,21 @@ function get_flexible_content() {
       //echo get_row_layout();
       echo '<style>
         #' . esc_html($id) . ' {
-          padding-top: ' . esc_html( ($top_padding * 1.5) ) . 'rem;
-          padding-bottom: ' . esc_html( ($bottom_padding * 1.5 ) ) . 'rem;
+          padding-top: ' . esc_html( $top_padding  ) . 'rem;
+          padding-bottom: ' . esc_html( $bottom_padding  ) . 'rem;
           position: relative;
         }
 
         #' . esc_html($id) . '.fc-section {
           display: flex;
           flex-direction: column;
-          gap: ' . esc_html( ($content_spacing * 1.5) ) . 'rem;
           align-items: center;
-          /* justify-content: ' . esc_html($horizontal_align) . '; */
         }
+
+        #' . esc_html($id) . '.fc-section > .uk-container{
+            row-gap: ' . esc_html( ($content_spacing * 1.5) ) . 'rem;
+        }
+
 
         #' . esc_html($id) . ' > .fc-section-columns {
           min-width: calc(100% - 4rem);
@@ -160,6 +163,7 @@ function get_flexible_content() {
        * - Custom classes from ACF fields
        */
       echo '<section class="fc-section fc-section-' . esc_attr(get_row_index()) . ' fc-section-' . esc_attr($background) . ' ' . esc_attr($class) . '" id="' . esc_attr($id) . '">';
+
         if ($ornament) { 
           echo '<div id="ornament_'.$id.'" class="uk-container uk-container-xlarge ornament-container uk-flex uk-flex-'.$ornament_align.'">';
             echo '<div class="ornament">';
@@ -167,6 +171,24 @@ function get_flexible_content() {
             echo '</div>';
           echo '</div>';
         }
+
+        ?>
+
+
+        <?php if( str_contains($background, 'grid-svg'  ) ): ?>
+          <div class="grid-svg-wrapper">
+            <?php 
+              $svg_path = get_template_directory() . '/assets/src/svg/';
+              $grid_svg = file_get_contents($svg_path.'grid.svg');
+              echo $grid_svg;
+              ?>
+          </div>
+
+        <?php endif; ?>
+
+
+        <?php
+
         echo '<div class="' . esc_attr($containerWidth) . ' uk-flex uk-flex-column uk-flex-'.$horizontal_align.'">';
 
 

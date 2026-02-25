@@ -2,7 +2,7 @@
 <div class="top-header">
 	<div class="uk-container uk-container-xlarge">
 		<div class="uk-width-1-1">
-      <div class="top-header-flex">
+      <div class="top-header-flex uk-margin-small-top uk-margin-small-bottom">
         <?php
           wp_nav_menu(['theme_location' => 'top_navigation', 'depth' => 1, 'menu_class' => 'top-header-navigation top-header-navigation-right']); 
         ?>
@@ -14,7 +14,7 @@
 
 <header class="main-header">
 	<div class="uk-container uk-container-xlarge uk-flex uk-flex-middle uk-padding-small">
-    <div class="uk-width-1-6@m uk-padding-small">
+    <div class="uk-width-1-2 uk-width-1-6@m uk-padding-small">
       <div class="main-logo">
         <a href="<?= esc_url(home_url('/')); ?>"><img src="<?php the_field('main_logo', 'option');?>" alt="<?php bloginfo('name'); ?>"></a>
       </div>

@@ -272,15 +272,15 @@
                 "class": "",
                 "id": ""
             },
-            "choices": [
-                "None",
-                "Tiny",
-                "Small",
-                "Medium",
-                "Large",
-                "X Large"
-            ],
-            "default_value": 2,
+            "choices": {
+                "0": "None",
+                "3.25": "Tiny",
+                "5.5": "Small",
+                "7.75": "Medium",
+                "11": "Large",
+                "15.25": "X Large"
+            },
+            "default_value": "7.75",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -305,15 +305,15 @@
                 "class": "",
                 "id": ""
             },
-            "choices": [
-                "None",
-                "Tiny",
-                "Small",
-                "Medium",
-                "Large",
-                "X Large"
-            ],
-            "default_value": 2,
+            "choices": {
+                "0": "None",
+                "3.25": "Tiny",
+                "5.5": "Small",
+                "7.75": "Medium",
+                "11": "Large",
+                "15.25": "X Large"
+            },
+            "default_value": "7.75",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -326,7 +326,7 @@
         },
         {
             "key": "field_68f23f994ea4d",
-            "label": "Content Spacing",
+            "label": "Row Gap",
             "name": "content_spacing",
             "aria-label": "",
             "type": "select",
@@ -338,14 +338,14 @@
                 "class": "",
                 "id": ""
             },
-            "choices": [
-                "None",
-                "Tiny",
-                "Small",
-                "Medium",
-                "Large",
-                "X Large"
-            ],
+            "choices": {
+                "0": "None",
+                "2.5": "Tiny",
+                "5": "Small",
+                "7": "Medium",
+                "9.5": "Large",
+                "11.5": "X Large"
+            },
             "default_value": 0,
             "return_format": "value",
             "multiple": 0,
@@ -406,7 +406,7 @@
                 "uk-container uk-container-large": "Regular",
                 "uk-container uk-container-xlarge": "Large"
             },
-            "default_value": false,
+            "default_value": "uk-container uk-container-large",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -455,5 +455,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771608858
+    "modified": 1771954943
 }

@@ -32,15 +32,17 @@
 
     li {
       padding: 0;
+      margin-bottom: 0.6rem;
 
       > a {
         color: $white;
         display: inline-block;
-        font-size: 15px;
+        font-size: 1.0625rem;
         font-weight: 700;
-        line-height: 30px;
+        line-height: 1;
         padding: 0;
         vertical-align: top;
+        padding: 0 0 0.62rem 0;
       }
 
       ul {
@@ -53,16 +55,16 @@
           padding: 0;
 
           a {
-            color: $white;
-            display: inline-block;
-            font-size: 15px;
+            // color: $white;
+            // display: inline-block;
+            // font-size: 15px;
             font-weight: 400;
-            line-height: 1.2;
-            padding: 11px 0;
-            vertical-align: top;
+            // line-height: 1.2;
+
+            // vertical-align: top;
     
             &:hover {
-              color: $primary;
+              color: $secondary;
             }
     
           }
@@ -75,83 +77,52 @@
 
   }
 
-  .footer-badges {
-    border-bottom: 1px solid rgba(#fff,.7);
-    margin-top: 50px;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
+  & p.connect{
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1;
+  }
 
-    @include breakpoint(medium) {
-      flex-direction: row;
-      gap: 40px;
-    }
+  .social-icons {
 
-    .badge {
-      display: flex;
-      gap: 10px;
-      font-size: 14px;
-      color: rgba(#fff,.8);
-      justify-content: center;
-      align-items: center;
-
-      @include breakpoint(medium) {
-        justify-content: flex-start;
-      }
-
+      
       a {
-        color: #fff;
 
-        &:hover {
-          text-decoration: underline;
+        &:hover{
+          transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 104, 72, 0.12);
         }
 
-      }
+        &:active{
+            transform: translateY(0px);
+            box-shadow: 0 4px 12px rgba(0, 104, 72, 0.10);
+        }
 
-      p {
-        margin-bottom: 0;
-      }
+        &:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 104, 72, 0.20);
+        }
 
-      img {
-        height: 20px;
-        width: auto;
+        & > i {
+          color: $secondary;
+        }
       }
-    }
+      
+
+
 
   }
 
-  .footer-social {
-    margin: 10px auto 20px;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    list-style: none;
 
-    @include breakpoint(medium) {
-      justify-content: flex-start;
-    }
-
-
-    li {
-      color: #fff;
-      font-size: 30px;
-      
-      a {
-        color: #fff;
-      }
-      
-    }
-
-
+  .copyright-container{
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.50);    
   }
 
   .footer-copyright {
     display: flex;
     justify-content: space-between;
+
 
     ul {
       display: flex;

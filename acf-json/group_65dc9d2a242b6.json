@@ -73,7 +73,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "15",
+                "width": "20",
                 "class": "",
                 "id": ""
             },
@@ -112,7 +112,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "25",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
@@ -125,7 +125,7 @@
             "max_height": "",
             "max_size": "",
             "mime_types": "",
-            "allow_in_bindings": 1,
+            "allow_in_bindings": 0,
             "preview_size": "medium"
         },
         {
@@ -146,7 +146,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "25",
+                "width": "20",
                 "class": "",
                 "id": ""
             },
@@ -166,6 +166,50 @@
             "save_options": 0
         },
         {
+            "key": "field_699f46a68c2a8",
+            "label": "CTA Content",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_699f4623dee6a",
+            "label": "CTA Foreground Image",
+            "name": "cta_foreground_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
+        },
+        {
             "key": "field_65dca6545d548",
             "label": "CTA Content",
             "name": "cta_content",
@@ -175,13 +219,13 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "66",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
             "allow_in_bindings": 1,
-            "tabs": "visual",
+            "tabs": "all",
             "toolbar": "full",
             "media_upload": 1,
             "delay": 0
@@ -243,7 +287,158 @@
             "max_height": "",
             "max_size": "",
             "mime_types": "",
+            "allow_in_bindings": 1,
             "preview_size": "medium"
+        },
+        {
+            "key": "field_699f257a96420",
+            "label": "Social Media",
+            "name": "social_media",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_699f25f6dbbbe",
+                    "label": "Icon",
+                    "name": "social_icon",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "square-facebook": "Facebook",
+                        "youtube": "YouTube",
+                        "instagram": "Instagram",
+                        "x-twitter": "Twitter",
+                        "square-linkedin": "LinkedIn",
+                        "bluesky": "BlueSky",
+                        "threads": "Threads",
+                        "tiktok": "TikTok",
+                        "snapchat": "Snapchat"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "parent_repeater": "field_699f257a96420"
+                },
+                {
+                    "key": "field_699f26263a650",
+                    "label": "Social URL",
+                    "name": "social_url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "75",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_699f257a96420"
+                }
+            ]
+        },
+        {
+            "key": "field_699f2734ed892",
+            "label": "Badges",
+            "name": "footer_badges",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_699f2734ed893",
+                    "label": "Badge",
+                    "name": "badge_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0,
+                    "preview_size": "medium",
+                    "parent_repeater": "field_699f2734ed892"
+                },
+                {
+                    "key": "field_699f2734ed894",
+                    "label": "Badge URL",
+                    "name": "badge_url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "75",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_699f2734ed892"
+                }
+            ]
         },
         {
             "key": "field_67212cfd5468c",
@@ -365,5 +560,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1761230014
+    "modified": 1772046694
 }

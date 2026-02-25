@@ -70,7 +70,7 @@
     }
     ?>
     <div class="page-header-content-wrapper fc-section fc-section-<?php echo $page_heading_background;?> overlay-<?php echo $overlay;?> page-header-<?php echo $page_heading_size; ?>">
-      <div class="uk-container uk-container-small">
+      <div class="uk-container <?php if( !$page_heading_size ): echo "uk-container-large"; else: echo "uk-container-large"; endif; ?>">
         <div class="uk-text-center">
           <div class="page-header-content">
             <?php 
@@ -82,7 +82,7 @@
                   <?php echo esc_html($page_sub_heading); ?>
               </p>
               <?php endif; ?>
-              <h1 class="">
+              <h1 class="<?php if( !$page_heading_size ): echo "uk-align-left"; endif; ?>">
                 <?php if ( $page_heading ): echo esc_html($page_heading); else: the_title(); endif; ?>
               </h1>
               <?php if ( !empty($page_heading_text) ): ?>
@@ -92,7 +92,7 @@
               <?php  endif; ?>
 
               <?php if ( !empty($page_header_button) ): ?>
-                <a href="<?php echo esc_html($page_header_button['url']); ?>" class="uk-button uk-button-primary uk-button-bright uk-button-large">
+                <a href="<?php echo esc_html($page_header_button['url']); ?>" class="uk-button uk-button-primary uk-button-bright uk-button-large uk-margin-top">
                     <?php echo $page_header_button['title']; ?>
                 </a>
               <?php  endif; ?>
