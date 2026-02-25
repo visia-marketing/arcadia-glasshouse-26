@@ -97,16 +97,16 @@
         ],
         [
             {
-                "param": "page_template",
+                "param": "page",
                 "operator": "==",
-                "value": "default"
+                "value": "3"
             }
         ],
         [
             {
-                "param": "page",
+                "param": "post_type",
                 "operator": "==",
-                "value": "3"
+                "value": "greenhouse"
             }
         ]
     ],
@@ -122,5 +122,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1761232261
+    "modified": 1772035975
 }

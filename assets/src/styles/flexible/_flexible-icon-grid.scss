@@ -71,16 +71,13 @@
 
 .fc-section-image,
 .fc-section-dark{
-    .icon-grid{
+    & .icon-grid{
         & .uk-card-media{
-            
-            background: $secondary;
+            background: $secondary !important;
     
             & svg{
-
                 & path{
-                    fill: $primary;
-    
+                    fill: $primary !important;
                 }
             }
         }
