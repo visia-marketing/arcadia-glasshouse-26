@@ -103,36 +103,39 @@ import { CountUp } from 'countup.js';
           });
         });
 
+        // wait until whole page is loaded
+        window.addEventListener('load', () => {
+          // get all elements with data-hover-card
+          const hoverCards = document.querySelectorAll('[data-hover-card]');
 
-        // get all elements with data-hover-card
-        const hoverCards = document.querySelectorAll('[data-hover-card]');
-
-        hoverCards.forEach(card => {
-          // get the height of card-p ( if it exists )
-          const cardP = card.querySelector('.card-p');
-          let cardPHeight = 0;
-          if (cardP) {
-            cardPHeight = cardP.offsetHeight;
-          }
-          // set p height to 0 and overflow to hidden
-          if (cardP) {
-            cardP.style.height = '0';
-            cardP.style.overflow = 'hidden';
-          }
-          // add mouseenter event to card
-          card.addEventListener('mouseenter', () => {
+          hoverCards.forEach(card => {
+            // get the height of card-p ( if it exists )
+            const cardP = card.querySelector('.card-p');
+            let cardPHeight = 0;
             if (cardP) {
-              cardP.style.height = cardPHeight + 'px';
+              cardPHeight = cardP.offsetHeight;
             }
-          });
-          // add mouseleave event to card
-          card.addEventListener('mouseleave', () => {
+            // set p height to 0 and overflow to hidden
             if (cardP) {
               cardP.style.height = '0';
+              cardP.style.overflow = 'hidden';
             }
+            // add mouseenter event to card
+            card.addEventListener('mouseenter', () => {
+              if (cardP) {
+                cardP.style.height = cardPHeight + 'px';
+              }
+            });
+            // add mouseleave event to card
+            card.addEventListener('mouseleave', () => {
+              if (cardP) {
+                cardP.style.height = '0';
+              }
+            });
+  
           });
-
         });
+
 
 
 
