@@ -14,7 +14,7 @@
 
 <header class="main-header">
 	<div class="uk-container uk-container-xlarge uk-flex uk-flex-middle uk-padding-small">
-    <div class="uk-width-1-6@m uk-padding-small">
+    <div class="uk-width-1-2 uk-width-1-6@m uk-padding-small">
       <div class="main-logo">
         <a href="<?= esc_url(home_url('/')); ?>"><img src="<?php the_field('main_logo', 'option');?>" alt="<?php bloginfo('name'); ?>"></a>
       </div>

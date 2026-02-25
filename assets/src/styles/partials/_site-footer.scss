@@ -83,28 +83,32 @@
     line-height: 1;
   }
 
-  .footer-social {
-    margin: 10px auto 20px;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    list-style: none;
+  .social-icons {
 
-    @include breakpoint(medium) {
-      justify-content: flex-start;
-    }
-
-
-    li {
-      color: #fff;
-      font-size: 30px;
       
       a {
-        color: #fff;
+
+        &:hover{
+          transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 104, 72, 0.12);
+        }
+
+        &:active{
+            transform: translateY(0px);
+            box-shadow: 0 4px 12px rgba(0, 104, 72, 0.10);
+        }
+
+        &:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 104, 72, 0.20);
+        }
+
+        & > i {
+          color: $secondary;
+        }
       }
       
-    }
+
 
 
   }

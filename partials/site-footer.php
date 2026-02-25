@@ -14,13 +14,13 @@ if ( $footer_form && (!empty($footer_form['heading']) || !empty($footer_form['ti
 
   <div class="uk-container uk-container-xlarge uk-flex uk-flex-wrap">   
 
-    <div class="uk-width-1-1@s uk-width-1-3@m uk-width-1-2@xl">
-      <div class="footer-logo uk-margin-medium-right">
+    <div class="uk-width-1-1@s uk-width-1-3@m uk-width-1-2@xl uk-margin-medium-bottom uk-margin-remove-bottom@m">
+      <div class="footer-logo">
         <a href="<?= esc_url(home_url('/')); ?>"><img src="<?php the_field('footer_logo', 'option');?>" alt="<?php bloginfo('name'); ?>"></a>
       </div>
     </div>
 
-    <div class="uk-width-1-1@s uk-width-2-3@m uk-width-1-2@xl">
+    <div class="uk-width-1-1@s uk-width-2-3@m uk-width-1-2@xl  uk-margin-medium-bottom uk-margin-remove-bottom@m">
       <div class="uk-grid uk-grid-small">
 
         <div class="uk-width-1-1@s uk-width-1-4@m ">   
@@ -48,11 +48,11 @@ if ( $footer_form && (!empty($footer_form['heading']) || !empty($footer_form['ti
         </div>
 
         <div class="uk-width-1-1@s uk-width-1-4@m">
-          <div class="">
+          <div class="uk-flex uk-flex-column uk-flex-middle uk-flex-top@m">
             <p class="connect">Connect with Us</p>
 
             <?php $social_media = get_field('social_media', 'options'); ?>
-            <div class="social-icons uk-margin-medium-top uk-flex uk-flex-wrap uk-flex-left">
+            <div class="social-icons uk-margin-small-top uk-flex uk-flex-wrap uk-flex-left">
               <?php foreach( $social_media as $social ): ?>
                 <a href="<?php echo $social['url']; ?>" target="_blank" class="uk-margin-small-right">
                   <i class="fa-brands fa-<?php echo $social['social_icon']; ?> fa-2xl"></i>
@@ -63,7 +63,7 @@ if ( $footer_form && (!empty($footer_form['heading']) || !empty($footer_form['ti
             <?php $footer_badges = get_field('footer_badges', 'options'); ?>
             <div class="badges uk-margin-medium-top uk-flex uk-flex-wrap uk-flex-left">
               <?php foreach( $footer_badges as $badge ): ?>
-                <a href="<?php echo $badge['badge_url']; ?>" target="_blank" class="uk-margin-small-right">
+                <a href="<?php echo $badge['badge_url']; ?>" target="_blank" class="uk-width-small uk-margin-small-right">
                   <?php echo wp_get_attachment_image( $badge['badge_image'], 'medium' , false, array('class' => 'footer-badge') ); ?>
                 </a>
               <?php endforeach; ?>
@@ -82,7 +82,7 @@ if ( $footer_form && (!empty($footer_form['heading']) || !empty($footer_form['ti
   
   <div class="uk-container uk-container-xlarge uk-margin-xlarge-top uk-flex uk-flex-left uk-width-1-1 copyright-container">
     <div class="footer-copyright">
-      <div class="copyright ">
+      <div class="copyright">
         <?php echo get_field('copyright', 'options');?>
       </div>
       <?php

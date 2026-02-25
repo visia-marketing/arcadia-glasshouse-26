@@ -50,7 +50,7 @@ foreach( $objects as $gh  ){
             <div class="uk-width-1-2@m <?php if($i % 2): echo "uk-flex-first@m"; endif; ?> uk-flex uk-flex-column uk-flex-center">
 
                 <div class="row-content">
-                    <span class="g-section-subtitle"><?php echo $greenhouse['card_collection'] ?></span>
+                    <span class="g-section-subtitle uk-margin-large-top uk-margin-remove-top@m"><?php echo $greenhouse['card_collection'] ?></span>
                     <h2 class="uk-margin-top-remove"><?php echo $greenhouse['card_title']; ?></h2>
                     <?php echo $greenhouse['card_description']; ?>
 
