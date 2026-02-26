@@ -87,7 +87,7 @@
 
         > a {
           color: $black;
-          font-size: 1.0625rem;
+          font-size: 1rem;
           font-weight: 400;
           padding: 0 0;
           position: relative;
@@ -95,8 +95,8 @@
           vertical-align: middle;
 
           @include breakpoint(medium) {
+            font-size: 1.0625rem;
             
-            font-size: 16px;
             
           }
 
@@ -305,40 +305,6 @@
     }
   }
 
-  .top-header-search {
-    background-color: #f4f4f4;
-    display: flex;
-    margin: 6px 0;
-    padding: 0 5px;
-  
-    @include breakpoint(medium) {
-      //float: right;
-    }
-  
-    form, label {
-      display: flex;
-      align-items: center;
-      
-
-      i {
-        color: #fff;
-        margin: 0;
-      }
-
-    }
-  
-    input {
-      border: none;
-      margin-bottom: 0;
-      max-height: 2rem;
-    }
-
-    button {
-      height: 100%;
-      margin: 0;
-    }
-  
-  }
   
 
   .top-header-navigation {

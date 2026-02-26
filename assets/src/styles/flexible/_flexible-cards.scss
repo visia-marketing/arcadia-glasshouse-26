@@ -12,7 +12,7 @@
 
     & a.card-body{
 
-        padding: 2rem 1.5rem;
+        padding: 2rem 1rem;
         background-image: linear-gradient(0deg, rgba(48, 86, 72, 1) 40%, rgba(48, 86, 72, 0.00) 100%);
         gap: 0.5rem;
         background-size: 200% 200%;
@@ -28,15 +28,25 @@
             text-decoration: none;
         }
 
-        & span.g-section-subtitle{
-            font-size: 1rem;
-            letter-spacing: 0.15rem;
+        & .g-section-subtitle{
+            font-size: clamp(0.875rem, 1vw, 1rem);
+            letter-spacing: clamp(0rem, 1vw, 0.15rem);
+            //letter-spacing: 0.15rem;
             color:#fff;
         }
 
         & h3{
             color: $white;
             transition: color 0.3s ease-in-out;
+            font-size:1.875rem;
+
+            @include breakpoint(large){
+                font-size: 1.5rem;
+            }
+
+            @include breakpoint(extra-large){
+                font-size: 1.875rem;
+            }
 
             &.card-title >a{
                   color: $white !important;
