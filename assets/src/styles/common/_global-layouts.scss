@@ -52,6 +52,10 @@ ul li.download-icon{
   }
 }
 
+main:has(.ornament){
+  position : relative;
+}
+
 .ornament-container{
   position: absolute;
   width: 100%;

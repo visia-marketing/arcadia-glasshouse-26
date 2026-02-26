@@ -53,7 +53,7 @@ switch ($per_row) {
         $class .= ' uk-width-1-1@xs uk-width-1-2@s uk-width-1-3@m';
         break;
     case 4:
-        $class .= ' uk-width-1-1@xs uk-width-1-2@s uk-width-1-3@m uk-width-1-4@l';
+        $class .= ' uk-width-1-1@xs uk-width-1-2@s uk-width-1-4@l';
         break; 
     default:
         $class .= ' uk-width-1-1@xs uk-width-1-2@s uk-width-1-6@m'; // Default to 3 per uk-container
@@ -77,7 +77,7 @@ switch ($per_row) {
 
         <?php $delay += $aos_step; ?>
         <div class="<?php echo $class; ?>" <?php if($aos != false): ?>data-aos="<?php echo $aos; ?>" data-aos-duration="<?php echo $aos_duration; ?>" data-aos-delay="<?php echo $delay; ?>"<?php endif; ?> data-hover-card> 
-            <div class="uk-height-1-1 uk-width-1-1 uk-flex uk-flex-column uk-position-relative" >
+            <div class="uk-height-1-1 uk-flex uk-flex-column uk-position-relative" >
 
                 <?php $image = wp_get_attachment_image($card['card_icon'], 'thumbnail', false, array( 'class' => 'uk-width-1-1')); ?>
                         
@@ -88,7 +88,7 @@ switch ($per_row) {
                 <?php endif; ?>
                 
 
-                    <a href="<?php echo $card['card_link']['url']; ?>" class="card-body uk-card-body uk-height-1-1 uk-position-absolute uk-flex uk-flex-column uk-flex-right">
+                    <a href="<?php echo $card['card_link']['url']; ?>" class="card-body uk-card-body uk-height-1-1 uk-width-1-1 uk-position-absolute uk-flex uk-flex-column uk-flex-right">
 
                         <span class="g-section-subtitle">
                             <?php echo $card['card_collection']; ?>

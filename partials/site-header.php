@@ -4,7 +4,7 @@
 		<div class="uk-width-1-1">
       <div class="top-header-flex uk-margin-small-top uk-margin-small-bottom">
         <?php
-          wp_nav_menu(['theme_location' => 'top_navigation', 'depth' => 1, 'menu_class' => 'top-header-navigation top-header-navigation-right']); 
+          wp_nav_menu(['theme_location' => 'top_navigation', 'depth' => 1, 'menu_class' => 'top-header-navigation top-header-navigation-right uk-margin-xsmall-top uk-margin-xsmall-bottom']); 
         ?>
       </div>
 		</div>

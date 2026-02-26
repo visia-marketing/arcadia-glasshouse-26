@@ -21,9 +21,9 @@
 
     background: rgba(0,0,0,0.25);
 
-    @include breakpoint(medium) {
-	    background: transparent;
-	  }
+    // @include breakpoint(medium) {
+	  //   background: transparent;
+	  // }
 
 
     &.page-header-expanded{
