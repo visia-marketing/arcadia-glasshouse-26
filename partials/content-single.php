@@ -1,8 +1,10 @@
 <div class="post-header">
   
-  <p class="g-section-subtitle">
-    GREENHOUSE TIP #1
-  </p>
+  <?php if( get_field('tip_number') ): ?>
+    <p class="g-section-subtitle">
+      <?php echo 'Greenhouse Tip #'. get_field('tip_number'); ?>
+    </p>
+  <?php endif; ?>
 
   <h1 class="post-title uk-margin-xsmall-top"><?php echo get_the_title(); ?></h1>
 
