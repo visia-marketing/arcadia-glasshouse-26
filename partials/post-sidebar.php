@@ -11,9 +11,9 @@
 
 	<?php if($related){ ?>
 
-		<div class="post-sidebar-related-posts uk-padding">
+		<div class="post-sidebar-related-posts uk-padding uk-margin-large-bottom">
 
-			<h5 class="">More <?php echo $cat_name;?> </h5>
+			<h3 class="g-section-subtitle">More <?php echo $cat_name;?> </h3>
 
 			<ul class="uk-padding-remove"> 
 				<?php foreach($related as $post ) { ?>

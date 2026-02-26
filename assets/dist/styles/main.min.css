@@ -13412,7 +13412,7 @@ main:has(.ornament) {
   letter-spacing: 0.1125rem;
   text-transform: uppercase;
 }
-.post-single .post-content-wrapper h3 {
+.post-single .post-content-wrapper h3:not(.post-sidebar-related-posts > h3) {
   font-family: "proxima-nova", sans-serif;
   font-size: 1.125rem;
   font-weight: 400;
