@@ -13787,7 +13787,7 @@ main:has(.ornament) {
   }
   .main-header .primary-navigation-wrapper .primary-navigation > li.active > a {
     background-color: transparent;
-    color: #C8F17B;
+    color: #006848;
   }
   .main-header .primary-navigation-wrapper .primary-navigation > li .is-dropdown-submenu {
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
@@ -13890,7 +13890,7 @@ main:has(.ornament) {
   }
   .main-header .store-navigation-wrapper .store-navigation > li.active a {
     background-color: transparent;
-    color: #C8F17B;
+    color: #006848;
   }
 }
 .top-header {
