@@ -103,8 +103,8 @@ import { CountUp } from 'countup.js';
           });
         });
 
-        // wait until whole page is loaded
-        window.addEventListener('load', () => {
+
+        function hoverCardsInit(){
           // get all elements with data-hover-card
           const hoverCards = document.querySelectorAll('[data-hover-card]');
 
@@ -134,7 +134,66 @@ import { CountUp } from 'countup.js';
             });
   
           });
+          
+        }
+
+        // wait until whole page is loaded
+        window.addEventListener('load', () => {
+
+          hoverCardsInit();
+
         });
+
+
+
+        jQuery(document).ready(function($) {
+
+          const cards_section = document.querySelectorAll('.fc-section-cards');
+
+          if( cards_section.length ){
+            var currentPage = 1;
+            var maxPages = parseInt($('#load_more_posts').data('max-pages'));
+  
+            $('#load_more_posts').on('click', function() {
+                var $button = $(this);
+                currentPage++;
+  
+                var url = new URL(window.location);
+                url.searchParams.set('paged', currentPage);
+  
+                $button.addClass('loading');
+  
+                $.ajax({
+                    url: url.toString(),
+                    type: 'GET',
+                    success: function(data) {
+                        var $parsed = $($.parseHTML(data));
+                        var $newContent = $parsed.find('.fc-section-cards').children();
+  
+                        if ($newContent.length) {
+                            $('.fc-section-cards').append($newContent);
+                        }
+  
+                        if (currentPage >= maxPages) {
+                            $button.hide();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('AJAX error:', status, error);
+                        if (xhr.status === 404) {
+                            $button.hide();
+                        }
+                    },
+                    complete: function() {
+                        $button.removeClass('loading');
+                        hoverCardsInit();
+                    }
+                });
+            });
+          }
+
+
+      });
 
 
 

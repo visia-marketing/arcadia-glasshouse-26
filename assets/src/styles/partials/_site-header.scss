@@ -80,6 +80,7 @@
         height: 100%;
         display: flex;
         align-items: center;
+        padding: 0.5rem 0;
 
         @include breakpoint(medium) {
           //display: inline-block;
@@ -134,7 +135,7 @@
             background-color: transparent;
             color: $primary;
           }
-
+          border-bottom: 2px solid $primary;
         }
 
         .is-dropdown-submenu { //ul.submenu.first-sub
@@ -191,6 +192,7 @@
   
             &.active {
               background-color: transparent;
+              
   
               a {
                 background-color: transparent;
