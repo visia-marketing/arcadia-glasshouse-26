@@ -75,7 +75,7 @@ if( $card_source == "categories" ){
         }
         $card['card_tip'] = get_field('tip_number', $post->ID);
         $card['card_title'] = get_the_title($post->ID);
-        $excerpt = get_the_excerpt($post->ID);
+        $excerpt = wp_strip_all_tags(get_the_excerpt($post->ID));
         $card['card_description'] = $excerpt ?: (wp_trim_words(get_the_content($post->ID), 16) ?: '');
         $card['card_link']['url'] = get_permalink($post->ID);
         $card['card_icon'] = get_post_thumbnail_id($post->ID) ?: 245;

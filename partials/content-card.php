@@ -86,7 +86,7 @@ switch ($per_row) {
                 <h3 class="card-title uk-card-title uk-margin-remove">
                     <?php echo $card['card_title']; ?>
                 </h3>
-            
+
                 <?php if( $card['card_description'] != ''): ?>
                     <p class="card-p uk-margin-remove">
                         <?php echo $card['card_description']; ?>
