@@ -69,7 +69,7 @@
         echo wp_get_attachment_image( $page_heading_background_image, 'large', false, array( "class" => "page-header-image" ) );
     }
     ?>
-    <div class="page-header-content-wrapper fc-section fc-section-<?php echo $page_heading_background;?> overlay-<?php echo $overlay;?> page-header-<?php echo $page_heading_size; ?>">
+    <div class="page-header-content-wrapper fc-section fc-section-<?php echo $page_heading_background;?> <?php if(is_front_page()): echo 'home-hero'; endif;?> overlay-<?php echo $overlay;?> page-header-<?php echo $page_heading_size; ?>">
       <div class="uk-container <?php if( !$page_heading_size ): echo "uk-container-large"; else: echo "uk-container-large"; endif; ?>">
         <div class="uk-text-center">
           <div class="page-header-content">

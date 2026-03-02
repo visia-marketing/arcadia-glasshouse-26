@@ -13385,6 +13385,10 @@ main:has(.ornament) {
   padding-top: 15.5rem;
   padding-bottom: 2.5rem;
 }
+.fc-page-header .page-header-content-wrapper.home-hero {
+  padding-top: 12.5rem;
+  padding-bottom: 12.5rem;
+}
 .fc-page-header .page-header-content-wrapper .page-header-content p:last-child {
   margin-bottom: 0;
 }
