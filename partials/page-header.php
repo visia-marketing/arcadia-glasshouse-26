@@ -4,6 +4,7 @@
   $show_page_header = get_field('show_page_header');
 
   $page_heading_size = 0;
+  $overlay = '';
 
   if( is_array( $page_header_content) ){
 
