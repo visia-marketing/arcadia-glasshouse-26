@@ -77,18 +77,20 @@ switch ($per_row) {
                 <?php endif ;?>
 
 
-                <span class="g-section-subtitle">
-                    <?php echo $card['card_collection']; ?>
-                </span>
+                <?php if( array_key_exists('card_collection', $card) ): ?>
+                    <span class="g-section-subtitle">
+                        <?php echo $card['card_collection']; ?>
+                    </span>
+                <?php endif; ?>
 
                 <h3 class="card-title uk-card-title uk-margin-remove">
                     <?php echo $card['card_title']; ?>
                 </h3>
             
                 <?php if( $card['card_description'] != ''): ?>
-                <p class="card-p uk-margin-remove">
-                    <?php echo $card['card_description']; ?>
-                </p>
+                    <p class="card-p uk-margin-remove">
+                        <?php echo $card['card_description']; ?>
+                    </p>
                 <?php endif; ?>
 
             </a>
