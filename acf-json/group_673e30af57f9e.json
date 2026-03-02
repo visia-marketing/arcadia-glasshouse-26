@@ -193,12 +193,12 @@
             "choices": [
                 "No Ornamentation",
                 "Willow Whisper",
-                "Field Clover",
-                "Wild Aster",
-                "Garden Laurel",
-                "Olive Sprig",
+                "Frost Berry Branch",
                 "Spring Magnolia",
-                "Frost Berry Branch"
+                "Olive Sprig",
+                "Garden Laurel",
+                "Wild Aster",
+                "Field Clover"
             ],
             "default_value": false,
             "return_format": "value",
@@ -222,9 +222,9 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_673e310786cee",
+                        "field": "field_6998764066ad8",
                         "operator": "!=",
-                        "value": "image"
+                        "value": "0"
                     }
                 ]
             ],
@@ -406,7 +406,7 @@
                 "uk-container uk-container-large": "Regular",
                 "uk-container uk-container-xlarge": "Large"
             },
-            "default_value": "uk-container uk-container-large",
+            "default_value": false,
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -455,5 +455,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771954943
+    "modified": 1772464574
 }

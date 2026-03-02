@@ -164,7 +164,7 @@ function get_flexible_content() {
        */
       echo '<section class="fc-section fc-section-' . esc_attr(get_row_index()) . ' fc-section-' . esc_attr($background) . ' ' . esc_attr($class) . '" id="' . esc_attr($id) . '">';
 
-        if ($ornament) { 
+        if ($ornament > 0) { 
           echo '<div id="ornament_'.$id.'" class="uk-container uk-container-xlarge ornament-container uk-flex uk-flex-'.$ornament_align.'">';
             echo '<div class="ornament">';
               echo $ornament_svg;
