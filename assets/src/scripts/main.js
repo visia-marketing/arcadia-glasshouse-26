@@ -138,10 +138,11 @@ import { CountUp } from 'countup.js';
         }
 
         // wait until whole page is loaded
-        window.addEventListener('load', () => {
-
-          hoverCardsInit();
-
+        jQuery(document).ready(function($) {
+          setTimeout(
+            hoverCardsInit(),
+            500
+          )
         });
 
 
