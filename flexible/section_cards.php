@@ -8,6 +8,8 @@ $aos = get_sub_field('animate_in');
 $aos_duration = 0;
 $aos_step = 0;
 
+$show_loadmore = 0;
+
 if( $card_source == "greenhouse" ){
 
     $cards = array();
@@ -53,7 +55,7 @@ if( $card_source == "categories" ){
     $query_found_posts = $blogs_query->found_posts;
     
     
-    $show_loadmore = 0;
+
     if ($blogs_query->max_num_pages > 1) {
         $show_loadmore = 1;
     }
