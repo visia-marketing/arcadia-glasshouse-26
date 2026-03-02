@@ -65,6 +65,8 @@ if( $card_source == "categories" ){
     // echo '</pre>';
 
     foreach( $blogs_query->posts as $post  ){
+
+    //($post); 
         $card = array();
 
         // get card term "collection"
@@ -76,7 +78,17 @@ if( $card_source == "categories" ){
         $card['card_tip'] = get_field('tip_number', $post->ID);
         $card['card_title'] = get_the_title($post->ID);
         $excerpt = wp_strip_all_tags(get_the_excerpt($post->ID));
-        $card['card_description'] = $excerpt ?: (wp_trim_words( get_the_content($post->ID), 12, null) ?: '');
+        $content = wp_strip_all_tags(excerpt_remove_blocks($post->post_content));
+
+        // echo 'excerpt <br/>';
+        // print_r($excerpt);
+        // echo '<br/>';
+        // echo ' -- -- -- -- -- <br/>';
+        // echo 'content <br/>';
+        // print_r($content);
+        // echo '<br/>';
+
+        $card['card_description'] = $excerpt ?: ($content ? wp_trim_words($content, 12, null) : '');
         $card['card_link']['url'] = get_permalink($post->ID);
         $card['card_icon'] = get_post_thumbnail_id($post->ID) ?: 245;
         $cards[] = $card;
