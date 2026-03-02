@@ -1,34 +1,6 @@
 <?php
 
 $card = $args['card_obj'];
-
-// if( !is_array( $card) ){
-//     $post = get_post($card);
-
-//     $card = [];
-    
-//     // // Collection
-//     $terms = get_the_terms($post->ID, 'collection');
-//     if( $terms && ! is_wp_error( $terms ) ){
-//         $term = $terms[0];
-//         $card['card_collection'] = $term->name;
-//     }
-
-//     // Blog Category
-//     $categories = get_the_terms($post->ID, 'category');
-//     if( $categories && ! is_wp_error( $categories ) ){
-//         $category = $categories[0];
-//         $card['card_category'] = $category->name;
-//     }
-
-
-//     $card['card_title'] = get_field('long_name', $post->ID) ? get_field('long_name', $post->ID) : get_the_title($post->ID);
-//     $card['card_description'] = get_field('short_excerpt', $post->ID);
-//     $card['card_link']['url'] = get_permalink($post->ID);
-//     $card['card_icon'] = get_post_thumbnail_id($post->ID);
-    
-// }
-
 $delay = $args['delay'];
 $per_row = $args['per_row'];
 $aos = $args['aos'];
