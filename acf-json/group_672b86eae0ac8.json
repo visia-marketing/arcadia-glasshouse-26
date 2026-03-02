@@ -18,7 +18,8 @@
             },
             "choices": {
                 "custom": "Custom",
-                "greenhouse": "Greenhouses"
+                "greenhouse": "Greenhouses",
+                "categories": "Blog Categories"
             },
             "default_value": false,
             "return_format": "value",
@@ -352,6 +353,40 @@
             "elements": "",
             "bidirectional": 0,
             "bidirectional_target": []
+        },
+        {
+            "key": "field_69a100bc1d0fb",
+            "label": "Blog Categories",
+            "name": "categories",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_699c9999b3cf5",
+                        "operator": "==",
+                        "value": "categories"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "multi_select",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -373,5 +408,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771870756
+    "modified": 1772159191
 }

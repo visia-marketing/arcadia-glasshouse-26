@@ -28,6 +28,20 @@
             text-decoration: none;
         }
 
+        & .card-tip{
+            background: $secondary;
+            color: $primary;
+            border-radius: 0.25rem;
+            padding: 0.125rem 1rem;
+            max-width: max-content;
+            font-size: 1.25rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 1.5;
+            letter-spacing: 0.1875rem;
+            text-transform: uppercase;
+        }
+
         & .g-section-subtitle{
             font-size: clamp(0.875rem, 1vw, 1rem);
             letter-spacing: clamp(0rem, 1vw, 0.15rem);
@@ -104,3 +118,98 @@
 .fc-section-columns + .fc-section-cards{
     margin-top: 2rem;
 }
+
+#load_more_posts__container{
+    position: relative;
+    border: 5px solid $secondary;;
+    border-radius: 6rem;
+    padding: 0.5rem;
+
+    &:has( button[style="display: none;"] ){
+        display: none;
+    }
+    
+    
+    & button#load_more_posts{
+        border: 0px solid transparent;
+        gap: 0.5rem;
+        background: transparent;
+        width: 100%;
+        aspect-ratio: 1;
+
+        cursor: pointer;
+        position: relative;
+
+        transition: 
+            transform 160ms ease,
+            text-shadow 160ms ease,
+            background-color 160ms ease,
+            color 160ms ease;
+    
+        &:hover{
+            transform: translateY(-2px);
+            text-shadow: 0 8px 20px rgba(0, 104, 72, 0.12);
+        }
+    
+        &:active{
+            transform: translateY(0px);
+            text-shadow: 0 4px 12px rgba(0, 104, 72, 0.10);
+        }
+    
+        &:focus-visible {
+            outline: none;
+            text-shadow: 0 0 0 3px rgba(0, 104, 72, 0.20);
+        }
+    
+        & span{
+            color: $darkGreen;
+            font-weight: 500;
+            position: relative;
+            z-index: 9;
+        }
+
+        & svg{
+            position: relative;
+            z-index: 9; 
+        }
+
+
+        &.loading > .loader{
+            mask-image: conic-gradient(from 0deg, black 0deg, black var(--wipe), transparent var(--wipe), transparent 360deg);
+            -webkit-mask-image: conic-gradient(from 0deg, black 0deg, black var(--wipe), transparent var(--wipe), transparent 360deg);
+            animation: radial-wipe 0.2s ease-out forwards;
+    
+        }
+
+        & .loader{
+            content: '';
+            position: absolute;
+            top: -1rem; left: -1rem;
+            width: calc(100% + 2.25rem);
+            height: calc(100% + 2.25rem);
+            border-radius: 6rem;
+            background: white;
+        }
+    
+        
+    
+        
+    
+    }
+}
+
+@keyframes radial-wipe {
+    from {
+        --wipe: 360deg;
+    }
+    to {
+        --wipe: 0deg;
+    }
+}
+
+@property --wipe {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 360deg;
+}
+
