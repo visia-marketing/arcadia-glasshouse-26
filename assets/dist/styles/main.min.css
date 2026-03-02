@@ -15850,6 +15850,9 @@ body#tinymce {
 .greenhouses hr {
   background-color: #D7D7D5;
 }
+.greenhouses img {
+  border-radius: 0.75rem;
+}
 
 .fc-wrapper .top-border > .fc-section-heading,
 .fc-page-header .top-border > .fc-section-heading {
