@@ -2,9 +2,8 @@
   $page_header_content = get_field('page_header_content');
   $page_header_style = get_field('page_header_style');
   $show_page_header = get_field('show_page_header');
-  // if( is_front_page() ){
-  //   $show_page_header = false;
-  // }
+
+  $page_heading_size = 0;
 
   if( is_array( $page_header_content) ){
 

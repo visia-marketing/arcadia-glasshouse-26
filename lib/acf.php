@@ -96,13 +96,14 @@ function get_flexible_content() {
 
       // ornamentation
       $ornament = get_sub_field('ornament');
-      // if ornament align == 0 value is 'right' if 1 value is 'left'
-      $ornament_align = get_sub_field('ornament_alignment') == '0' ? 'left' : 'right';
-      // get the relatiuve path to the svgs directory in the theme assets assets/src/svg folder
-      $svg_path = get_template_directory() . '/assets/src/svg/';
-      $ornament_svg = '';
-      $ornament_svg = file_get_contents($svg_path.'ornament_'.$ornament.'.svg');
-      // get svg file contents
+
+      if( $ornament  != 0){
+        $ornament_align = get_sub_field('ornament_alignment') == '0' ? 'left' : 'right';
+        $svg_path = get_template_directory() . '/assets/src/svg/';
+        $ornament_svg = '';
+        $ornament_svg = file_get_contents($svg_path.'ornament_'.$ornament.'.svg');
+      }
+
 
 
       //echo get_row_layout();
@@ -164,7 +165,7 @@ function get_flexible_content() {
        */
       echo '<section class="fc-section fc-section-' . esc_attr(get_row_index()) . ' fc-section-' . esc_attr($background) . ' ' . esc_attr($class) . '" id="' . esc_attr($id) . '">';
 
-        if ($ornament > 0) { 
+        if ($ornament != 0) { 
           echo '<div id="ornament_'.$id.'" class="uk-container uk-container-xlarge ornament-container uk-flex uk-flex-'.$ornament_align.'">';
             echo '<div class="ornament">';
               echo $ornament_svg;
