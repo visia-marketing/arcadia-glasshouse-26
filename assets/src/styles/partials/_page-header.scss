@@ -12,23 +12,25 @@
     object-fit: cover;
     top:50%;
     transform: translateY(-50%);
+
+    & + .page-header-content-wrapper {
+      background: rgba(0,0,0,0.25);
+    }
   }
 
   .page-header-content-wrapper {
-    //background-color: $primary;
+
     align-self: flex-end;
     width: 100%;
 
-    background: rgba(0,0,0,0.25);
-
-    // @include breakpoint(medium) {
-	  //   background: transparent;
-	  // }
-
+    &.page-header-,
+    &.page-header-0{
+      padding-top: 7.5rem;
+    }
 
     &.page-header-expanded{
-      padding-top: 12.5rem;
-      padding-bottom: 12.5rem;
+      padding-top: 15.5rem;
+      padding-bottom: 2.5rem;
     }
 
     .page-header-content {

@@ -13371,14 +13371,19 @@ main:has(.ornament) {
   top: 50%;
   transform: translateY(-50%);
 }
+.fc-page-header img.page-header-image + .page-header-content-wrapper {
+  background: rgba(0, 0, 0, 0.25);
+}
 .fc-page-header .page-header-content-wrapper {
   align-self: flex-end;
   width: 100%;
-  background: rgba(0, 0, 0, 0.25);
+}
+.fc-page-header .page-header-content-wrapper.page-header-, .fc-page-header .page-header-content-wrapper.page-header-0 {
+  padding-top: 7.5rem;
 }
 .fc-page-header .page-header-content-wrapper.page-header-expanded {
-  padding-top: 12.5rem;
-  padding-bottom: 12.5rem;
+  padding-top: 15.5rem;
+  padding-bottom: 2.5rem;
 }
 .fc-page-header .page-header-content-wrapper .page-header-content p:last-child {
   margin-bottom: 0;
