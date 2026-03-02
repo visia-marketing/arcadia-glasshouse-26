@@ -104,35 +104,97 @@ import { CountUp } from 'countup.js';
         });
 
 
-        // get all elements with data-hover-card
-        const hoverCards = document.querySelectorAll('[data-hover-card]');
+        function hoverCardsInit(){
+          // get all elements with data-hover-card
+          const hoverCards = document.querySelectorAll('[data-hover-card]');
 
-        hoverCards.forEach(card => {
-          // get the height of card-p ( if it exists )
-          const cardP = card.querySelector('.card-p');
-          let cardPHeight = 0;
-          if (cardP) {
-            cardPHeight = cardP.offsetHeight;
-          }
-          // set p height to 0 and overflow to hidden
-          if (cardP) {
-            cardP.style.height = '0';
-            cardP.style.overflow = 'hidden';
-          }
-          // add mouseenter event to card
-          card.addEventListener('mouseenter', () => {
+          hoverCards.forEach(card => {
+            // get the height of card-p ( if it exists )
+            const cardP = card.querySelector('.card-p');
+            let cardPHeight = 0;
             if (cardP) {
-              cardP.style.height = cardPHeight + 'px';
+              cardPHeight = cardP.offsetHeight;
             }
-          });
-          // add mouseleave event to card
-          card.addEventListener('mouseleave', () => {
+            // set p height to 0 and overflow to hidden
             if (cardP) {
               cardP.style.height = '0';
+              cardP.style.overflow = 'hidden';
             }
+            // add mouseenter event to card
+            card.addEventListener('mouseenter', () => {
+              if (cardP) {
+                cardP.style.height = cardPHeight + 'px';
+              }
+            });
+            // add mouseleave event to card
+            card.addEventListener('mouseleave', () => {
+              if (cardP) {
+                cardP.style.height = '0';
+              }
+            });
+  
           });
+          
+        }
+
+        // wait until whole page is loaded
+        window.addEventListener('load', () => {
+
+          hoverCardsInit();
 
         });
+
+
+
+        jQuery(document).ready(function($) {
+
+          const cards_section = document.querySelectorAll('.fc-section-cards');
+
+          if( cards_section.length ){
+            var currentPage = 1;
+            var maxPages = parseInt($('#load_more_posts').data('max-pages'));
+  
+            $('#load_more_posts').on('click', function() {
+                var $button = $(this);
+                currentPage++;
+  
+                var url = new URL(window.location);
+                url.searchParams.set('paged', currentPage);
+  
+                $button.addClass('loading');
+  
+                $.ajax({
+                    url: url.toString(),
+                    type: 'GET',
+                    success: function(data) {
+                        var $parsed = $($.parseHTML(data));
+                        var $newContent = $parsed.find('.fc-section-cards').children();
+  
+                        if ($newContent.length) {
+                            $('.fc-section-cards').append($newContent);
+                        }
+  
+                        if (currentPage >= maxPages) {
+                            $button.hide();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('AJAX error:', status, error);
+                        if (xhr.status === 404) {
+                            $button.hide();
+                        }
+                    },
+                    complete: function() {
+                        $button.removeClass('loading');
+                        hoverCardsInit();
+                    }
+                });
+            });
+          }
+
+
+      });
+
 
 
 

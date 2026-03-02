@@ -27,6 +27,56 @@ if( $card_source == "greenhouse" ){
         $card['card_link']['url'] = get_permalink($gh);
         $card['card_icon'] = get_post_thumbnail_id($gh);
         $cards[] = $card;
+    }
+
+}
+
+
+if( $card_source == "categories" ){
+    $cards = array();
+    $blog_categories = get_sub_field('categories');
+
+    if (isset($_GET['paged'])) {
+        set_query_var('paged', (int) $_GET['paged']);
+    }
+
+    // build query args
+    $args = array(
+        'post_type' => 'post',
+        'category__in' => $blog_categories,
+        'posts_per_page' => 9,
+        'paged' => get_query_var('paged') ?: 1,
+        'ignore_sticky_posts' => true,
+    );
+
+    $blogs_query = new WP_Query($args);
+    $query_found_posts = $blogs_query->found_posts;
+    
+    
+    $show_loadmore = 0;
+    if ($blogs_query->max_num_pages > 1) {
+        $show_loadmore = 1;
+    }
+    
+    // echo '<pre>';
+    // //print_r($blogs_query );
+    // echo '</pre>';
+
+    foreach( $blogs_query->posts as $post  ){
+        $card = array();
+
+        // get card term "collection"
+        $terms = get_the_terms($post->ID, 'collection');
+        if( $terms && ! is_wp_error( $terms ) ){
+            $term = $terms[0];
+            $card['card_category'] = $term->name;
+        }
+        $card['card_tip'] = get_field('tip_number', $post->ID);
+        $card['card_title'] = get_the_title($post->ID);
+        $card['card_description'] = get_the_excerpt($post->ID);
+        $card['card_link']['url'] = get_permalink($post->ID);
+        $card['card_icon'] = get_post_thumbnail_id($post->ID) ?: 245;
+        $cards[] = $card;
 
     }
 
@@ -40,7 +90,6 @@ if ($aos == 'no_animation') {
 }else{
     $aos_duration = get_sub_field('duration');
     $aos_step = get_sub_field('animation_step');
-
 }
 
 $class = ' uk-card uk-margin-bottom ';
@@ -53,7 +102,7 @@ switch ($per_row) {
         $class .= ' uk-width-1-1@xs uk-width-1-2@s uk-width-1-3@m';
         break;
     case 4:
-        $class .= ' uk-width-1-1@xs uk-width-1-2@s uk-width-1-3@m uk-width-1-4@l';
+        $class .= ' uk-width-1-1@xs uk-width-1-2@s uk-width-1-4@l';
         break; 
     default:
         $class .= ' uk-width-1-1@xs uk-width-1-2@s uk-width-1-6@m'; // Default to 3 per uk-container
@@ -75,48 +124,35 @@ switch ($per_row) {
 
         <?php foreach( $cards as $card ): ?>
 
-        <?php $delay += $aos_step; ?>
-        <div class="<?php echo $class; ?>" <?php if($aos != false): ?>data-aos="<?php echo $aos; ?>" data-aos-duration="<?php echo $aos_duration; ?>" data-aos-delay="<?php echo $delay; ?>"<?php endif; ?> data-hover-card> 
-            <div class="uk-height-1-1 uk-width-1-1 uk-flex uk-flex-column uk-position-relative" >
-
-                <?php $image = wp_get_attachment_image($card['card_icon'], 'thumbnail', false, array( 'class' => 'uk-width-1-1')); ?>
-                        
-                <?php if( $image ): ?>
-                    <div class="card-media uk-card-media-top">
-                        <?php echo $image; ?>
-                    </div>
-                <?php endif; ?>
-                
-
-                    <a href="<?php echo $card['card_link']['url']; ?>" class="card-body uk-card-body uk-height-1-1 uk-position-absolute uk-flex uk-flex-column uk-flex-right">
-
-                        <span class="g-section-subtitle">
-                            <?php echo $card['card_collection']; ?>
-                        </span>
-
-                        <h3 class="card-title uk-card-title uk-margin-remove">
-                            <?php echo $card['card_title']; ?>
-                        </h3>
-                    
-                        <?php if( $card['card_description'] != ''): ?>
-                        <p class="card-p uk-margin-remove">
-                            <?php echo $card['card_description']; ?>
-                        </p>
-                        <?php endif; ?>
-
-                    </a>
-
-            </div>
-        </div>
         <?php
-            if ($delay >= ($aos_step * $per_row)) {
-                $delay = 0;
-            }
+            $delay += $aos_step;
+            $args = array(
+                'card_obj' => $card,
+                'aos' => $aos,
+                'delay' => $delay,
+                'duration' => $aos_duration,
+                'step' => $aos_step,
+                'per_row' => $per_row
+            );
         ?>
+            <?php get_template_part( 'partials/content' , 'card', $args); ?>
+        <?php  if ($delay >= ($aos_step * $per_row)) { $delay = 0; } ?>
 
         <?php endforeach; ?>
 
     </div>
+
+    <?php if($show_loadmore): ?>
+        <div class="uk-margin-auto-left uk-margin-auto-right uk-flex uk-flex-column uk-flex-middle" id="load_more_posts__container">
+            <button id="load_more_posts" class="uk-width-small uk-flex uk-flex-column uk-flex-center uk-flex-middle" data-max-pages="<?php echo esc_attr($blogs_query->max_num_pages); ?>">
+                <span>Load More </span> 
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="18" viewBox="0 0 28 18" fill="none">
+                    <path d="M12.1987 16.7163C12.9555 17.5633 14.1846 17.5633 14.9415 16.7163L26.5665 3.70515C27.3233 2.85807 27.3233 1.48242 26.5665 0.635342C25.8096 -0.211736 24.5805 -0.211736 23.8237 0.635342L13.567 12.1149L3.3104 0.642117C2.55356 -0.20496 1.32446 -0.20496 0.567627 0.642117C-0.189209 1.48919 -0.189209 2.86485 0.567627 3.71193L12.1926 16.723L12.1987 16.7163Z" fill="#347763"/>
+                </svg>
+                <div class="loader"></div>
+            </button>
+        </div>
+    <?php endif; ?>
 
 <?php if($display == "carousel"): ?>
 

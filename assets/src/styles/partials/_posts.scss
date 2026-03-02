@@ -1,64 +1,82 @@
 .post-single {
 
+  .page-header-content-wrapper{
+    padding-top: 7.5rem !important;
+    padding-bottom: 3.5rem !important;
+
+    p.category-name{
+      font-family: $serif;
+      font-size: 3.75rem;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 1.2;
+      letter-spacing: 0.075rem;
+    }
+  }
+
+
+
   .post-content-wrapper {
-    margin-bottom: 80px;
 
-    .post-header {
-      text-align: center;
-
-      .post-type {
-        color: $black;
-        display: block;
-        font-family: $sans;
-        font-size: 15px;
-        letter-spacing: 3px;
-        margin: 70px 0 30px;
-        text-transform: uppercase;
-      }
+    & h1.post-title{
+        font-size: 2.1875rem;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 1.15;
+        letter-spacing: 0.04375rem;
       
-      h1.post-title {
-        margin: 0 auto 26px;
-        padding: 0 5rem;
-      }
+    }
 
-      .post-subhead {
+    & h2{
+      font-family: $sans;
+      font-size: 1.25rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: 0.1125rem;
+      text-transform: uppercase;
+    }
 
-        p {
-          font-size: 22px;
-        }
-
-      }
-
-      .post-featured-image {
-        margin: 40px auto 40px;
-        text-align: center;
-
-        img {
-          width: 100%;
-        }
-
-      }
-
-      .post-meta {
-        border-top: 1px solid #6E6F72;
-        
-        margin-bottom: 40px;
-        padding: 13px 0 0;
-        text-align: left;
-        text-transform: uppercase;
-
-        time {
-          font-family: $sans;
-          font-size: 15px;
-          letter-spacing: 1px;
-        }
-      }
-
+    & h3:not(.post-sidebar-related-posts > h3){
+      font-family: $sans;
+      font-size: 1.125rem;
+      font-weight: 400;
+      line-height: 1.2;;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
     }
 
 
+    & .post-sidebar{
+      border-radius: 1.0625rem;
+      background: $offWhite;
+
+      & .post-sidebar-related-posts{
+        
+
+        & ul{
+          list-style-type: none;
+
+          & > li{
+            padding: 0.5rem 0;
+            
+            & a{
+              color: $black;
+            }
+
+            border-bottom: 1px solid #D5D2BF;
+          }
+        }
+
+      }
+     
+    }
 
 
+  }
+
+  & + .ornament-container{
+    position: relative;
   }
 
 }
