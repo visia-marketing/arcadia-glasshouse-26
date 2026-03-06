@@ -12,7 +12,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "75",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -25,7 +25,7 @@
         },
         {
             "key": "field_699dad768e0cd",
-            "label": "Long Name",
+            "label": "Greenhouse Series Name",
             "name": "long_name",
             "aria-label": "",
             "type": "text",
@@ -37,7 +37,28 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "View Series",
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69aaf81004b7e",
+            "label": "Greenhouse Series Label",
+            "name": "series_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 0,
             "placeholder": "",
@@ -85,5 +106,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1772040442
+    "modified": 1772812432
 }

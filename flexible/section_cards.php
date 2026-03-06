@@ -17,13 +17,13 @@ if( $card_source == "greenhouse" ){
     foreach( $gh_cards as $gh  ){
         $card = array();
 
-        // get card term "collection"
-        $terms = get_the_terms($gh, 'collection');
-        if( $terms && ! is_wp_error( $terms ) ){
-            $term = $terms[0];
-            $card['card_collection'] = $term->name;
-        }
-
+        // // get card term "collection"
+        // $terms = get_the_terms($gh, 'collection');
+        // if( $terms && ! is_wp_error( $terms ) ){
+        //     $term = $terms[0];
+        //     $card['card_collection'] = $term->name;
+        // }
+        $card['card_collection'] = get_field('series_label', $gh);
         $card['card_title'] = get_field('long_name', $gh) ? get_field('long_name', $gh) : get_the_title($gh);
         $card['card_description'] = get_field('short_excerpt', $gh);
         $card['card_link']['url'] = get_permalink($gh);
@@ -70,11 +70,12 @@ if( $card_source == "categories" ){
         $card = array();
 
         // get card term "collection"
-        $terms = get_the_terms($post->ID, 'collection');
-        if( $terms && ! is_wp_error( $terms ) ){
-            $term = $terms[0];
-            $card['card_category'] = $term->name;
-        }
+        // $terms = get_the_terms($post->ID, 'collection');
+        // if( $terms && ! is_wp_error( $terms ) ){
+        //     $term = $terms[0];
+        //     $card['card_category'] = $term->name;
+        // }
+        $greenhouse['card_collection'] = get_field('series_label', $gh);
         $card['card_tip'] = get_field('tip_number', $post->ID);
         $card['card_title'] = get_the_title($post->ID);
         $excerpt = wp_strip_all_tags(get_the_excerpt($post->ID));
