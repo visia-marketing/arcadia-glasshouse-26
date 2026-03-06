@@ -346,7 +346,7 @@
                 "9.5": "Large",
                 "11.5": "X Large"
             },
-            "default_value": 0,
+            "default_value": 7,
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -376,7 +376,7 @@
                 "middle": "Center",
                 "right": "Right"
             },
-            "default_value": false,
+            "default_value": "left",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -406,7 +406,7 @@
                 "uk-container uk-container-large": "Regular",
                 "uk-container uk-container-xlarge": "Large"
             },
-            "default_value": false,
+            "default_value": "uk-container uk-container-large",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -455,5 +455,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1772464574
+    "modified": 1772813247
 }
