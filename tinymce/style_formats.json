@@ -12,9 +12,9 @@
     "wrapper": true
   },
   {
-    "title": "Large Number - Red",
+    "title": "All Caps Title",
     "inline": "span",
-    "classes": "g-section-large-numbers",
+    "classes": "g-section-allcaps-title",
     "wrapper": true
   },
   {
