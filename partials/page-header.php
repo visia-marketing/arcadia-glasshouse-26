@@ -2,9 +2,9 @@
   $page_header_content = get_field('page_header_content');
   $page_header_style = get_field('page_header_style');
   $show_page_header = get_field('show_page_header');
-  // if( is_front_page() ){
-  //   $show_page_header = false;
-  // }
+
+  $page_heading_size = 0;
+  $overlay = 0;
 
   if( is_array( $page_header_content) ){
 
@@ -69,7 +69,7 @@
         echo wp_get_attachment_image( $page_heading_background_image, 'large', false, array( "class" => "page-header-image" ) );
     }
     ?>
-    <div class="page-header-content-wrapper fc-section fc-section-<?php echo $page_heading_background;?> overlay-<?php echo $overlay;?> page-header-<?php echo $page_heading_size; ?>">
+    <div class="page-header-content-wrapper fc-section fc-section-<?php echo $page_heading_background;?> <?php if(is_front_page()): echo 'home-hero'; endif;?> overlay-<?php echo $overlay;?> page-header-<?php echo $page_heading_size; ?>">
       <div class="uk-container <?php if( !$page_heading_size ): echo "uk-container-large"; else: echo "uk-container-large"; endif; ?>">
         <div class="uk-text-center">
           <div class="page-header-content">

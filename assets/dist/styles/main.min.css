@@ -13371,12 +13371,21 @@ main:has(.ornament) {
   top: 50%;
   transform: translateY(-50%);
 }
+.fc-page-header img.page-header-image + .page-header-content-wrapper {
+  background: rgba(0, 0, 0, 0.25);
+}
 .fc-page-header .page-header-content-wrapper {
   align-self: flex-end;
   width: 100%;
-  background: rgba(0, 0, 0, 0.25);
+}
+.fc-page-header .page-header-content-wrapper.page-header-, .fc-page-header .page-header-content-wrapper.page-header-0 {
+  padding-top: 7.5rem;
 }
 .fc-page-header .page-header-content-wrapper.page-header-expanded {
+  padding-top: 15.5rem;
+  padding-bottom: 2.5rem;
+}
+.fc-page-header .page-header-content-wrapper.home-hero {
   padding-top: 12.5rem;
   padding-bottom: 12.5rem;
 }
@@ -14318,7 +14327,7 @@ body#tinymce {
     font-size: 46px;
   }
 }
-.g-section-caps-title {
+.g-section-allcaps-title {
   color: #006848;
   font-size: 1.25rem;
   font-style: normal;

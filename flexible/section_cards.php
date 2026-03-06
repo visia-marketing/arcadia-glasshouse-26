@@ -8,6 +8,8 @@ $aos = get_sub_field('animate_in');
 $aos_duration = 0;
 $aos_step = 0;
 
+$show_loadmore = 0;
+
 if( $card_source == "greenhouse" ){
 
     $cards = array();
@@ -53,7 +55,7 @@ if( $card_source == "categories" ){
     $query_found_posts = $blogs_query->found_posts;
     
     
-    $show_loadmore = 0;
+
     if ($blogs_query->max_num_pages > 1) {
         $show_loadmore = 1;
     }
@@ -63,6 +65,8 @@ if( $card_source == "categories" ){
     // echo '</pre>';
 
     foreach( $blogs_query->posts as $post  ){
+
+    //($post); 
         $card = array();
 
         // get card term "collection"
@@ -73,7 +77,18 @@ if( $card_source == "categories" ){
         }
         $card['card_tip'] = get_field('tip_number', $post->ID);
         $card['card_title'] = get_the_title($post->ID);
-        $card['card_description'] = get_the_excerpt($post->ID);
+        $excerpt = wp_strip_all_tags(get_the_excerpt($post->ID));
+        $content = wp_strip_all_tags(excerpt_remove_blocks($post->post_content));
+
+        // echo 'excerpt <br/>';
+        // print_r($excerpt);
+        // echo '<br/>';
+        // echo ' -- -- -- -- -- <br/>';
+        // echo 'content <br/>';
+        // print_r($content);
+        // echo '<br/>';
+
+        $card['card_description'] = $excerpt ?: ($content ? wp_trim_words($content, 12, null) : '');
         $card['card_link']['url'] = get_permalink($post->ID);
         $card['card_icon'] = get_post_thumbnail_id($post->ID) ?: 245;
         $cards[] = $card;
