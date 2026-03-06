@@ -92,7 +92,7 @@
 html {
   /* 1 */
   font-family: "proxima-nova", sans-serif;
-  font-size: 19px;
+  font-size: 16px;
   font-weight: normal;
   line-height: 1.5;
   /* 2 */
@@ -383,7 +383,7 @@ h4, .uk-h4 {
 }
 
 h5, .uk-h5 {
-  font-size: 19px;
+  font-size: 16px;
   line-height: 1.4;
 }
 
@@ -2256,7 +2256,7 @@ select.uk-form-width-xsmall {
   box-sizing: border-box;
   padding: 0 30px;
   vertical-align: middle;
-  font-size: 19px;
+  font-size: 16px;
   /* 8 */
   line-height: 40px;
   /* 9 */
@@ -6091,7 +6091,7 @@ ul.uk-nav-sub {
 /* Secondary modifier
  ========================================================================== */
 .uk-nav-secondary {
-  font-size: 19px;
+  font-size: 16px;
   line-height: 1.5;
 }
 .uk-nav-secondary > :not(.uk-nav-divider) + :not(.uk-nav-header, .uk-nav-divider) {
@@ -8658,7 +8658,7 @@ ul.uk-nav-sub {
 }
 
 .uk-text-default {
-  font-size: 19px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
