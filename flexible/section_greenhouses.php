@@ -9,13 +9,13 @@ foreach( $objects as $gh  ){
     $greenhouse = array();
 
 
-    $terms = get_the_terms($gh, 'collection');
+    // $terms = get_the_terms($gh, 'collection');
 
-    if( $terms && ! is_wp_error( $terms ) ){
-        $term = $terms[0];
-        $greenhouse['card_collection'] = $term->name;
-    }
-
+    // if( $terms && ! is_wp_error( $terms ) ){
+    //     $term = $terms[0];
+    //     $greenhouse['card_collection'] = $term->name;
+    // }
+    $greenhouse['card_collection'] = get_field('series_label', $gh);
     $greenhouse['card_title'] = get_field('long_name', $gh) ? get_field('long_name', $gh) : get_the_title($gh);
 
 
