@@ -12,7 +12,7 @@ if ( $footer_form && (!empty($footer_form['heading']) || !empty($footer_form['ti
 
 <footer class="main-footer">
 
-  <div class="uk-container uk-container-xlarge uk-flex uk-flex-wrap">   
+  <div class="uk-container uk-container-large uk-flex uk-flex-wrap">   
 
     <div class="uk-width-1-1@s uk-width-1-3@m uk-width-1-2@xl uk-margin-medium-bottom uk-margin-remove-bottom@m">
       <div class="footer-logo">
@@ -69,9 +69,6 @@ if ( $footer_form && (!empty($footer_form['heading']) || !empty($footer_form['ti
               <?php endforeach; ?>
             </div>
             
-
-
-
         </div>
 
       </div> <!-- .uk-grid -->
@@ -80,7 +77,7 @@ if ( $footer_form && (!empty($footer_form['heading']) || !empty($footer_form['ti
     
   </div> <!-- uk container -->
   
-  <div class="uk-container uk-container-xlarge uk-margin-xlarge-top uk-flex uk-flex-left uk-width-1-1 copyright-container">
+  <div class="uk-container uk-container-large uk-margin-xlarge-top uk-flex uk-flex-left uk-width-1-1 copyright-container">
     <div class="footer-copyright">
       <div class="copyright">
         <?php echo get_field('copyright', 'options');?>
