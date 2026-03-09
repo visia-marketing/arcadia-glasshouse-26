@@ -135,38 +135,6 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_69aaf12c7bb7b": {
-                    "key": "layout_69aaf12c7bb7b",
-                    "name": "section_four_column",
-                    "label": "Four Column",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_69aaf12c7bb7d",
-                            "label": "Four Column",
-                            "name": "four_column",
-                            "aria-label": "",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_69aaedf9a61b6"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "layout_68f147bf15582": {
                     "key": "layout_68f147bf15582",
                     "name": "section_cards",
@@ -422,6 +390,38 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_69aee792e02e8": {
+                    "key": "layout_69aee792e02e8",
+                    "name": "section_lightbox_gallery",
+                    "label": "Lightbox Gallery",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_69aee7ade02eb",
+                            "label": "Lightbox Gallery",
+                            "name": "lightbox_gallery",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6912628b50967"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -448,5 +448,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1772810569
+    "modified": 1773070268
 }
