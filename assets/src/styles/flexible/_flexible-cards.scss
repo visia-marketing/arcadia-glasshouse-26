@@ -10,7 +10,8 @@
         overflow: hidden;
     }
 
-    & a.card-body{
+    & a.card-body,
+    & div.card-body{
 
         padding: 2rem 1rem;
         background-image: linear-gradient(0deg, rgba(48, 86, 72, 1) 40%, rgba(48, 86, 72, 0.00) 100%);
