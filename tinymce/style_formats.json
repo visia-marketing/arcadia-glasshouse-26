@@ -14,7 +14,7 @@
   {
     "title": "All Caps Title",
     "inline": "span",
-    "classes": "g-section-allcaps-title",
+    "classes": "g-section-caps-title",
     "wrapper": true
   },
   {

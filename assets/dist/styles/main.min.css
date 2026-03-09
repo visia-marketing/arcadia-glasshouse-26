@@ -92,7 +92,7 @@
 html {
   /* 1 */
   font-family: "proxima-nova", sans-serif;
-  font-size: 19px;
+  font-size: 16px;
   font-weight: normal;
   line-height: 1.5;
   /* 2 */
@@ -383,7 +383,7 @@ h4, .uk-h4 {
 }
 
 h5, .uk-h5 {
-  font-size: 19px;
+  font-size: 16px;
   line-height: 1.4;
 }
 
@@ -2256,7 +2256,7 @@ select.uk-form-width-xsmall {
   box-sizing: border-box;
   padding: 0 30px;
   vertical-align: middle;
-  font-size: 19px;
+  font-size: 16px;
   /* 8 */
   line-height: 40px;
   /* 9 */
@@ -6091,7 +6091,7 @@ ul.uk-nav-sub {
 /* Secondary modifier
  ========================================================================== */
 .uk-nav-secondary {
-  font-size: 19px;
+  font-size: 16px;
   line-height: 1.5;
 }
 .uk-nav-secondary > :not(.uk-nav-divider) + :not(.uk-nav-header, .uk-nav-divider) {
@@ -8658,7 +8658,7 @@ ul.uk-nav-sub {
 }
 
 .uk-text-default {
-  font-size: 19px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
@@ -14327,7 +14327,7 @@ body#tinymce {
     font-size: 46px;
   }
 }
-.g-section-allcaps-title {
+.g-section-caps-title {
   color: #006848;
   font-size: 1.25rem;
   font-style: normal;
@@ -15387,7 +15387,7 @@ body#tinymce {
   border-radius: 0.75rem;
   overflow: hidden;
 }
-.fc-section-cards a.card-body {
+.fc-section-cards a.card-body, .fc-section-cards div.card-body {
   padding: 2rem 1rem;
   background-image: linear-gradient(0deg, rgb(48, 86, 72) 40%, rgba(48, 86, 72, 0) 100%);
   gap: 0.5rem;
@@ -15395,13 +15395,13 @@ body#tinymce {
   background-position: 50% 25%;
   transition: background-position 0.5s ease-in-out;
 }
-.fc-section-cards a.card-body:hover {
+.fc-section-cards a.card-body:hover, .fc-section-cards div.card-body:hover {
   background-position: 50% 50%;
 }
-.fc-section-cards a.card-body, .fc-section-cards a.card-body * {
+.fc-section-cards a.card-body, .fc-section-cards a.card-body *, .fc-section-cards div.card-body, .fc-section-cards div.card-body * {
   text-decoration: none;
 }
-.fc-section-cards a.card-body .card-tip {
+.fc-section-cards a.card-body .card-tip, .fc-section-cards div.card-body .card-tip {
   background: #C8F17B;
   color: #006848;
   border-radius: 0.25rem;
@@ -15415,36 +15415,36 @@ body#tinymce {
   letter-spacing: 0.1875rem;
   text-transform: uppercase;
 }
-.fc-section-cards a.card-body .g-section-subtitle {
+.fc-section-cards a.card-body .g-section-subtitle, .fc-section-cards div.card-body .g-section-subtitle {
   font-size: clamp(0.875rem, 1vw, 1rem);
   letter-spacing: clamp(0rem, 1vw, 0.15rem);
   color: #fff;
 }
-.fc-section-cards a.card-body h3 {
+.fc-section-cards a.card-body h3, .fc-section-cards div.card-body h3 {
   color: #ffffff;
   transition: color 0.3s ease-in-out;
   font-size: 1.875rem;
 }
 @media (min-width: 1400px) {
-  .fc-section-cards a.card-body h3 {
+  .fc-section-cards a.card-body h3, .fc-section-cards div.card-body h3 {
     font-size: 1.5rem;
   }
 }
 @media (min-width: 1600px) {
-  .fc-section-cards a.card-body h3 {
+  .fc-section-cards a.card-body h3, .fc-section-cards div.card-body h3 {
     font-size: 1.875rem;
   }
 }
-.fc-section-cards a.card-body h3.card-title > a {
+.fc-section-cards a.card-body h3.card-title > a, .fc-section-cards div.card-body h3.card-title > a {
   color: #ffffff !important;
 }
-.fc-section-cards a.card-body:hover h3 {
+.fc-section-cards a.card-body:hover h3, .fc-section-cards div.card-body:hover h3 {
   color: #C8F17B;
 }
-.fc-section-cards a.card-body:hover p.card-p {
+.fc-section-cards a.card-body:hover p.card-p, .fc-section-cards div.card-body:hover p.card-p {
   opacity: 1;
 }
-.fc-section-cards a.card-body p.card-p {
+.fc-section-cards a.card-body p.card-p, .fc-section-cards div.card-body p.card-p {
   color: #ffffff !important;
   font-size: 1rem;
   transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out 0.1s;
