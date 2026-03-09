@@ -35,7 +35,7 @@ switch ($per_row) {
                 <div class="uk-card-body uk-padding-remove">
 
                     <?php if( $card['cell_content']['card_title']): ?>
-                        <h3 class="uk-margin-top-remove g-section-caps-title"><?php echo $card['cell_content']['card_title']; ?></h3>
+                        <h3 class="uk-margin-top-remove g-section-subtitle"><?php echo $card['cell_content']['card_title']; ?></h3>
                     <?php endif; ?>
                     
                     

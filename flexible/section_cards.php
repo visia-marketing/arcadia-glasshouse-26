@@ -16,13 +16,6 @@ if( $card_source == "greenhouse" ){
     $gh_cards = get_sub_field('greenhouses');
     foreach( $gh_cards as $gh  ){
         $card = array();
-
-        // // get card term "collection"
-        // $terms = get_the_terms($gh, 'collection');
-        // if( $terms && ! is_wp_error( $terms ) ){
-        //     $term = $terms[0];
-        //     $card['card_collection'] = $term->name;
-        // }
         $card['card_collection'] = get_field('series_label', $gh);
         $card['card_title'] = get_field('long_name', $gh) ? get_field('long_name', $gh) : get_the_title($gh);
         $card['card_description'] = get_field('short_excerpt', $gh);
@@ -60,35 +53,15 @@ if( $card_source == "categories" ){
         $show_loadmore = 1;
     }
     
-    // echo '<pre>';
-    // //print_r($blogs_query );
-    // echo '</pre>';
-
     foreach( $blogs_query->posts as $post  ){
 
     //($post); 
         $card = array();
-
-        // get card term "collection"
-        // $terms = get_the_terms($post->ID, 'collection');
-        // if( $terms && ! is_wp_error( $terms ) ){
-        //     $term = $terms[0];
-        //     $card['card_category'] = $term->name;
-        // }
         $greenhouse['card_collection'] = get_field('series_label', $gh);
         $card['card_tip'] = get_field('tip_number', $post->ID);
         $card['card_title'] = get_the_title($post->ID);
         $excerpt = wp_strip_all_tags(get_the_excerpt($post->ID));
         $content = wp_strip_all_tags(excerpt_remove_blocks($post->post_content));
-
-        // echo 'excerpt <br/>';
-        // print_r($excerpt);
-        // echo '<br/>';
-        // echo ' -- -- -- -- -- <br/>';
-        // echo 'content <br/>';
-        // print_r($content);
-        // echo '<br/>';
-
         $card['card_description'] = $excerpt ?: ($content ? wp_trim_words($content, 12, null) : '');
         $card['card_link']['url'] = get_permalink($post->ID);
         $card['card_icon'] = get_post_thumbnail_id($post->ID) ?: 245;

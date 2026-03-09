@@ -7,6 +7,8 @@ $aos = $args['aos'];
 $aos_duration = $args['duration'];
 
 
+$card_url = !empty($card['card_link']['url']) ? $card['card_link']['url'] : '';
+
 $class = ' uk-card uk-margin-bottom ';
 
 switch ($per_row) {
@@ -39,7 +41,8 @@ switch ($per_row) {
         <?php endif; ?>
         
 
-            <a href="<?php echo $card['card_link']['url']; ?>" class="card-body uk-card-body uk-height-1-1 uk-width-1-1 uk-position-absolute uk-flex uk-flex-column uk-flex-right">
+            <?php $card_tag = $card_url ? 'a' : 'div'; ?>
+            <<?php echo $card_tag; ?> <?php if( $card_url ): ?>href="<?php echo esc_url($card_url); ?>"<?php endif; ?> class="card-body uk-card-body uk-height-1-1 uk-width-1-1 uk-position-absolute uk-flex uk-flex-column uk-flex-right">
 
 
                 <?php if( array_key_exists( 'card_tip', $card) ): ?>
@@ -65,7 +68,7 @@ switch ($per_row) {
                     </p>
                 <?php endif; ?>
 
-            </a>
+            </<?php echo $card_tag; ?>>
 
     </div>
 </div>
