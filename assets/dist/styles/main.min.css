@@ -16027,10 +16027,10 @@ body#tinymce {
 }
 .lightbox-gallery a:before {
   content: "";
-  background-color: #005138;
-  opacity: 0.1;
-  transition: opacity 0.25s ease-in-out;
-  mix-blend-mode: multiply;
+  background-image: linear-gradient(0deg, rgb(48, 86, 72) 40%, rgba(48, 86, 72, 0) 100%);
+  background-size: 200% 200%;
+  background-position: 50% 0%;
+  transition: background-position 0.5s ease-in-out;
   position: absolute;
   top: 0;
   left: 0;
@@ -16038,9 +16038,46 @@ body#tinymce {
   height: 100%;
 }
 .lightbox-gallery a:hover:before {
-  opacity: 0.4;
+  background-position: 50% 15%;
 }
-.lightbox-gallery img {
+.lightbox-gallery a:hover span.expand {
+  opacity: 1;
+  bottom: 1rem;
+}
+.lightbox-gallery a:hover span.expand:hover span {
+  opacity: 1;
+  transform: translateY(0rem);
+}
+.lightbox-gallery a span.expand {
+  position: absolute;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  bottom: 0rem;
+  left: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  opacity: 0;
+  transition: all 0.25s ease;
+  transform-origin: 50% 50%;
+}
+.lightbox-gallery a span.expand i {
+  font-size: 1.5rem;
+}
+.lightbox-gallery a span.expand span {
+  opacity: 0;
+  font-size: 1.25rem;
+  transition: all 0.25s ease;
+  transform: translateY(1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+  font-size: 1rem;
+}
+.lightbox-gallery a span.expand * {
+  color: #ffffff !important;
+}
+.lightbox-gallery a img {
   aspect-ratio: 1;
   -o-object-fit: cover;
      object-fit: cover;

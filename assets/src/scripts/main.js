@@ -50,6 +50,7 @@ import { CountUp } from 'countup.js';
                       elements: anchors,
                       showCaptions: true,
                       captionAttribute: 'data-caption',
+                      loop: false,
                   });
               }
           });
