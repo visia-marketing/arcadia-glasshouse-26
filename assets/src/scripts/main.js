@@ -44,13 +44,12 @@ import { CountUp } from 'countup.js';
 
 
           document.querySelectorAll('.lightbox-gallery').forEach(function(gallery) {
-              var anchors = gallery.querySelectorAll('[data-lightbox="gallery"]');
+              var anchors = gallery.querySelectorAll('a.lightbox-anchor');
               if (anchors.length) {
                   new SimpleLightbox({
                       elements: anchors,
                       showCaptions: true,
                       captionAttribute: 'data-caption',
-                      loop: false,
                   });
               }
           });
