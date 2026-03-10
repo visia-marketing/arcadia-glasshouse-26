@@ -32,13 +32,15 @@ switch ($column_width) {
 ?>
 
 
+<div class="fc-section-columns">
 
-
-  <?php get_template_part('flexible/section_header'); ?>
+  <?php //get_template_part('flexible/section_header'); ?>
 
   <div class="uk-flex uk-flex-<?php echo $column_align; ?>">
     <div class="content <?php if ( get_sub_field('column_width') ): echo 'uk-width-'.$column_width; else: echo 'uk-width-'.$column_width; endif; ?> ">
       <?php echo get_sub_field('column_1'); ?>
     </div>
   </div> 
+
+</div>
 
