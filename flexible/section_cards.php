@@ -101,13 +101,15 @@ switch ($per_row) {
 ?>
 
 
-    <?php get_template_part('flexible/section_header'); ?>
+    <?php //get_template_part('flexible/section_header'); ?>
     
 
     <?php if($display == "carousel"): ?>
         <div id="<?php echo $rand_id;?>" class="fc-section-cards carousel-wrapper"  data-slides-to-show="<?php echo $per_row; ?>" data-duration="<?php echo $aos_duration; ?>" data-step="<?php echo $aos_step; ?>">
+    <?php elseif($display == "simple"): ?>
+        <div id="<?php echo $rand_id;?>" class="fc-section-cards fc-section-cards-simple grid-container uk-grid uk-grid-small uk-grid-match">
     <?php else: ?>
-        <div id="<?php echo $rand_id;?>" class=fc-section-cards grid-container uk-grid uk-grid-small uk-grid-match">
+        <div id="<?php echo $rand_id;?>" class="fc-section-cards grid-container uk-grid uk-grid-small uk-grid-match">
     <?php endif; ?>
     <?php $delay = 0; ?>
 
