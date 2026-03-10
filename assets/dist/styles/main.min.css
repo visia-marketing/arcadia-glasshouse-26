@@ -15366,6 +15366,9 @@ body#tinymce {
 .fc-section-columns .content-columns {
   padding-right: 20px;
 }
+.fc-section-columns p img, .fc-section-columns p figure {
+  border-radius: 0.5rem;
+}
 
 .fc-section.lines .fc-section-columns .content-columns {
   border-left: 1px solid #c3c3c3;
@@ -15945,6 +15948,10 @@ body#tinymce {
 .fc-wrapper .fc-section p:has(.g-section-subtitle) + h2,
 .fc-page-header .fc-section p:has(.g-section-subtitle) + h2 {
   padding-top: 0;
+}
+.fc-wrapper .fc-section p,
+.fc-page-header .fc-section p {
+  margin-top: 0;
 }
 .fc-wrapper .fc-section.grid-svg,
 .fc-page-header .fc-section.grid-svg {
