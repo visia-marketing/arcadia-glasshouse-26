@@ -93,7 +93,7 @@ function setup() {
 	update_option( 'medium_size_crop', 0 ); // 0 for soft crop (resize), 1 for hard crop (crop to exact dimensions)
 
   add_image_size( 'square', 580, 570, 1 );
-  add_image_size( 'lightbox', 900, 750, true );
+  add_image_size( 'lightbox', 1100, 700, true );
 
 
 
