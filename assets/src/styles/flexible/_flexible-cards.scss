@@ -13,15 +13,15 @@
     & a.card-body,
     & div.card-body{
 
-        padding: 2rem 1rem;
+        padding: 1rem 1rem;
         background-image: linear-gradient(0deg, rgba(48, 86, 72, 1) 40%, rgba(48, 86, 72, 0.00) 100%);
         gap: 0.5rem;
         background-size: 200% 200%;
-        background-position: 50% 25%;
+        background-position: 50% 10%;
         transition: background-position 0.5s ease-in-out;
 
         &:hover{
-            background-position: 50% 50%;
+            background-position: 50% 33%;
         }
 
         &,
@@ -48,19 +48,28 @@
             letter-spacing: clamp(0rem, 1vw, 0.15rem);
             //letter-spacing: 0.15rem;
             color:#fff;
+
+            @include breakpoint(medium){
+                font-size: 0.75rem;
+            }
+            @include breakpoint(large){
+                font-size: clamp(0.875rem, 1vw, 1rem);
+            }
         }
 
         & h3{
             color: $white;
             transition: color 0.3s ease-in-out;
-            font-size:1.875rem;
+            font-size: 1.875rem;
 
-            @include breakpoint(large){
-                font-size: 1.5rem;
+            @include breakpoint(medium){
+                font-size: 1.275rem;
+                letter-spacing: 0.0375rem;
             }
 
             @include breakpoint(extra-large){
-                font-size: 1.875rem;
+                font-size: 1.575rem;
+                letter-spacing: 0.0375rem;
             }
 
             &.card-title >a{

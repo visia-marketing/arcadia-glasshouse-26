@@ -6,6 +6,13 @@
     padding-right: 20px;
   }
 
+  & p {
+    & img,
+    & figure{
+      border-radius: .5rem;
+    }
+  }
+
 }
 
 .fc-section.lines {

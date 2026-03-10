@@ -1,5 +1,5 @@
 
-  <?php get_template_part('flexible/section_header'); ?>  
+  <?php //get_template_part('flexible/section_header'); ?>  
 
   <?php 
   $column_ratio = get_sub_field('column_ratio');
@@ -37,6 +37,7 @@ switch ($column_ratio) {
 
   ?>
 
+<div class="fc-section-columns">
   <div class="uk-flex uk-grid-large uk-child-width-expand uk-flex-left" uk-grid>
 
       <div class="uk-width-1-1@s <?php echo $left_col; ?> uk-flex-stretch content column">
@@ -51,3 +52,4 @@ switch ($column_ratio) {
       </div>
 
   </div>
+</div>

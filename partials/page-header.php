@@ -71,7 +71,7 @@
     ?>
     <div class="page-header-content-wrapper fc-section fc-section-<?php echo $page_heading_background;?> <?php if(is_front_page()): echo 'home-hero'; endif;?> overlay-<?php echo $overlay;?> page-header-<?php echo $page_heading_size; ?>">
       <div class="uk-container <?php if( !$page_heading_size ): echo "uk-container-large"; else: echo "uk-container-large"; endif; ?>">
-        <div class="uk-text-center">
+        <div class="uk-text-center <?php if(is_front_page()): echo 'uk-width-2xlarge uk-margin-auto-left uk-margin-auto-right'; endif;?>">
           <div class="page-header-content">
             <?php 
             $header_content = get_field('page_header_content');
