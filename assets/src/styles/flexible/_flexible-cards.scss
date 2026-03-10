@@ -95,10 +95,6 @@
          }
     }
 
-
-
-
-
     & .slick-arrow{
         height: 100% !important;
         width: 3rem;
@@ -121,7 +117,82 @@
         }
     }
 
-   
+    &.fc-section-cards-simple {
+
+      & a.card-body,
+      & div.card-body{
+          padding: 1rem 0;
+          background-image: none;
+          gap: 0.5rem;
+          background-size: 100%;
+          background-position: 0;
+          transition: none;
+          position:relative !important;
+
+          &,
+          & *{
+              text-decoration: none;
+          }
+
+          & .card-tip{
+              background: none;
+              color: $primary;
+              border-radius: 0.25rem;
+              padding: 0.125rem 1rem;
+              max-width: max-content;
+              font-size: 1.25rem;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 1.5;
+              letter-spacing: 0.1875rem;
+              text-transform: uppercase;
+          }
+
+          & .g-section-subtitle{
+              font-size: clamp(0.875rem, 1vw, 1rem);
+              letter-spacing: clamp(0rem, 1vw, 0.15rem);
+              //letter-spacing: 0.15rem;
+              color:#fff;
+
+              @include breakpoint(medium){
+                  font-size: 0.75rem;
+              }
+              @include breakpoint(large){
+                  font-size: clamp(0.875rem, 1vw, 1rem);
+              }
+          }
+
+          & h3{
+              color: $primary;
+              transition: color 0.3s ease-in-out;
+              font-size: 1.875rem;
+
+              @include breakpoint(medium){
+                  font-size: 1.275rem;
+                  letter-spacing: 0.0375rem;
+              }
+
+              @include breakpoint(extra-large){
+                  font-size: 1.575rem;
+                  letter-spacing: 0.0375rem;
+              }
+
+              &.card-title >a{
+                    color: $white !important;
+              }
+          }
+
+          & p.card-p{
+              color: $black !important;
+              font-size: 1rem;
+              transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out 0.1s;
+              //opacity: 0;
+              height: auto !important;
+              opacity: 1 !important;
+          }
+      }
+
+    }
 
 }
 

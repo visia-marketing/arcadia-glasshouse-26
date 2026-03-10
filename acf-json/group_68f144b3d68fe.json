@@ -444,7 +444,7 @@
                                 "id": ""
                             },
                             "clone": [
-                                "field_69b039b9b5e33"
+                                "group_6912628b50967"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -459,27 +459,6 @@
             "min": "",
             "max": "",
             "button_label": "Add Content to Section"
-        },
-        {
-            "key": "field_69b039506d991",
-            "label": "Test",
-            "name": "test",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         }
     ],
     "location": [
@@ -501,5 +480,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1773156818
+    "modified": 1773158943
 }
