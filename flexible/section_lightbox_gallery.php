@@ -9,7 +9,7 @@ $lightbox_gallery = get_sub_field('lightbox_gallery');
     <?php if( $lightbox_gallery ): ?>
         <div class="lightbox-gallery uk-grid">
             <?php foreach( $lightbox_gallery as $image ): ?>
-                <div class="uk-width-1-1 uk-width-1-2@m uk-width-1-4@l uk-margin-medium-bottom">
+                <div class="uk-width-1-1 uk-width-1-2@m uk-width-1-3@l uk-margin-medium-bottom">
                     <a href="<?php echo esc_url($image['sizes']['lightbox']); ?>" data-caption="<?php echo esc_attr($image['caption']); ?>" class="lightbox-anchor">
 
                         <span class="expand">
