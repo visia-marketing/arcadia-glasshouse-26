@@ -44,14 +44,6 @@ switch ($per_row) {
             <?php $card_tag = $card_url ? 'a' : 'div'; ?>
             <<?php echo $card_tag; ?> <?php if( $card_url ): ?>href="<?php echo esc_url($card_url); ?>"<?php endif; ?> class="card-body uk-card-body uk-height-1-1 uk-width-1-1 uk-position-absolute uk-flex uk-flex-column uk-flex-right">
 
-
-                <?php if( array_key_exists( 'card_tip', $card) ): ?>
-                    <?php if( !empty($card['card_tip']) ): ?>
-                        <span class="card-tip">Tip <?php echo $card['card_tip']; ?></span>
-                    <?php endif; ?>
-                <?php endif ;?>
-
-
                 <?php if( array_key_exists('card_collection', $card) ): ?>
                     <span class="g-section-subtitle">
                         <?php echo $card['card_collection']; ?>

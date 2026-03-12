@@ -14,13 +14,13 @@ if ( $footer_form && (!empty($footer_form['heading']) || !empty($footer_form['ti
 
   <div class="uk-container uk-container-large uk-flex uk-flex-wrap">   
 
-    <div class="uk-width-1-1@s uk-width-1-3@m uk-width-1-2@xl uk-margin-medium-bottom uk-margin-remove-bottom@m">
+    <div class="uk-width-1-1@s uk-width-1-3@m uk-width-1-3@xl uk-margin-medium-bottom uk-margin-remove-bottom@m">
       <div class="footer-logo">
         <a href="<?= esc_url(home_url('/')); ?>"><img src="<?php the_field('footer_logo', 'option');?>" alt="<?php bloginfo('name'); ?>"></a>
       </div>
     </div>
 
-    <div class="uk-width-1-1@s uk-width-2-3@m uk-width-1-2@xl  uk-margin-medium-bottom uk-margin-remove-bottom@m">
+    <div class="uk-width-1-1@s uk-width-2-3@m uk-width-2-3@xl  uk-margin-medium-bottom uk-margin-remove-bottom@m">
       <div class="uk-grid uk-grid-small">
 
         <div class="uk-width-1-1@s uk-width-1-4@m ">   

@@ -39,7 +39,7 @@ if( $card_source == "categories" ){
     $args = array(
         'post_type' => 'post',
         'category__in' => $blog_categories,
-        'posts_per_page' => 9,
+        'posts_per_page' => 12,
         'paged' => get_query_var('paged') ?: 1,
         'ignore_sticky_posts' => true,
     );
