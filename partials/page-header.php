@@ -82,7 +82,7 @@
                   <?php echo esc_html($page_sub_heading); ?>
               </p>
               <?php endif; ?>
-              <h1 class="<?php if( !$page_heading_size ): echo "uk-align-left"; endif; ?>">
+              <h1 class="uk-align-left">
                 <?php if ( $page_heading ): echo esc_html($page_heading); else: the_title(); endif; ?>
               </h1>
               <?php if ( !empty($page_heading_text) ): ?>
