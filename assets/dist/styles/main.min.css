@@ -14010,6 +14010,13 @@ main:has(.ornament) {
     background-color: #006848;
     color: #fff;
   }
+  .main-header .primary-navigation-wrapper .primary-navigation > li.active:last-child > a {
+    background-color: transparent;
+    color: #006848;
+  }
+  .main-header .primary-navigation-wrapper .primary-navigation > li.active:last-child {
+    border-bottom: none;
+  }
   .main-header .store-navigation-wrapper {
     height: 100%;
   }
@@ -15512,6 +15519,9 @@ body#tinymce {
 }
 .fc-section-columns p img, .fc-section-columns p figure {
   border-radius: 0.5rem;
+}
+.fc-section-columns h1, .fc-section-columns h2, .fc-section-columns h3, .fc-section-columns h4, .fc-section-columns h5, .fc-section-columns h6 {
+  margin-top: 20px;
 }
 
 .fc-section.lines .fc-section-columns .content-columns {
