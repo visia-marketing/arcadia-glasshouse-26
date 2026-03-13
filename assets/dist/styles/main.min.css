@@ -15488,6 +15488,11 @@ body#tinymce {
   color: #3A3A3A;
 }
 
+.fc-faq-section,
+.fc-section-accordion-simple {
+  width: 100%;
+  align-self: stretch;
+}
 .fc-faq-section ul.uk-accordion > li,
 .fc-section-accordion-simple ul.uk-accordion > li {
   border-bottom: 1px solid #737373;
