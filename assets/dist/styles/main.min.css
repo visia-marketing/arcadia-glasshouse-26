@@ -16309,7 +16309,7 @@ body * .background--image.background--dark *:not(.uk-button, .uk-card *) {
 }
 
 .fc-section-cta {
-  padding: 80px 0;
+  padding: 60px 0;
 }
 .fc-section-cta:after {
   content: "";
@@ -16348,6 +16348,9 @@ body * .background--image.background--dark *:not(.uk-button, .uk-card *) {
 }
 .fc-section-cta .flex .button {
   margin: 0;
+}
+.fc-section-cta .flex img {
+  max-width: 500px;
 }
 
 .home-page .home-hero .home-hero-slides {
