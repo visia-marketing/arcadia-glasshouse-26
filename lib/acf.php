@@ -122,12 +122,15 @@ function get_flexible_content() {
 
         #' . esc_html($id) . '.fc-section > .uk-container{
             row-gap: ' . esc_html( ($content_spacing * 1.5) ) . 'rem;
+            width: 100%;
         }
 
 
-        #' . esc_html($id) . ' > .fc-section-columns {
-          min-width: calc(100% - 4rem);
-          max-width: calc(100% - 4rem);
+        #' . esc_html($id) . ' .fc-section-columns {
+          width: 100%;
+          min-width: 100%;
+          max-width: 100%;
+          align-self: stretch;
         }
       </style>';
 
