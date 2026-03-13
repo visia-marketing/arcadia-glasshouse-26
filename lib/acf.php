@@ -122,7 +122,7 @@ function get_flexible_content() {
 
         #' . esc_html($id) . '.fc-section > .uk-container{
             row-gap: ' . esc_html( ($content_spacing * 1.5) ) . 'rem;
-            width: 100%;
+            width: calc(100% - 80px);
         }
 
 
