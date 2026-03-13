@@ -53,18 +53,16 @@ if( $card_source == "categories" ){
         $show_loadmore = 1;
     }
     
-    foreach( $blogs_query->posts as $post  ){
+    foreach( $blogs_query->posts as $blog_post ){
 
-    //($post); 
         $card = array();
-        $greenhouse['card_collection'] = get_field('series_label', $gh);
-        $card['card_tip'] = get_field('tip_number', $post->ID);
-        $card['card_title'] = get_the_title($post->ID);
-        $excerpt = wp_strip_all_tags(get_the_excerpt($post->ID));
-        $content = wp_strip_all_tags(excerpt_remove_blocks($post->post_content));
+        $card['card_tip'] = get_field('tip_number', $blog_post->ID);
+        $card['card_title'] = get_the_title($blog_post->ID);
+        $excerpt = wp_strip_all_tags(get_the_excerpt($blog_post->ID));
+        $content = wp_strip_all_tags(excerpt_remove_blocks($blog_post->post_content));
         $card['card_description'] = $excerpt ?: ($content ? wp_trim_words($content, 12, null) : '');
-        $card['card_link']['url'] = get_permalink($post->ID);
-        $card['card_icon'] = get_post_thumbnail_id($post->ID) ?: 245;
+        $card['card_link']['url'] = get_permalink($blog_post->ID);
+        $card['card_icon'] = get_post_thumbnail_id($blog_post->ID) ?: 245;
         $cards[] = $card;
 
     }
