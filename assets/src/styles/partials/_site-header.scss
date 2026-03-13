@@ -231,16 +231,13 @@
 
         &.active:last-child {
 
-          
-
-            > a {
-              background-color: transparent;
-              color: $primary;
-            }
-            border-bottom: none;
+          > a {
+            background-color: transparent;
+            color: $primary;
           }
-
-
+          border-bottom: none;
+          
+        }
 
       }
 

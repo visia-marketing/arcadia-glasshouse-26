@@ -58,7 +58,9 @@ foreach( $objects as $gh  ){
                 </div>
             </div>
 
+            <?php if( $i < count($greenhouses) - 1 ): ?>
             <hr class="uk-width-1-1 uk-margin-large-left uk-margin-large-top"/>
+            <?php endif; ?>
 
         </div>
     <?php endforeach; ?>

@@ -53,11 +53,11 @@ if ( $footer_form && (!empty($footer_form['heading']) || !empty($footer_form['ti
 
             <?php $social_media = get_field('social_media', 'options'); ?>
             <div class="social-icons uk-margin-small-top uk-flex uk-flex-wrap uk-flex-left">
-              <?php foreach( $social_media as $social ): ?>
-                <a href="<?php echo $social['url']; ?>" target="_blank" class="uk-margin-small-right">
-                  <i class="fa-brands fa-<?php echo $social['social_icon']; ?> fa-2xl"></i>
+              <?php if( $social_media ): foreach( $social_media as $social ): ?>
+                <a href="<?php echo esc_url($social['social_url']); ?>" target="_blank" class="uk-margin-small-right">
+                  <i class="fa-brands fa-<?php echo esc_attr($social['social_icon']); ?> fa-2xl"></i>
                 </a>
-              <?php endforeach; ?>
+              <?php endforeach; endif; ?>
             </div>
 
             <?php $footer_badges = get_field('footer_badges', 'options'); ?>
@@ -68,7 +68,8 @@ if ( $footer_form && (!empty($footer_form['heading']) || !empty($footer_form['ti
                 </a>
               <?php endforeach; ?>
             </div>
-            
+
+          </div>
         </div>
 
       </div> <!-- .uk-grid -->
