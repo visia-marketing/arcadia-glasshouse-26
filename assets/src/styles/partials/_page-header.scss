@@ -1,9 +1,7 @@
 .fc-page-header {
   display: flex;
-  //height: 100px;
   position: relative;
   overflow: hidden;
-
 
   & img.page-header-image{
     position: absolute;
@@ -25,17 +23,48 @@
 
     &.page-header-,
     &.page-header-0{
-      padding-top: 7.5rem;
+      padding-top: 4rem;
+
+      @include breakpoint(medium) {
+        padding-top: 7.5rem;
+      }
     }
 
     &.page-header-expanded{
-      padding-top: 15.5rem;
-      padding-bottom: 2.5rem;
+      padding-top: 6rem;
+      padding-bottom: 1.5rem;
+
+      @include breakpoint(medium) {
+        padding-top: 15.5rem;
+        padding-bottom: 2.5rem;
+      }
     }
 
     &.home-hero{
-      padding-top: 12.5rem;
-      padding-bottom: 12.5rem;
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+
+      @include breakpoint(medium) {
+        padding-top: 12.5rem;
+        padding-bottom: 12.5rem;
+      }
+    }
+
+    // Reduce heading sizes on mobile
+    h1 {
+      font-size: $base-h1-font-size * 0.7;
+
+      @include breakpoint(medium) {
+        font-size: $base-h1-font-size;
+      }
+    }
+
+    h2 {
+      font-size: $base-h2-font-size * 0.75;
+
+      @include breakpoint(medium) {
+        font-size: $base-h2-font-size;
+      }
     }
 
     .page-header-content {
