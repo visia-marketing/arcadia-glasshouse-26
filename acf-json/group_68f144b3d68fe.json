@@ -454,6 +454,143 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_section_spacer": {
+                    "key": "layout_section_spacer",
+                    "name": "section_spacer",
+                    "label": "Spacer",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_section_spacer_size",
+                            "label": "Size",
+                            "name": "spacer_size",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "Controls the height of the spacer.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "small": "Small",
+                                "medium": "Medium",
+                                "large": "Large",
+                                "xlarge": "Extra Large",
+                                "custom": "Custom"
+                            },
+                            "default_value": "medium",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
+                            "key": "field_section_spacer_custom",
+                            "label": "Custom Height",
+                            "name": "spacer_custom",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Enter a CSS value e.g. 6rem, 100px, 5vh",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_section_spacer_size",
+                                        "operator": "==",
+                                        "value": "custom"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "e.g. 6rem"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_section_hr": {
+                    "key": "layout_section_hr",
+                    "name": "section_hr",
+                    "label": "Divider",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_section_hr_style",
+                            "label": "Style",
+                            "name": "hr_style",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "solid": "Solid",
+                                "dashed": "Dashed",
+                                "dotted": "Dotted"
+                            },
+                            "default_value": "solid",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
+                            "key": "field_section_hr_color",
+                            "label": "Color",
+                            "name": "hr_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "primary": "Primary",
+                                "secondary": "Secondary",
+                                "light": "Light"
+                            },
+                            "default_value": "primary",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -480,5 +617,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1773158943
+    "modified": 1773583886
 }

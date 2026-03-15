@@ -91,11 +91,13 @@
                 </p>
               <?php  endif; ?>
 
-              <?php if ( !empty($page_header_button) ): ?>
-                <a href="<?php echo esc_html($page_header_button['url']); ?>" class="uk-button uk-button-primary uk-button-bright uk-button-large uk-margin-top">
-                    <?php echo $page_header_button['title']; ?>
+              <?php if ( !empty($page_header_button) && !empty($page_header_button['url']) ): ?>
+                <a href="<?php echo esc_url( $page_header_button['url'] ); ?>"
+                   class="uk-button uk-button-primary uk-button-bright uk-button-large uk-margin-top"
+                   <?php if ( !empty($page_header_button['target']) ): ?>target="<?php echo esc_attr( $page_header_button['target'] ); ?>"<?php endif; ?>>
+                  <?php echo esc_html( $page_header_button['title'] ); ?>
                 </a>
-              <?php  endif; ?>
+              <?php endif; ?>
 
 
           </div>

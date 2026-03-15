@@ -37,9 +37,7 @@ import { CountUp } from 'countup.js';
         AOS.init({
           duration: 1000,
           once: true,
-        },
-          console.log('AOS loaded')
-        );
+        });
 
 
 
@@ -79,7 +77,6 @@ import { CountUp } from 'countup.js';
             if (countUp.error) {
               console.error(countUp.error);
             }
-            console.log('CountUpJS loaded')
           });
         }
 
@@ -89,9 +86,6 @@ import { CountUp } from 'countup.js';
           var $this = $(this);
           var $slidesToShow = $this.data('slides-to-show');
           var $duration = $this.data('duration');
-      
-          console.log('Slides to show: ' + $slidesToShow);
-          console.log('Duration: ' + $duration);
       
           $this.slick({
             infinite: true,
@@ -153,64 +147,50 @@ import { CountUp } from 'countup.js';
           
         }
 
-        // wait until whole page is loaded
-        jQuery(document).ready(function($) {
-          setTimeout(
-            hoverCardsInit(),
-            500
-          )
-        });
+        setTimeout(hoverCardsInit, 500);
 
+        const cards_section = document.querySelectorAll('.fc-section-cards');
 
+        if( cards_section.length ){
+          var currentPage = 1;
+          var maxPages = parseInt($('#load_more_posts').data('max-pages'));
 
-        jQuery(document).ready(function($) {
+          $('#load_more_posts').on('click', function() {
+              var $button = $(this);
+              currentPage++;
 
-          const cards_section = document.querySelectorAll('.fc-section-cards');
+              var url = new URL(window.location);
+              url.searchParams.set('paged', currentPage);
 
-          if( cards_section.length ){
-            var currentPage = 1;
-            var maxPages = parseInt($('#load_more_posts').data('max-pages'));
-  
-            $('#load_more_posts').on('click', function() {
-                var $button = $(this);
-                currentPage++;
-  
-                var url = new URL(window.location);
-                url.searchParams.set('paged', currentPage);
-  
-                $button.addClass('loading');
-  
-                $.ajax({
-                    url: url.toString(),
-                    type: 'GET',
-                    success: function(data) {
-                        var $parsed = $($.parseHTML(data));
-                        var $newContent = $parsed.find('.fc-section-cards').children();
-  
-                        if ($newContent.length) {
-                            $('.fc-section-cards').append($newContent);
-                        }
-  
-                        if (currentPage >= maxPages) {
-                            $button.hide();
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.log('AJAX error:', status, error);
-                        if (xhr.status === 404) {
-                            $button.hide();
-                        }
-                    },
-                    complete: function() {
-                        $button.removeClass('loading');
-                        hoverCardsInit();
-                    }
-                });
-            });
-          }
+              $button.addClass('loading');
 
+              $.ajax({
+                  url: url.toString(),
+                  type: 'GET',
+                  success: function(data) {
+                      var $parsed = $($.parseHTML(data));
+                      var $newContent = $parsed.find('.fc-section-cards').children();
 
-      });
+                      if ($newContent.length) {
+                          $('.fc-section-cards').append($newContent);
+                      }
+
+                      if (currentPage >= maxPages) {
+                          $button.hide();
+                      }
+                  },
+                  error: function(xhr) {
+                      if (xhr.status === 404) {
+                          $button.hide();
+                      }
+                  },
+                  complete: function() {
+                      $button.removeClass('loading');
+                      hoverCardsInit();
+                  }
+              });
+          });
+        }
 
 
 
@@ -279,5 +259,13 @@ import { CountUp } from 'countup.js';
 
   // Load Events
   $(document).ready(UTIL.loadEvents);
+
+  // Mobile nav: toggle button expands/collapses sub-menus independently of the link
+  document.querySelectorAll('.mobile-nav-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var parent = this.closest('.has-children');
+      parent.classList.toggle('is-open');
+    });
+  });
 
 })(jQuery); // Fully reference jQuery after this point.

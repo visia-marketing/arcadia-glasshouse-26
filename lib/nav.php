@@ -1,10 +1,36 @@
 <?php
 /**
  * Custom Navigation Walker for WordPress Menus
- * 
- * Creates cleaner HTML markup for navigation menus with Foundation framework support.
- * Extends WordPress's Walker_Nav_Menu class to customize menu output.
  */
+
+/**
+ * Mobile Nav Walker — outputs UIKit uk-nav compatible markup with accordion support.
+ */
+class Mobile_Nav_Walker extends Walker_Nav_Menu {
+
+  function start_lvl(&$output, $depth = 0, $args = array()) {
+    $output .= "\n<ul class=\"mobile-nav-sub\">\n";
+  }
+
+  function end_lvl(&$output, $depth = 0, $args = array()) {
+    $output .= "\n</ul>\n";
+  }
+
+  function display_element($element, &$children_elements, $max_depth, $depth = 0, $args, &$output) {
+    $has_children = !empty($children_elements[$element->ID]) && (($depth + 1) < $max_depth || $max_depth === 0);
+    if ($has_children) {
+      $element->classes[] = 'has-children';
+    }
+    parent::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
+  }
+
+  function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+    parent::start_el($output, $item, $depth, $args, $id);
+    if (in_array('has-children', (array) $item->classes)) {
+      $output .= '<button class="mobile-nav-toggle" aria-label="Toggle submenu"><span uk-icon="chevron-down"></span></button>';
+    }
+  }
+}
 
 class Roots_Nav_Walker extends Walker_Nav_Menu {
   /**
@@ -30,8 +56,11 @@ class Roots_Nav_Walker extends Walker_Nav_Menu {
    * @param array $args Array of wp_nav_menu() arguments
    */
   function start_lvl(&$output, $depth = 0, $args = array()) {
-    // Foundation-specific classes for vertical dropdown submenus
-    $output .= "\n<ul class=\"submenu menu vertical\" data-submenu>\n";
+    $output .= "\n<div class=\"nav-dropdown\"><ul class=\"nav-dropdown-list\">\n";
+  }
+
+  function end_lvl(&$output, $depth = 0, $args = array()) {
+    $output .= "\n</ul></div>\n";
   }
 
   /**
@@ -52,19 +81,10 @@ class Roots_Nav_Walker extends Walker_Nav_Menu {
     parent::start_el($item_html, $item, $depth, $args);
 
     /**
-     * Handle dropdown toggles for top-level items with children
-     * Currently commented out - likely for Bootstrap dropdown compatibility
-     */
-    if ($item->is_dropdown && ($depth === 0)) {
-      // Bootstrap dropdown toggle markup (currently disabled)
-      // $item_html = str_replace('<a', '<a class="dropdown-toggle" data-toggle="dropdown" data-target="#"', $item_html);
-      // $item_html = str_replace('</a>', ' <b class="caret"></b></a>', $item_html);
-    }
-    /**
      * Handle divider menu items
      * Removes the anchor tag for menu items marked as dividers
      */
-    elseif (stristr($item_html, 'li class="divider')) {
+    if (stristr($item_html, 'li class="divider')) {
       $item_html = preg_replace('/<a[^>]*>.*?<\/a>/iU', '', $item_html);
     }
     /**
@@ -97,9 +117,8 @@ class Roots_Nav_Walker extends Walker_Nav_Menu {
     // Check if this element has children and we haven't reached max depth
     $element->is_dropdown = ((!empty($children_elements[$element->ID]) && (($depth + 1) < $max_depth || ($max_depth === 0))));
 
-    // Add Foundation's 'has-submenu' class to parent items
     if ($element->is_dropdown) {
-      $element->classes[] = 'has-submenu'; // Foundation class (Bootstrap would use 'has-dropdown')
+      $element->classes[] = 'has-submenu';
     }
 
     // Let parent class handle the rest of the display

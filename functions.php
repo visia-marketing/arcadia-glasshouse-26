@@ -24,7 +24,6 @@ $sage_includes = [
   'lib/extras.php',    // Custom helper functions and additional theme functionality
   'lib/nav.php',       // Navigation menu setup and configuration (adapted from FoundationPress)
   'lib/setup.php',     // Core theme setup, support declarations, and initialization
-  'lib/shortcodes.php',// Custom WordPress shortcode definitions
   'lib/tinymce.php',   // TinyMCE editor customizations and enhancements
   'lib/titles.php',    // Dynamic page title generation and management
   'lib/wrapper.php',   // Theme wrapper class for template hierarchy manipulation
