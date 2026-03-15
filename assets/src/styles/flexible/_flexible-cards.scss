@@ -95,6 +95,17 @@
          }
     }
 
+    // Hide default slick arrow text, use SVG arrows from JS instead
+    & .slick-prev:before,
+    & .slick-next:before {
+        content: '' !important;
+    }
+
+    // Carousel SVG arrow color
+    & svg * {
+        stroke: $primary;
+    }
+
     & .slick-arrow{
         height: 100% !important;
         width: 3rem;
@@ -103,7 +114,7 @@
         &.slick-prev{
             background: linear-gradient(90deg, rgba( $gray-bg, 1) 25%, rgba( $gray-bg, 0) 100%);
 
-            @media screen and (min-width: 1400px){
+            @include breakpoint(xlarge){
                 left: -3rem !important;
             }
         }
@@ -111,7 +122,7 @@
         &.slick-next{
             background: linear-gradient(270deg, rgba( $gray-bg, 1) 25%, rgba( $gray-bg, 0) 100%);
 
-            @media screen and (min-width: 1400px){
+            @include breakpoint(xlarge){
                 right: -3rem !important;
             }
         }

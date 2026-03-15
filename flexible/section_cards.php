@@ -70,7 +70,7 @@ if( $card_source == "categories" ){
 }
 
 
-$rand_id = $display . '_' . wp_generate_uuid4();
+$rand_id = esc_attr( $display . '_' . wp_generate_uuid4() );
 
 if ($aos == 'no_animation') {
     $aos = false;
@@ -143,18 +143,3 @@ switch ($per_row) {
         </div>
     <?php endif; ?>
 
-<?php if($display == "carousel"): ?>
-
-    <style>
-
-        #<?php echo $rand_id;?> .carousel-wrapper .slick-prev:before,
-        #<?php echo $rand_id;?> .carousel-wrapper .slick-next:before{
-            content: '' !important;
-        }
-
-        #<?php echo $rand_id;?> .carousel-wrapper svg *{
-            stroke: #072E6E;
-        }
-
-    </style>
-<?php endif; ?>

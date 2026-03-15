@@ -16,18 +16,18 @@
 	<div class="uk-container uk-container-xlarge uk-flex uk-flex-middle uk-padding-small">
     <div class="uk-width-1-2 uk-width-1-6@m uk-padding-small">
       <div class="main-logo">
-        <a href="<?= esc_url(home_url('/')); ?>"><img src="<?php the_field('main_logo', 'option');?>" alt="<?php bloginfo('name'); ?>"></a>
+        <a href="<?= esc_url(home_url('/')); ?>"><img src="<?php echo esc_url( get_field('main_logo', 'option') ); ?>" alt="<?php bloginfo('name'); ?>" loading="lazy"></a>
       </div>
     </div>
     <div class="uk-width-expand uk-flex uk-flex-right uk-flex-middle hide-for-medium">
       <button class="menu-icon" type="button" uk-toggle="target: #uk-off-canvas"></button>
 		</div>
     <div class="uk-width-expand@m show-for-medium">
-      <div class="primary-navigation-wrapper">
+      <div class="primary-navigation-wrapper" uk-navbar>
         <?php
         if (has_nav_menu('primary_navigation')) :
-          wp_nav_menu(['theme_location' => 'primary_navigation', 'depth' => 2, 'menu_class' => 'menu primary-navigation uk-margin-remove ', 'items_wrap' => '<ul class="%2$s" id="primary-navigation" data-responsive-menu="drilldown medium-dropdown">%3$s</ul>' ]); 
-          endif;
+          wp_nav_menu(['theme_location' => 'primary_navigation', 'depth' => 2, 'menu_class' => 'menu primary-navigation uk-margin-remove', 'items_wrap' => '<ul class="%2$s" id="primary-navigation">%3$s</ul>' ]);
+        endif;
         ?>
       </div>
     </div>

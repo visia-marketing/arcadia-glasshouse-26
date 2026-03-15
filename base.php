@@ -14,7 +14,7 @@ use Roots\Sage\Wrapper;
 
     <?php if ( get_field('google_tag_manager_id', 'options') ):?>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo get_field('google_tag_manager_id', 'options');?>"
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo esc_attr( get_field('google_tag_manager_id', 'options') ); ?>"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <?php endif; ?>
@@ -26,9 +26,18 @@ use Roots\Sage\Wrapper;
 
             <button class="uk-offcanvas-close" type="button" uk-close></button>
 
+            <?php $mobile_logo = get_field('footer_logo', 'option'); ?>
+            <?php if ($mobile_logo) : ?>
+              <div class="offcanvas-logo">
+                <a href="<?= esc_url(home_url('/')); ?>">
+                  <img src="<?= esc_url($mobile_logo); ?>" alt="<?php bloginfo('name'); ?>">
+                </a>
+              </div>
+            <?php endif; ?>
+
             <?php
             if (has_nav_menu('mobile_navigation')) :
-              wp_nav_menu(['theme_location' => 'mobile_navigation', 'depth' => 3, 'menu_class' => 'vertical menu accordion-menu mobile-navigation', 'items_wrap' => '<ul class="%2$s" id="mobile-navigation" data-accordion-menu data-submenu-toggle="true">%3$s</ul>' ]); 
+              wp_nav_menu(['theme_location' => 'mobile_navigation', 'depth' => 3, 'menu_class' => 'mobile-navigation', 'walker' => new Mobile_Nav_Walker(), 'items_wrap' => '<ul class="%2$s" id="mobile-navigation">%3$s</ul>']);
               endif;
             ?>
 

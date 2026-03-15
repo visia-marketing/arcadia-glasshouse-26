@@ -3,13 +3,32 @@
 @import "../flexible/flexible-cards";
 @import "../flexible/flexible-page-header";
 @import "../flexible/flexible-section-heading";
-@import "../flexible/flexible-styles";
-
 @import "../flexible/flexible-animated-numbers";
 
 @import "../flexible/flexible-icon-grid";
 @import "../flexible/flexible-greenhouses";
 @import "../flexible/flexible-lightbox-gallery";
+
+// Spacer
+.fc-spacer {
+  display: block;
+}
+
+// HR / Divider
+.fc-hr {
+  border: none;
+  border-top-width: 1px;
+  border-top-style: solid;
+  margin: 0;
+
+  &--solid  { border-top-style: solid; }
+  &--dashed { border-top-style: dashed; }
+  &--dotted { border-top-style: dotted; }
+
+  &--primary   { border-top-color: $primary; }
+  &--secondary { border-top-color: $secondary; }
+  &--light     { border-top-color: rgba($black, 0.15); }
+}
 
 .fc-wrapper,
 .fc-page-header
@@ -35,13 +54,55 @@
     }
 
     &.fc-section-1 {
-      padding: 30px 0 30px;
+    padding: 30px 0 30px;
 
-      @include breakpoint(medium) {
-        padding: 124px 0;
-      }
-
+    @include breakpoint(medium) {
+      padding: 124px 0;
     }
+
+  }
+
+  // Section padding — top (mobile first, scale up at medium breakpoint)
+  &.pt-none   { padding-top: 0 !important; }
+  &.pt-tiny   { padding-top: 2rem !important;   @include breakpoint(medium) { padding-top: 3.25rem !important; } }
+  &.pt-small  { padding-top: 3.25rem !important; @include breakpoint(medium) { padding-top: 5.5rem !important; } }
+  &.pt-medium { padding-top: 4.5rem !important;  @include breakpoint(medium) { padding-top: 7.75rem !important; } }
+  &.pt-large  { padding-top: 6.5rem !important;  @include breakpoint(medium) { padding-top: 11rem !important; } }
+  &.pt-xlarge { padding-top: 9rem !important;    @include breakpoint(medium) { padding-top: 15.25rem !important; } }
+
+  // Section padding — bottom
+  &.pb-none   { padding-bottom: 0 !important; }
+  &.pb-tiny   { padding-bottom: 2rem !important;   @include breakpoint(medium) { padding-bottom: 3.25rem !important; } }
+  &.pb-small  { padding-bottom: 3.25rem !important; @include breakpoint(medium) { padding-bottom: 5.5rem !important; } }
+  &.pb-medium { padding-bottom: 4.5rem !important;  @include breakpoint(medium) { padding-bottom: 7.75rem !important; } }
+  &.pb-large  { padding-bottom: 6.5rem !important;  @include breakpoint(medium) { padding-bottom: 11rem !important; } }
+  &.pb-xlarge { padding-bottom: 9rem !important;    @include breakpoint(medium) { padding-bottom: 15.25rem !important; } }
+
+  // Background image via CSS custom property
+  &.fc-section-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+  }
+
+  // Row gap on inner container (mobile first, scale up at medium breakpoint)
+  & > .uk-container {
+    width: calc(100% - 80px);
+
+    &.gap-none   { row-gap: 0; }
+    &.gap-tiny   { row-gap: 2rem;   @include breakpoint(medium) { row-gap: 3.75rem; } }
+    &.gap-small  { row-gap: 4.5rem; @include breakpoint(medium) { row-gap: 7.5rem; } }
+    &.gap-medium { row-gap: 6rem;   @include breakpoint(medium) { row-gap: 10.5rem; } }
+    &.gap-large  { row-gap: 8.5rem; @include breakpoint(medium) { row-gap: 14.25rem; } }
+    &.gap-xlarge { row-gap: 10rem;  @include breakpoint(medium) { row-gap: 17.25rem; } }
+  }
 
     &.fc-section-image {
       position: relative;
@@ -199,7 +260,20 @@ body *{
 
 .fc-section-cta {
   padding: 60px 0;
-  
+  position: relative;
+
+  // Break out of the parent fc-section container so the CTA spans full viewport width
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+
+  // Background image via CSS custom property (set inline from PHP)
+  &.fc-section-image {
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+  }
+
   &:after {
     content: "";
     position: absolute;

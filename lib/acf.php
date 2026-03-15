@@ -1,7 +1,5 @@
 <?php
 
-//namespace Roots\Sage\Acf;
-
 /**
  * Auto-Collapse ACF Flexible Content Layouts in Admin
  * 
@@ -87,72 +85,44 @@ function get_flexible_content() {
       $background_image_id = get_sub_field('background_image');     // Background image attachment ID
       
       
-      $top_padding = get_sub_field('top_padding') ?: 0;
-      $bottom_padding = get_sub_field('bottom_padding') ?: 0;
-      $content_spacing = get_sub_field('content_spacing') ?: 0;
+      $padding_map = [ '0' => 'none', '3.25' => 'tiny', '5.5' => 'small', '7.75' => 'medium', '11' => 'large', '15.25' => 'xlarge' ];
+      $spacing_map = [ '0' => 'none', '2.5' => 'tiny', '5' => 'small', '7' => 'medium', '9.5' => 'large', '11.5' => 'xlarge' ];
+
+      $top_padding    = $padding_map[ get_sub_field('top_padding') ]    ?? get_sub_field('top_padding')    ?? 'none';
+      $bottom_padding = $padding_map[ get_sub_field('bottom_padding') ] ?? get_sub_field('bottom_padding') ?? 'none';
+      $content_spacing = $spacing_map[ get_sub_field('content_spacing') ] ?? get_sub_field('content_spacing') ?? 'none';
       $horizontal_align = get_sub_field('horizontal_align') ?: '';
 
-      $containerWidth = get_sub_field('container_width') ?: 'uk-container-expand uk-width-1-1'; // Container width class (default, wide, full)
+      $container_map = [
+        'small'                            => '',
+        'regular'                          => 'uk-container-large',
+        'large'                            => 'uk-container-xlarge',
+        // Legacy: full class strings stored before this was simplified
+        'uk-container'                     => '',
+        'uk-container uk-container-large'  => 'uk-container-large',
+        'uk-container uk-container-xlarge' => 'uk-container-xlarge',
+      ];
+      $container_modifier = $container_map[ get_sub_field('container_width') ] ?? '';
 
       // ornamentation
       $ornament = get_sub_field('ornament');
+      $ornament_svg = '';
 
-      if( $ornament  != 0){
+      $allowed_ornaments = [1, 2, 3, 4, 5, 6, 7];
+      if( in_array((int) $ornament, $allowed_ornaments, true) ){
         $ornament_align = get_sub_field('ornament_alignment') == '0' ? 'left' : 'right';
         $svg_path = get_template_directory() . '/assets/src/svg/';
-        $ornament_svg = '';
-        $ornament_svg = file_get_contents($svg_path.'ornament_'.$ornament.'.svg');
+        $ornament_svg = file_get_contents($svg_path . 'ornament_' . (int) $ornament . '.svg');
       }
 
 
 
-      //echo get_row_layout();
-      echo '<style>
-        #' . esc_html($id) . ' {
-          padding-top: ' . esc_html( $top_padding  ) . 'rem;
-          padding-bottom: ' . esc_html( $bottom_padding  ) . 'rem;
-          position: relative;
-        }
-
-        #' . esc_html($id) . '.fc-section {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-
-        #' . esc_html($id) . '.fc-section > .uk-container{
-            row-gap: ' . esc_html( ($content_spacing * 1.5) ) . 'rem;
-            width: calc(100% - 80px);
-        }
-
-
-        #' . esc_html($id) . ' .fc-section-columns {
-          width: 100%;
-          min-width: 100%;
-          max-width: 100%;
-          align-self: stretch;
-        }
-      </style>';
-
-      // add background image if set
-      echo '<style>';
-        if ($background === 'image' && $background_image_id) {
-          $background_image_url = wp_get_attachment_image_url($background_image_id, 'full');
-          echo '#' . esc_html($id) . '::before { 
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            display: block;
-            background-image: url(' . esc_url($background_image_url) . '); 
-            background-size: cover; 
-            background-position: center; 
-          }';
-        }
-      echo '</style>';
+      // Background image via CSS custom property
+      $bg_style = '';
+      if ($background === 'image' && $background_image_id) {
+        $background_image_url = wp_get_attachment_image_url($background_image_id, 'full');
+        $bg_style = ' style="--bg-image: url(' . esc_url($background_image_url) . ')"';
+      }
 
 
 
@@ -166,9 +136,9 @@ function get_flexible_content() {
        * - fc-section-[background]: Background type class
        * - Custom classes from ACF fields
        */
-      echo '<section class="fc-section fc-section-' . esc_attr(get_row_index()) . ' fc-section-' . esc_attr($background) . ' ' . esc_attr($class) . '" id="' . esc_attr($id) . '">';
+      echo '<section class="fc-section fc-section-' . esc_attr(get_row_index()) . ' fc-section-' . esc_attr($background) . ' pt-' . esc_attr($top_padding) . ' pb-' . esc_attr($bottom_padding) . ' ' . esc_attr($class) . '" id="' . esc_attr($id) . '"' . $bg_style . '>';
 
-        if ($ornament != 0) { 
+        if ($ornament_svg) {
           echo '<div id="ornament_'.$id.'" class="uk-container uk-container-xlarge ornament-container uk-flex uk-flex-'.$ornament_align.'">';
             echo '<div class="ornament">';
               echo $ornament_svg;
@@ -179,7 +149,7 @@ function get_flexible_content() {
         ?>
 
 
-        <?php if( str_contains($background, 'grid-svg'  ) ): ?>
+        <?php if( strpos($background, 'grid-svg') !== false ): ?>
           <div class="grid-svg-wrapper">
             <?php 
               $svg_path = get_template_directory() . '/assets/src/svg/';
@@ -193,7 +163,7 @@ function get_flexible_content() {
 
         <?php
 
-        echo '<div class="' . esc_attr($containerWidth) . ' uk-flex uk-flex-column uk-flex-'.$horizontal_align.'">';
+        echo '<div class="uk-container ' . esc_attr($container_modifier) . ' uk-flex uk-flex-column uk-flex-' . esc_attr($horizontal_align) . ' gap-' . esc_attr($content_spacing) . '">';
 
 
 
@@ -210,68 +180,3 @@ function get_flexible_content() {
 
 
 
-/**
- * ACF Helper Functions
- * 
- * Collection of utility functions for common ACF output patterns.
- * Note: These are marked as "not currently in use" but kept for potential future use.
- */
-
-
-/**
- * Output ACF Image Attachment
- * 
- * Helper to display an image from an ACF image field that returns an attachment ID.
- * Wraps wp_get_attachment_image() with ACF-specific defaults.
- * 
- * @param int $image Attachment ID from ACF image field
- * @param string $size WordPress image size (thumbnail, medium, large, full, or custom)
- * @param string $class CSS class to apply to the image element
- */
-function acf_attachment_img($image, $size = 'full', $class = 'nc'){
-  if( $image ) {
-      echo wp_get_attachment_image( $image, $size,'', array( "class" => $class ) );
-  }
-}
-
-/**
- * Wrap ACF Field in HTML Element
- * 
- * Utility function to wrap any ACF field value in an HTML element.
- * Useful for consistent markup when outputting text fields.
- * 
- * @param mixed $field The ACF field value to output
- * @param string $element HTML element to wrap content in (div, p, h2, etc.)
- * @param string $class CSS class for the wrapper element
- */
-function acf_field($field, $element = 'div', $class='nc'){
-  if( !$field ){ return; } // Exit if field is empty
-  echo '<' . $element . ' class="' . $class . '">' . $field . '</' . $element . '>';
-}
-
-/**
- * Output ACF Link Field as Button
- * 
- * Renders an ACF link field as a styled button element.
- * Handles all link attributes (URL, target, title) and optional arrow icon.
- * 
- * @param array $link ACF link field array with url, title, and target
- * @param bool $has_arrow Whether to append a right arrow icon
- * @param string $class Additional CSS classes for the button
- * @param string $attr Additional HTML attributes as a string
- */
-function acf_button($link, $has_arrow=false, $class='nc', $attr=false){
-  if( !$link ) return; // Exit if no link provided
-  
-  // Set default target to _self if not specified
-  $link['target'] = $link['target'] ?: '_self'; ?>
-
-  <a href="<?= esc_url($link['url']); ?>" 
-     target="<?= $link['target'] ?>" 
-     class="btn <?= $class ?>"
-     <?php if($attr) echo ' ' . $attr ?>>
-    <?= $link['title']; ?>
-    <?php if($has_arrow){ echo '<i class="fa-solid fa-angle-right"></i>'; }; ?>
-  </a>
-  <?php
-}

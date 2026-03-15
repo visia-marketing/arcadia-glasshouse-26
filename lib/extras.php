@@ -49,7 +49,7 @@ add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
  * Move Yoast to Bottom
  */
 
- function yoasttobottom() {
+ function yoast_to_bottom() {
 	return 'low';
 }
-add_filter( 'wpseo_metabox_prio',  __NAMESPACE__ . '\\yoasttobottom');
+add_filter( 'wpseo_metabox_prio', __NAMESPACE__ . '\\yoast_to_bottom' );
