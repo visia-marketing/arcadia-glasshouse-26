@@ -12,7 +12,23 @@
 
 
 
-  <?php wp_head(); ?> 
+  <?php wp_head(); ?>
+
+  <?php
+  // Organization schema — edit values via Appearance > Customize or ACF Options
+  $org_schema = [
+    '@context' => 'https://schema.org',
+    '@type'    => 'Organization',
+    'name'     => get_bloginfo('name'),
+    'url'      => esc_url( home_url('/') ),
+    'logo'     => esc_url( get_field('main_logo', 'option') ?: '' ),
+  ];
+  $phone = get_field('phone_number', 'option');
+  $email = get_field('email_address', 'option');
+  if ( $phone ) $org_schema['telephone'] = esc_html( $phone );
+  if ( $email ) $org_schema['email']     = esc_html( $email );
+  ?>
+  <script type="application/ld+json"><?php echo wp_json_encode( $org_schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ); ?></script>
 
   <?php if ( get_field('google_tag_manager_id', 'options') ):?>
     <!-- Google Tag Manager -->

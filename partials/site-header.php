@@ -20,16 +20,30 @@
       </div>
     </div>
     <div class="uk-width-expand uk-flex uk-flex-right uk-flex-middle hide-for-medium">
-      <button class="menu-icon" type="button" uk-toggle="target: #uk-off-canvas"></button>
+      <button class="menu-icon" type="button" uk-toggle="target: #uk-off-canvas" aria-label="Open navigation menu" aria-expanded="false" aria-controls="uk-off-canvas"></button>
 		</div>
     <div class="uk-width-expand@m show-for-medium">
-      <div class="primary-navigation-wrapper" uk-navbar>
+      <div class="primary-navigation-wrapper uk-flex uk-flex-middle uk-flex-right" uk-navbar>
         <?php
         if (has_nav_menu('primary_navigation')) :
           wp_nav_menu(['theme_location' => 'primary_navigation', 'depth' => 2, 'menu_class' => 'menu primary-navigation uk-margin-remove', 'items_wrap' => '<ul class="%2$s" id="primary-navigation">%3$s</ul>' ]);
         endif;
         ?>
+        <button class="header-search-toggle" aria-label="Toggle search" aria-expanded="false" aria-controls="header-search-drawer">
+          <i class="fas fa-magnifying-glass"></i>
+        </button>
       </div>
     </div>
   </div>
 </header>
+
+<div id="header-search-drawer" aria-hidden="true">
+  <div class="uk-container uk-container-xlarge">
+    <form role="search" method="get" class="header-search-form" action="<?= esc_url( site_url() ); ?>">
+      <input type="search" name="s" class="header-search-input" placeholder="Search…" aria-label="Search" value="<?= esc_attr( get_search_query() ); ?>">
+      <button type="submit" class="header-search-submit" aria-label="Submit search">
+        <i class="fas fa-magnifying-glass"></i>
+      </button>
+    </form>
+  </div>
+</div>

@@ -24,7 +24,7 @@ use Roots\Sage\Wrapper;
     <div id="uk-off-canvas" uk-offcanvas="mode: push">
         <div class="uk-offcanvas-bar">
 
-            <button class="uk-offcanvas-close" type="button" uk-close></button>
+            <button class="uk-offcanvas-close" type="button" uk-close aria-label="Close navigation"></button>
 
             <?php $mobile_logo = get_field('footer_logo', 'option'); ?>
             <?php if ($mobile_logo) : ?>
@@ -45,7 +45,7 @@ use Roots\Sage\Wrapper;
               <form role="search" method="get" class="search-form" action="<?= site_url(); ?>">
                 <label>
                   <span class="screen-reader-text">Search</span>
-                  <input type="search" class="search-field" id="search-field" placeholder="Search…" value="" name="s">
+                  <input type="search" class="search-field" id="search-field" placeholder="Search…" value="" name="s" aria-label="Search the site">
                 </label>
                 <button class="button" aria-label="Search"><i class="fas fa-magnifying-glass"></i></button>
               </form>

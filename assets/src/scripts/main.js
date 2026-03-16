@@ -94,8 +94,8 @@ import { CountUp } from 'countup.js';
             slidesToScroll: 1,
             arrows: true,
             dots: false,
-            prevArrow: '<button type="button" class="slick-prev cards-next"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="41" viewBox="0 0 23 41" fill="none"> <path d="M21.123 1.5L2.12129 20.5018L21.123 39.5035" stroke="#062F6E" stroke-width="3" stroke-linecap="round"/></svg></button>',
-            nextArrow: '<button type="button" class="slick-next cards-prev"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="41" viewBox="0 0 23 41" fill="none"><path d="M1.5 39.5034L20.5018 20.5017L1.5 1.4999" stroke="#062F6E" stroke-width="3" stroke-linecap="round"/></svg></button>',
+            prevArrow: '<button type="button" class="slick-prev cards-next" aria-label="Previous slide"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="41" viewBox="0 0 23 41" fill="none" aria-hidden="true"> <path d="M21.123 1.5L2.12129 20.5018L21.123 39.5035" stroke="#062F6E" stroke-width="3" stroke-linecap="round"/></svg></button>',
+            nextArrow: '<button type="button" class="slick-next cards-prev" aria-label="Next slide"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="41" viewBox="0 0 23 41" fill="none" aria-hidden="true"><path d="M1.5 39.5034L20.5018 20.5017L1.5 1.4999" stroke="#062F6E" stroke-width="3" stroke-linecap="round"/></svg></button>',
             responsive: [
               {
                 breakpoint: 1024,
@@ -267,5 +267,41 @@ import { CountUp } from 'countup.js';
       parent.classList.toggle('is-open');
     });
   });
+
+  // Header search drawer
+  var searchToggle = document.querySelector('.header-search-toggle');
+  var searchDrawer = document.getElementById('header-search-drawer');
+
+  if (searchToggle && searchDrawer) {
+    searchToggle.addEventListener('click', function() {
+      var isOpen = searchDrawer.classList.toggle('is-open');
+      searchToggle.setAttribute('aria-expanded', isOpen);
+      searchDrawer.setAttribute('aria-hidden', !isOpen);
+      if (isOpen) {
+        searchDrawer.querySelector('.header-search-input').focus();
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && searchDrawer.classList.contains('is-open')) {
+        searchDrawer.classList.remove('is-open');
+        searchToggle.setAttribute('aria-expanded', 'false');
+        searchDrawer.setAttribute('aria-hidden', 'true');
+        searchToggle.focus();
+      }
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', function(e) {
+      if (searchDrawer.classList.contains('is-open') &&
+          !searchDrawer.contains(e.target) &&
+          !searchToggle.contains(e.target)) {
+        searchDrawer.classList.remove('is-open');
+        searchToggle.setAttribute('aria-expanded', 'false');
+        searchDrawer.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
 
 })(jQuery); // Fully reference jQuery after this point.

@@ -42,8 +42,9 @@
             <?php $social_media = get_field('social_media', 'options'); ?>
             <div class="social-icons uk-margin-small-top uk-flex uk-flex-wrap uk-flex-left">
               <?php if( $social_media ): foreach( $social_media as $social ): ?>
-                <a href="<?php echo esc_url($social['social_url']); ?>" target="_blank" class="uk-margin-small-right">
-                  <i class="fa-brands fa-<?php echo esc_attr($social['social_icon']); ?> fa-2xl"></i>
+                <a href="<?php echo esc_url($social['social_url']); ?>" target="_blank" class="uk-margin-small-right"
+                   aria-label="<?php echo esc_attr( 'Visit us on ' . ucfirst( $social['social_icon'] ) ); ?>">
+                  <i class="fa-brands fa-<?php echo esc_attr($social['social_icon']); ?> fa-2xl" aria-hidden="true"></i>
                 </a>
               <?php endforeach; endif; ?>
             </div>
@@ -51,8 +52,9 @@
             <?php $footer_badges = get_field('footer_badges', 'options'); ?>
             <div class="badges uk-margin-medium-top uk-flex uk-flex-wrap uk-flex-left">
               <?php foreach( $footer_badges as $badge ): ?>
-                <a href="<?php echo esc_url( $badge['badge_url'] ); ?>" target="_blank" class="uk-width-small uk-margin-small-right">
-                  <?php echo wp_get_attachment_image( $badge['badge_image'], 'medium' , false, array('class' => 'footer-badge') ); ?>
+                <a href="<?php echo esc_url( $badge['badge_url'] ); ?>" target="_blank" class="uk-width-small uk-margin-small-right"
+                   aria-label="<?php echo esc_attr( $badge['badge_title'] ?? get_bloginfo('name') . ' badge' ); ?>">
+                  <?php echo wp_get_attachment_image( $badge['badge_image'], 'medium', false, array( 'class' => 'footer-badge', 'alt' => esc_attr( $badge['badge_title'] ?? '' ) ) ); ?>
                 </a>
               <?php endforeach; ?>
             </div>

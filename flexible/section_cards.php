@@ -132,10 +132,10 @@ switch ($per_row) {
     </div>
 
     <?php if($show_loadmore): ?>
-        <div class="uk-margin-auto-left uk-margin-auto-right uk-flex uk-flex-column uk-flex-middle" id="load_more_posts__container">
-            <button id="load_more_posts" class="uk-width-small uk-flex uk-flex-column uk-flex-center uk-flex-middle" data-max-pages="<?php echo esc_attr($blogs_query->max_num_pages); ?>">
-                <span>Load More </span> 
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="18" viewBox="0 0 28 18" fill="none">
+        <div class="uk-margin-auto-left uk-margin-auto-right uk-flex uk-flex-column uk-flex-middle" id="load_more_posts__container" aria-live="polite" aria-atomic="true">
+            <button id="load_more_posts" class="uk-width-small uk-flex uk-flex-column uk-flex-center uk-flex-middle" data-max-pages="<?php echo esc_attr($blogs_query->max_num_pages); ?>" aria-label="Load more posts">
+                <span aria-hidden="true">Load More</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="18" viewBox="0 0 28 18" fill="none" aria-hidden="true">
                     <path d="M12.1987 16.7163C12.9555 17.5633 14.1846 17.5633 14.9415 16.7163L26.5665 3.70515C27.3233 2.85807 27.3233 1.48242 26.5665 0.635342C25.8096 -0.211736 24.5805 -0.211736 23.8237 0.635342L13.567 12.1149L3.3104 0.642117C2.55356 -0.20496 1.32446 -0.20496 0.567627 0.642117C-0.189209 1.48919 -0.189209 2.86485 0.567627 3.71193L12.1926 16.723L12.1987 16.7163Z" fill="#347763"/>
                 </svg>
                 <div class="loader"></div>
