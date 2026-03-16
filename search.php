@@ -23,7 +23,7 @@
 
               // Use excerpt if available, otherwise fall back to Yoast meta description
               $excerpt = has_excerpt()
-                ? get_the_excerpt()
+                ? wp_strip_all_tags( get_the_excerpt() )
                 : get_post_meta( $post->ID, '_yoast_wpseo_metadesc', true );
               ?>
 
