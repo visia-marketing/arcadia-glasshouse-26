@@ -64,8 +64,8 @@ main:has(.ornament){
 }
 
 .ornament {
-  width: 35%;
-  opacity: 0.5;
+  width: 15%;
+  opacity: 0.3;
 
   @include breakpoint(medium) {
     width: auto;
