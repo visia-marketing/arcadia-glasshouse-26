@@ -43,11 +43,67 @@
   .gfield--type-checkbox {
     margin-top: 12px;
 
-    .gfield-choice-input { 
+    .gfield-choice-input {
       margin-bottom: 0;
     }
-    
+
   }
-} 
+
+  // Form title — matches .g-section-subtitle style
+  .gform_title {
+    color: $primary;
+    display: block;
+    font-family: $sans;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 0;
+    text-transform: uppercase;
+
+    @include breakpoint(medium) {
+      font-size: 17px;
+      letter-spacing: 3.5px;
+    }
+  }
+
+  // Submit button — matches .uk-button styling
+  .gform_button {
+    background-color: $primary;
+    color: $white;
+    border: 1px solid $primary;
+    border-radius: 6rem;
+    font-family: $sans;
+    font-size: $global-font-size;
+    font-weight: 500;
+    line-height: 1.2;
+    padding: 0.7rem $global-gutter;
+    text-transform: none;
+    cursor: pointer;
+    transition:
+      transform 160ms ease,
+      box-shadow 160ms ease,
+      background-color 160ms ease,
+      color 160ms ease;
+
+    &:hover {
+      background-color: $secondary;
+      border-color: $secondary;
+      color: $primary;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 104, 72, 0.12);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 12px rgba(0, 104, 72, 0.10);
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 104, 72, 0.20);
+    }
+  }
+}
 
 

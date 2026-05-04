@@ -71,7 +71,7 @@
     ?>
     <div class="page-header-content-wrapper fc-section fc-section-<?php echo $page_heading_background;?> <?php if(is_front_page()): echo 'home-hero'; endif;?> overlay-<?php echo $overlay;?> page-header-<?php echo $page_heading_size; ?>">
       <div class="uk-container <?php if( !$page_heading_size ): echo "uk-container-large"; else: echo "uk-container-large"; endif; ?>">
-        <div class="uk-text-center">
+        <div class="uk-text-center <?php if(is_front_page()): echo 'uk-width-2xlarge uk-margin-auto-left uk-margin-auto-right'; endif;?>">
           <div class="page-header-content">
             <?php 
             $header_content = get_field('page_header_content');
@@ -82,7 +82,7 @@
                   <?php echo esc_html($page_sub_heading); ?>
               </p>
               <?php endif; ?>
-              <h1 class="<?php if( !$page_heading_size ): echo "uk-align-left"; endif; ?>">
+              <h1 class="uk-align-left">
                 <?php if ( $page_heading ): echo esc_html($page_heading); else: the_title(); endif; ?>
               </h1>
               <?php if ( !empty($page_heading_text) ): ?>
@@ -91,11 +91,13 @@
                 </p>
               <?php  endif; ?>
 
-              <?php if ( !empty($page_header_button) ): ?>
-                <a href="<?php echo esc_html($page_header_button['url']); ?>" class="uk-button uk-button-primary uk-button-bright uk-button-large uk-margin-top">
-                    <?php echo $page_header_button['title']; ?>
+              <?php if ( !empty($page_header_button) && !empty($page_header_button['url']) ): ?>
+                <a href="<?php echo esc_url( $page_header_button['url'] ); ?>"
+                   class="uk-button uk-button-primary uk-button-bright uk-button-large uk-margin-top"
+                   <?php if ( !empty($page_header_button['target']) ): ?>target="<?php echo esc_attr( $page_header_button['target'] ); ?>"<?php endif; ?>>
+                  <?php echo esc_html( $page_header_button['title'] ); ?>
                 </a>
-              <?php  endif; ?>
+              <?php endif; ?>
 
 
           </div>

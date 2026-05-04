@@ -1,6 +1,6 @@
 <article class="page page-404">
 
-  <?php get_template_part('templates/page-header'); ?>
+  <?php get_template_part('partials/page-header'); ?>
   
   <section class="page-content-wrapper">
     <div class="uk-container">

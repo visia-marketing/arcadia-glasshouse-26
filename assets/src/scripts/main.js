@@ -17,7 +17,7 @@ import $ from 'jquery';
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
 import 'slick-carousel';
-import 'simple-lightbox';
+import SimpleLightbox from 'simple-lightbox';
 import AOS from 'aos';
 import { CountUp } from 'countup.js';
 
@@ -37,9 +37,23 @@ import { CountUp } from 'countup.js';
         AOS.init({
           duration: 1000,
           once: true,
-        },
-          console.log('AOS loaded')
-        );
+        });
+
+
+
+          document.querySelectorAll('.lightbox-gallery').forEach(function(gallery) {
+              var anchors = gallery.querySelectorAll('a.lightbox-anchor');
+              if (anchors.length) {
+                  new SimpleLightbox({
+                      elements: anchors,
+                      showCaptions: true,
+                      captionAttribute: 'data-caption',
+                  });
+              }
+          });
+
+         
+
 
 
 
@@ -63,7 +77,6 @@ import { CountUp } from 'countup.js';
             if (countUp.error) {
               console.error(countUp.error);
             }
-            console.log('CountUpJS loaded')
           });
         }
 
@@ -74,9 +87,6 @@ import { CountUp } from 'countup.js';
           var $slidesToShow = $this.data('slides-to-show');
           var $duration = $this.data('duration');
       
-          console.log('Slides to show: ' + $slidesToShow);
-          console.log('Duration: ' + $duration);
-      
           $this.slick({
             infinite: true,
             slidesToShow: $slidesToShow,
@@ -84,8 +94,8 @@ import { CountUp } from 'countup.js';
             slidesToScroll: 1,
             arrows: true,
             dots: false,
-            prevArrow: '<button type="button" class="slick-prev cards-next"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="41" viewBox="0 0 23 41" fill="none"> <path d="M21.123 1.5L2.12129 20.5018L21.123 39.5035" stroke="#062F6E" stroke-width="3" stroke-linecap="round"/></svg></button>',
-            nextArrow: '<button type="button" class="slick-next cards-prev"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="41" viewBox="0 0 23 41" fill="none"><path d="M1.5 39.5034L20.5018 20.5017L1.5 1.4999" stroke="#062F6E" stroke-width="3" stroke-linecap="round"/></svg></button>',
+            prevArrow: '<button type="button" class="slick-prev cards-next" aria-label="Previous slide"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="41" viewBox="0 0 23 41" fill="none" aria-hidden="true"> <path d="M21.123 1.5L2.12129 20.5018L21.123 39.5035" stroke="#062F6E" stroke-width="3" stroke-linecap="round"/></svg></button>',
+            nextArrow: '<button type="button" class="slick-next cards-prev" aria-label="Next slide"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="41" viewBox="0 0 23 41" fill="none" aria-hidden="true"><path d="M1.5 39.5034L20.5018 20.5017L1.5 1.4999" stroke="#062F6E" stroke-width="3" stroke-linecap="round"/></svg></button>',
             responsive: [
               {
                 breakpoint: 1024,
@@ -137,64 +147,50 @@ import { CountUp } from 'countup.js';
           
         }
 
-        // wait until whole page is loaded
-        jQuery(document).ready(function($) {
-          setTimeout(
-            hoverCardsInit(),
-            500
-          )
-        });
+        setTimeout(hoverCardsInit, 500);
 
+        const cards_section = document.querySelectorAll('.fc-section-cards');
 
+        if( cards_section.length ){
+          var currentPage = 1;
+          var maxPages = parseInt($('#load_more_posts').data('max-pages'));
 
-        jQuery(document).ready(function($) {
+          $('#load_more_posts').on('click', function() {
+              var $button = $(this);
+              currentPage++;
 
-          const cards_section = document.querySelectorAll('.fc-section-cards');
+              var url = new URL(window.location);
+              url.searchParams.set('paged', currentPage);
 
-          if( cards_section.length ){
-            var currentPage = 1;
-            var maxPages = parseInt($('#load_more_posts').data('max-pages'));
-  
-            $('#load_more_posts').on('click', function() {
-                var $button = $(this);
-                currentPage++;
-  
-                var url = new URL(window.location);
-                url.searchParams.set('paged', currentPage);
-  
-                $button.addClass('loading');
-  
-                $.ajax({
-                    url: url.toString(),
-                    type: 'GET',
-                    success: function(data) {
-                        var $parsed = $($.parseHTML(data));
-                        var $newContent = $parsed.find('.fc-section-cards').children();
-  
-                        if ($newContent.length) {
-                            $('.fc-section-cards').append($newContent);
-                        }
-  
-                        if (currentPage >= maxPages) {
-                            $button.hide();
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.log('AJAX error:', status, error);
-                        if (xhr.status === 404) {
-                            $button.hide();
-                        }
-                    },
-                    complete: function() {
-                        $button.removeClass('loading');
-                        hoverCardsInit();
-                    }
-                });
-            });
-          }
+              $button.addClass('loading');
 
+              $.ajax({
+                  url: url.toString(),
+                  type: 'GET',
+                  success: function(data) {
+                      var $parsed = $($.parseHTML(data));
+                      var $newContent = $parsed.find('.fc-section-cards').children();
 
-      });
+                      if ($newContent.length) {
+                          $('.fc-section-cards').append($newContent);
+                      }
+
+                      if (currentPage >= maxPages) {
+                          $button.hide();
+                      }
+                  },
+                  error: function(xhr) {
+                      if (xhr.status === 404) {
+                          $button.hide();
+                      }
+                  },
+                  complete: function() {
+                      $button.removeClass('loading');
+                      hoverCardsInit();
+                  }
+              });
+          });
+        }
 
 
 
@@ -263,5 +259,49 @@ import { CountUp } from 'countup.js';
 
   // Load Events
   $(document).ready(UTIL.loadEvents);
+
+  // Mobile nav: toggle button expands/collapses sub-menus independently of the link
+  document.querySelectorAll('.mobile-nav-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var parent = this.closest('.has-children');
+      parent.classList.toggle('is-open');
+    });
+  });
+
+  // Header search drawer
+  var searchToggle = document.querySelector('.header-search-toggle');
+  var searchDrawer = document.getElementById('header-search-drawer');
+
+  if (searchToggle && searchDrawer) {
+    searchToggle.addEventListener('click', function() {
+      var isOpen = searchDrawer.classList.toggle('is-open');
+      searchToggle.setAttribute('aria-expanded', isOpen);
+      searchDrawer.setAttribute('aria-hidden', !isOpen);
+      if (isOpen) {
+        searchDrawer.querySelector('.header-search-input').focus();
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && searchDrawer.classList.contains('is-open')) {
+        searchDrawer.classList.remove('is-open');
+        searchToggle.setAttribute('aria-expanded', 'false');
+        searchDrawer.setAttribute('aria-hidden', 'true');
+        searchToggle.focus();
+      }
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', function(e) {
+      if (searchDrawer.classList.contains('is-open') &&
+          !searchDrawer.contains(e.target) &&
+          !searchToggle.contains(e.target)) {
+        searchDrawer.classList.remove('is-open');
+        searchToggle.setAttribute('aria-expanded', 'false');
+        searchDrawer.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
 
 })(jQuery); // Fully reference jQuery after this point.

@@ -39,7 +39,7 @@ if( $card_source == "categories" ){
     $args = array(
         'post_type' => 'post',
         'category__in' => $blog_categories,
-        'posts_per_page' => 9,
+        'posts_per_page' => 12,
         'paged' => get_query_var('paged') ?: 1,
         'ignore_sticky_posts' => true,
     );
@@ -53,18 +53,16 @@ if( $card_source == "categories" ){
         $show_loadmore = 1;
     }
     
-    foreach( $blogs_query->posts as $post  ){
+    foreach( $blogs_query->posts as $blog_post ){
 
-    //($post); 
         $card = array();
-        $greenhouse['card_collection'] = get_field('series_label', $gh);
-        $card['card_tip'] = get_field('tip_number', $post->ID);
-        $card['card_title'] = get_the_title($post->ID);
-        $excerpt = wp_strip_all_tags(get_the_excerpt($post->ID));
-        $content = wp_strip_all_tags(excerpt_remove_blocks($post->post_content));
+        $card['card_tip'] = get_field('tip_number', $blog_post->ID);
+        $card['card_title'] = get_the_title($blog_post->ID);
+        $excerpt = wp_strip_all_tags(get_the_excerpt($blog_post->ID));
+        $content = wp_strip_all_tags(excerpt_remove_blocks($blog_post->post_content));
         $card['card_description'] = $excerpt ?: ($content ? wp_trim_words($content, 12, null) : '');
-        $card['card_link']['url'] = get_permalink($post->ID);
-        $card['card_icon'] = get_post_thumbnail_id($post->ID) ?: 245;
+        $card['card_link']['url'] = get_permalink($blog_post->ID);
+        $card['card_icon'] = get_post_thumbnail_id($blog_post->ID) ?: 245;
         $cards[] = $card;
 
     }
@@ -72,7 +70,7 @@ if( $card_source == "categories" ){
 }
 
 
-$rand_id = $display . '_' . wp_generate_uuid4();
+$rand_id = esc_attr( $display . '_' . wp_generate_uuid4() );
 
 if ($aos == 'no_animation') {
     $aos = false;
@@ -101,13 +99,15 @@ switch ($per_row) {
 ?>
 
 
-    <?php get_template_part('flexible/section_header'); ?>
+    <?php //get_template_part('flexible/section_header'); ?>
     
 
     <?php if($display == "carousel"): ?>
         <div id="<?php echo $rand_id;?>" class="fc-section-cards carousel-wrapper"  data-slides-to-show="<?php echo $per_row; ?>" data-duration="<?php echo $aos_duration; ?>" data-step="<?php echo $aos_step; ?>">
+    <?php elseif($display == "simple"): ?>
+        <div id="<?php echo $rand_id;?>" class="fc-section-cards fc-section-cards-simple grid-container uk-grid uk-grid-small uk-grid-match">
     <?php else: ?>
-        <div id="<?php echo $rand_id;?>" class=fc-section-cards grid-container uk-grid uk-grid-small uk-grid-match">
+        <div id="<?php echo $rand_id;?>" class="fc-section-cards grid-container uk-grid uk-grid-small uk-grid-match">
     <?php endif; ?>
     <?php $delay = 0; ?>
 
@@ -132,10 +132,10 @@ switch ($per_row) {
     </div>
 
     <?php if($show_loadmore): ?>
-        <div class="uk-margin-auto-left uk-margin-auto-right uk-flex uk-flex-column uk-flex-middle" id="load_more_posts__container">
-            <button id="load_more_posts" class="uk-width-small uk-flex uk-flex-column uk-flex-center uk-flex-middle" data-max-pages="<?php echo esc_attr($blogs_query->max_num_pages); ?>">
-                <span>Load More </span> 
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="18" viewBox="0 0 28 18" fill="none">
+        <div class="uk-margin-auto-left uk-margin-auto-right uk-flex uk-flex-column uk-flex-middle" id="load_more_posts__container" aria-live="polite" aria-atomic="true">
+            <button id="load_more_posts" class="uk-width-small uk-flex uk-flex-column uk-flex-center uk-flex-middle" data-max-pages="<?php echo esc_attr($blogs_query->max_num_pages); ?>" aria-label="Load more posts">
+                <span aria-hidden="true">Load More</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="18" viewBox="0 0 28 18" fill="none" aria-hidden="true">
                     <path d="M12.1987 16.7163C12.9555 17.5633 14.1846 17.5633 14.9415 16.7163L26.5665 3.70515C27.3233 2.85807 27.3233 1.48242 26.5665 0.635342C25.8096 -0.211736 24.5805 -0.211736 23.8237 0.635342L13.567 12.1149L3.3104 0.642117C2.55356 -0.20496 1.32446 -0.20496 0.567627 0.642117C-0.189209 1.48919 -0.189209 2.86485 0.567627 3.71193L12.1926 16.723L12.1987 16.7163Z" fill="#347763"/>
                 </svg>
                 <div class="loader"></div>
@@ -143,18 +143,3 @@ switch ($per_row) {
         </div>
     <?php endif; ?>
 
-<?php if($display == "carousel"): ?>
-
-    <style>
-
-        #<?php echo $rand_id;?> .carousel-wrapper .slick-prev:before,
-        #<?php echo $rand_id;?> .carousel-wrapper .slick-next:before{
-            content: '' !important;
-        }
-
-        #<?php echo $rand_id;?> .carousel-wrapper svg *{
-            stroke: #072E6E;
-        }
-
-    </style>
-<?php endif; ?>

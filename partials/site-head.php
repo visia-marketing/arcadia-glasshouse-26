@@ -12,7 +12,23 @@
 
 
 
-  <?php wp_head(); ?> 
+  <?php wp_head(); ?>
+
+  <?php
+  // Organization schema — edit values via Appearance > Customize or ACF Options
+  $org_schema = [
+    '@context' => 'https://schema.org',
+    '@type'    => 'Organization',
+    'name'     => get_bloginfo('name'),
+    'url'      => esc_url( home_url('/') ),
+    'logo'     => esc_url( get_field('main_logo', 'option') ?: '' ),
+  ];
+  $phone = get_field('phone_number', 'option');
+  $email = get_field('email_address', 'option');
+  if ( $phone ) $org_schema['telephone'] = esc_html( $phone );
+  if ( $email ) $org_schema['email']     = esc_html( $email );
+  ?>
+  <script type="application/ld+json"><?php echo wp_json_encode( $org_schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ); ?></script>
 
   <?php if ( get_field('google_tag_manager_id', 'options') ):?>
     <!-- Google Tag Manager -->
@@ -20,7 +36,7 @@
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','<?php echo get_field('google_tag_manager_id', 'options');?>');</script>
+    })(window,document,'script','dataLayer','<?php echo esc_js( get_field('google_tag_manager_id', 'options') ); ?>');</script>
     <!-- End Google Tag Manager -->
   <?php endif; ?>
 

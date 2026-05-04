@@ -23,16 +23,14 @@
 @import "../../../node_modules/slick-carousel/slick/slick-theme.scss";
 
 // Simplelightbox
-@import "../../../node_modules/simplelightbox/";
+@import "../../../node_modules/simple-lightbox/dist/simpleLightbox.css";
 
 // import AOS
 @import "../../../node_modules/aos/dist/aos.css";
 
 
 // Your custom styles
-@import "common/global-styles";
 @import "common/global-layouts";
-@import "common/helpers";
 @import "components/boxes";
 @import "components/breadcrumbs";
 @import "components/buttons";
