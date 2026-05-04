@@ -84,3 +84,14 @@
     
 
 }
+
+
+.slbElement{
+    & .slbWrap{
+        & .slbImageWrap{
+            & .slbCaption{
+                white-space: wrap !important;
+            }
+        }
+    }
+}
