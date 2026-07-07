@@ -1,9 +1,5 @@
 <?php $products = get_sub_field('products'); ?>
 
-<pre>
-    <?php //print_r($products); ?>
-</pre>
-
 <div class="fc-section-product-specs">
 
     <?php foreach( $products as $product ): ?>
@@ -13,7 +9,7 @@
         
 
             <div class="uk-width-expand uk-margin-bottom">
-                <?php $image = wp_get_attachment_image( $product['image_1'], 'medium', false, [ 'class' => 'uk-width-medium', 'loading' => 'lazy' ] ); ?>
+                <?php $image = wp_get_attachment_image( $product['image_1'], 'medium', false, [ 'class' => 'uk-width-medium', 'loading' => 'lazy', 'style' => 'object-fit: contain;' ] ); ?>
                 <?php if ( $image ) : ?>
                         <?php echo $image; ?>
                 <?php endif; ?>
@@ -21,7 +17,7 @@
 
 
             <div class="uk-width-expand uk-margin-bottom uk-flex">
-                <?php $image2 = wp_get_attachment_image( $product['image_2'], 'medium', false, [ 'class' => 'uk-width-medium uk-margin-auto-left uk-margin-remove-right', 'loading' => 'lazy' ] ); ?>
+                <?php $image2 = wp_get_attachment_image( $product['image_2'], 'medium', false, [ 'class' => 'uk-width-medium uk-margin-auto-left uk-margin-remove-right', 'loading' => 'lazy', 'style' => 'object-fit: contain;' ] ); ?>
                 <?php if ( $image2 ) : ?>
                         <?php echo $image2; ?>
                 <?php endif; ?>
