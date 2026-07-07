@@ -104,9 +104,9 @@
 
     & .card-media{
         height: 100%;
-        aspect-ratio: 1;
+        //aspect-ratio: auto;
         & img{
-            aspect-ratio: 1;
+            //aspect-ratio: 1;
             width: 100% !important;
             height: 100% !important;
             object-fit: cover;
