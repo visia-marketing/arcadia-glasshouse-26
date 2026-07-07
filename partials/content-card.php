@@ -27,7 +27,7 @@ switch ( $per_row ) {
 
   <div class="uk-height-1-1 uk-flex uk-flex-column uk-position-relative">
 
-    <?php $image = wp_get_attachment_image( $card['card_icon'], 'medium', false, [ 'class' => 'uk-width-1-1', 'loading' => 'lazy' ] ); ?>
+    <?php $image = wp_get_attachment_image( $card['card_icon'], 'thumbnail', false, [ 'class' => 'uk-width-1-1', 'loading' => 'lazy' ] ); ?>
 
     <?php if ( $image ) : ?>
       <div class="card-media uk-card-media-top">

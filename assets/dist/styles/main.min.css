@@ -15916,10 +15916,8 @@ body#tinymce {
 }
 .fc-section-cards .card-media {
   height: 100%;
-  aspect-ratio: 1;
 }
 .fc-section-cards .card-media img {
-  aspect-ratio: 1;
   width: 100% !important;
   height: 100% !important;
   -o-object-fit: cover;
