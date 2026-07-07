@@ -15913,6 +15913,21 @@ body#tinymce {
   transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out 0.1s;
   opacity: 0;
 }
+.fc-section-cards .card-media {
+  height: 100%;
+  aspect-ratio: 1;
+}
+.fc-section-cards .card-media img {
+  aspect-ratio: 1;
+  width: 100% !important;
+  height: 100% !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.fc-section-cards .uk-button {
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
 .fc-section-cards .slick-prev:before, .fc-section-cards .slick-next:before {
   content: "" !important;
 }
@@ -16007,6 +16022,31 @@ body#tinymce {
   transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out 0.1s;
   height: auto !important;
   opacity: 1 !important;
+}
+.fc-section-cards.fc-section-cards-simple .card-media {
+  aspect-ratio: 16/10 !important;
+}
+.fc-section-cards.fc-section-cards-simple .card-media img {
+  aspect-ratio: 16/10 !important;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.fc-section-cards.fc-section-cards-simple.fc-section-cards-products .card-media {
+  border: 2px solid #006848;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+.fc-section-cards.fc-section-cards-simple.fc-section-cards-products a.card-body, .fc-section-cards.fc-section-cards-simple.fc-section-cards-products div.card-body {
+  margin-top: 1rem;
+}
+.fc-section-cards.fc-section-cards-simple.fc-section-cards-products a.card-body h3, .fc-section-cards.fc-section-cards-simple.fc-section-cards-products div.card-body h3 {
+  color: #0D0D0D;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "proxima-nova", sans-serif;
 }
 
 .fc-section-columns + .fc-section-cards {
