@@ -56,12 +56,9 @@ switch ( $per_row ) {
         </p>
       <?php endif; ?>
 
-      <?php if ( ! empty( $card['card_link'] ) ) : ?>
-        <span class="button uk-button uk-button-default uk-button-primary uk-margin-bottom uk-margin-top"><?php echo esc_html( $card['card_link']['title'] ); ?></span>
-      <?php endif; ?>
-
 
     </<?php echo $card_tag; ?>>
+
 
   </div>
 </div>
