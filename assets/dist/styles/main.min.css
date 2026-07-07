@@ -15845,6 +15845,7 @@ body#tinymce {
   background-size: 200% 200%;
   background-position: 50% 10%;
   transition: background-position 0.5s ease-in-out;
+  justify-content: flex-end;
 }
 .fc-section-cards a.card-body:hover, .fc-section-cards div.card-body:hover {
   background-position: 50% 33%;
@@ -15963,6 +15964,7 @@ body#tinymce {
   background-position: 0;
   transition: none;
   position: relative !important;
+  justify-content: flex-start;
 }
 .fc-section-cards.fc-section-cards-simple a.card-body, .fc-section-cards.fc-section-cards-simple a.card-body *, .fc-section-cards.fc-section-cards-simple div.card-body, .fc-section-cards.fc-section-cards-simple div.card-body * {
   text-decoration: none;

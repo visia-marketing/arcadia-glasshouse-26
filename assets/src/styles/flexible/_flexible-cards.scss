@@ -20,6 +20,8 @@
         background-position: 50% 10%;
         transition: background-position 0.5s ease-in-out;
 
+        justify-content: flex-end;
+
         &:hover{
             background-position: 50% 33%;
         }
@@ -93,6 +95,11 @@
             transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out 0.1s;
             opacity: 0;
          }
+
+
+         
+
+
     }
 
     & .card-media{
@@ -155,6 +162,7 @@
           background-position: 0;
           transition: none;
           position:relative !important;
+          justify-content: flex-start;
 
           &,
           & *{
