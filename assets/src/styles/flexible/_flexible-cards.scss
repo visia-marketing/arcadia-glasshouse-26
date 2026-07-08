@@ -371,8 +371,16 @@
 }
 
 .fc-section-product-specs{
-    img{
-       max-width: 100%;
-       width: 400px;
+
+    & > div{
+        padding-bottom: 70px;
+        border-bottom: 1px solid $medium-gray;
+
+            // img{
+            //     max-width: 100%;
+            //     width: 375px !important;
+            // }
     }
+
+
 }

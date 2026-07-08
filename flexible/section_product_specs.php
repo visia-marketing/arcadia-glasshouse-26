@@ -5,11 +5,11 @@
     <?php foreach( $products as $product ): ?>
 
 
-        <div class="uk-flex uk-grid uk-flex-wrap uk-width-1-1 uk-flex-between uk-margin-xlarge-bottom">
+        <div class="uk-flex uk-grid uk-flex-wrap uk-width-1-1 uk-flex-between uk-margin-large-bottom">
         
 
-            <div class="uk-width-expand uk-margin-bottom uk-flex uk-flex-row uk-flex-center">
-                <?php $image = wp_get_attachment_image( $product['image_1'], 'medium', false, [ 'class' => '', 'loading' => 'lazy', 'style' => 'object-fit: contain;' ] ); ?>
+            <div class="uk-width-expand uk-margin-bottom uk-flex uk-flex-row uk-flex-center uk-padding-remove-left">
+                <?php $image = wp_get_attachment_image( $product['image_1'], 'medium', false, [ 'class' => 'uk-width-1-1', 'loading' => 'lazy', 'style' => 'object-fit: contain;' ] ); ?>
                 <?php if ( $image ) : ?>
                         <?php echo $image; ?>
                 <?php endif; ?>
@@ -17,7 +17,7 @@
 
 
             <div class="uk-width-expand uk-margin-bottom uk-flex uk-flex-row uk-flex-center">
-                <?php $image2 = wp_get_attachment_image( $product['image_2'], 'medium', false, [ 'class' => ' uk-margin-auto-left uk-margin-remove-right', 'loading' => 'lazy', 'style' => 'object-fit: contain;' ] ); ?>
+                <?php $image2 = wp_get_attachment_image( $product['image_2'], 'medium', false, [ 'class' => ' uk-width-1-1 uk-margin-remove-right', 'loading' => 'lazy', 'style' => 'object-fit: contain;' ] ); ?>
                 <?php if ( $image2 ) : ?>
                         <?php echo $image2; ?>
                 <?php endif; ?>
