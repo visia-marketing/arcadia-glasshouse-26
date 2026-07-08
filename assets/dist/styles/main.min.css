@@ -16038,7 +16038,6 @@ body#tinymce {
   align-items: center;
   justify-content: center;
   background: #ffffff;
-  max-width: 400px;
 }
 .fc-section-cards.fc-section-cards-simple.fc-section-cards-products a.card-body, .fc-section-cards.fc-section-cards-simple.fc-section-cards-products div.card-body {
   margin-top: 1rem;
@@ -16125,6 +16124,11 @@ body#tinymce {
   inherits: false;
   initial-value: 360deg;
 }
+.fc-section-product-specs img {
+  max-width: 100%;
+  width: 400px;
+}
+
 .fc-page-header.page-header .page-header-content-wrapper {
   position: relative;
   z-index: 2;
