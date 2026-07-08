@@ -16124,9 +16124,9 @@ body#tinymce {
   inherits: false;
   initial-value: 360deg;
 }
-.fc-section-product-specs img {
-  max-width: 100%;
-  width: 400px;
+.fc-section-product-specs > div {
+  padding-bottom: 70px;
+  border-bottom: 1px solid #c8c8c8;
 }
 
 .fc-page-header.page-header .page-header-content-wrapper {
