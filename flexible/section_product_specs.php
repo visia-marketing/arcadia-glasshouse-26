@@ -31,26 +31,49 @@
 
                 <?php if ( ! empty( $product['spec_sheet'] ) ) : ?>
 
-                    <?php
-                        if ( function_exists( 'download_monitor' ) ) {
-                            // Replace 123 with your actual Download ID
-                            $download_id = $product['spec_sheet']->ID; 
-                            
-                            try {
-                                $download = download_monitor()->service( 'download_repository' )->retrieve_single( $download_id );
-                                $download_url = $download->get_the_download_link();
-                                
-                                echo esc_url( $download_url );
-                            } catch ( Exception $e ) {
-                                // Handle case where download item doesn't exist
-                            }
+                    <?php 
+                    $download = $product['spec_sheet'];
+                    
+                    // Extract the download ID from the array/object
+                    $download_id = null;
+                    if ( is_array( $download ) && ! empty( $download[0] ) ) {
+                        $download_id = $download[0]->ID;
+                    } elseif ( is_object( $download ) && isset( $download->ID ) ) {
+                        $download_id = $download->ID;
+                    } elseif ( is_numeric( $download ) ) {
+                        $download_id = $download;
+                    }
+                    
+                    if ( $download_id ) {
+                        try {
+                            $dlm_download = download_monitor()->service( 'download_repository' )->retrieve_single( $download_id );
+                        } catch ( Exception $exception ) {
+                            $dlm_download = null;
                         }
 
-                    ?>
+                        if ( $dlm_download ) : 
+                            // Capture the output from the_download_link() if it echoes
+                            $link = '';
+                            if ( method_exists($dlm_download, 'get_download_url') ) {
+                                $link = $dlm_download->get_download_url();
+                            } elseif ( method_exists($dlm_download, 'get_download_link') ) {
+                                $link = $dlm_download->get_download_link();
+                            } else {
+                                ob_start();
+                                $dlm_download->the_download_link();
+                                $link = ob_get_clean();
+                            }
+                        ?>
 
+                            <div class="download-cell">  
+                                <a href="<?php echo esc_url( $link ); ?>" class="uk-button uk-button-primary" target="_blank">
+                                    Download Spec Sheet
+                                </a>
+                            </div>
 
+                        <?php endif; ?>
+                    <?php } ?>   
 
-                    <a href="<?php echo esc_url( $download_url ); ?>" class="button uk-button uk-button-default uk-button-primary">Download Specs</a>
                 <?php endif; ?>
              </div>
 
