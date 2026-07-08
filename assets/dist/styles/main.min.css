@@ -15845,6 +15845,7 @@ body#tinymce {
   background-size: 200% 200%;
   background-position: 50% 10%;
   transition: background-position 0.5s ease-in-out;
+  justify-content: flex-end;
 }
 .fc-section-cards a.card-body:hover, .fc-section-cards div.card-body:hover {
   background-position: 50% 33%;
@@ -15913,6 +15914,19 @@ body#tinymce {
   transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out 0.1s;
   opacity: 0;
 }
+.fc-section-cards .card-media {
+  height: 100%;
+}
+.fc-section-cards .card-media img {
+  width: 100% !important;
+  height: 100% !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.fc-section-cards .uk-button {
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
 .fc-section-cards .slick-prev:before, .fc-section-cards .slick-next:before {
   content: "" !important;
 }
@@ -15948,6 +15962,7 @@ body#tinymce {
   background-position: 0;
   transition: none;
   position: relative !important;
+  justify-content: flex-start;
 }
 .fc-section-cards.fc-section-cards-simple a.card-body, .fc-section-cards.fc-section-cards-simple a.card-body *, .fc-section-cards.fc-section-cards-simple div.card-body, .fc-section-cards.fc-section-cards-simple div.card-body * {
   text-decoration: none;
@@ -16007,6 +16022,32 @@ body#tinymce {
   transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out 0.1s;
   height: auto !important;
   opacity: 1 !important;
+}
+.fc-section-cards.fc-section-cards-simple .card-media {
+  aspect-ratio: 16/10 !important;
+}
+.fc-section-cards.fc-section-cards-simple .card-media img {
+  aspect-ratio: 16/10 !important;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.fc-section-cards.fc-section-cards-simple.fc-section-cards-products .card-media {
+  border: 2px solid #006848;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+.fc-section-cards.fc-section-cards-simple.fc-section-cards-products a.card-body, .fc-section-cards.fc-section-cards-simple.fc-section-cards-products div.card-body {
+  margin-top: 1rem;
+}
+.fc-section-cards.fc-section-cards-simple.fc-section-cards-products a.card-body h3, .fc-section-cards.fc-section-cards-simple.fc-section-cards-products div.card-body h3 {
+  color: #0D0D0D;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "proxima-nova", sans-serif;
 }
 
 .fc-section-columns + .fc-section-cards {
@@ -16083,6 +16124,11 @@ body#tinymce {
   inherits: false;
   initial-value: 360deg;
 }
+.fc-section-product-specs > div {
+  padding-bottom: 70px;
+  border-bottom: 1px solid #c8c8c8;
+}
+
 .fc-page-header.page-header .page-header-content-wrapper {
   position: relative;
   z-index: 2;

@@ -20,6 +20,8 @@
         background-position: 50% 10%;
         transition: background-position 0.5s ease-in-out;
 
+        justify-content: flex-end;
+
         &:hover{
             background-position: 50% 33%;
         }
@@ -93,7 +95,28 @@
             transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out 0.1s;
             opacity: 0;
          }
+
+
+         
+
+
     }
+
+    & .card-media{
+        height: 100%;
+        //aspect-ratio: auto;
+        & img{
+            //aspect-ratio: 1;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover;
+        }
+    }
+
+    .uk-button{
+        max-width: fit-content;
+    }
+    
 
     // Hide default slick arrow text, use SVG arrows from JS instead
     & .slick-prev:before,
@@ -139,6 +162,7 @@
           background-position: 0;
           transition: none;
           position:relative !important;
+          justify-content: flex-start;
 
           &,
           & *{
@@ -200,6 +224,47 @@
               //opacity: 0;
               height: auto !important;
               opacity: 1 !important;
+          }
+      }
+
+      & .card-media{
+        aspect-ratio: 16/10 !important;
+
+        & img{
+            aspect-ratio: 16/10 !important;
+            object-fit: contain;
+        }
+      }
+
+
+      &.fc-section-cards-products{
+
+        & .card-media{
+            border: 2px solid $primary;
+            border-radius: 0.75rem;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $white;
+            
+        }
+
+          & a.card-body,
+          & div.card-body{
+            margin-top: 1rem;
+
+
+              & h3{
+                color: $black;
+                //   transition: color 0.3s ease-in-out;
+                text-transform: uppercase;
+                font-size: 1rem;
+                font-weight: 700;
+                font-family: $sans;
+
+              }
+
           }
       }
 
@@ -305,3 +370,17 @@
     initial-value: 360deg;
 }
 
+.fc-section-product-specs{
+
+    & > div{
+        padding-bottom: 70px;
+        border-bottom: 1px solid $medium-gray;
+
+            // img{
+            //     max-width: 100%;
+            //     width: 375px !important;
+            // }
+    }
+
+
+}

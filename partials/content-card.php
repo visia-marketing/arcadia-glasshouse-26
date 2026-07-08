@@ -38,7 +38,7 @@ switch ( $per_row ) {
     <?php $card_tag = $card_url ? 'a' : 'div'; ?>
     <<?php echo $card_tag; ?>
       <?php if ( $card_url ) : ?>href="<?php echo esc_url( $card_url ); ?>"<?php endif; ?>
-      class="card-body uk-card-body uk-height-1-1 uk-width-1-1 uk-position-absolute uk-flex uk-flex-column uk-flex-right">
+      class="card-body uk-card-body uk-height-1-1 uk-width-1-1 uk-position-absolute uk-flex uk-flex-column uk-flex-left">
 
       <?php if ( ! empty( $card['card_collection'] ) ) : ?>
         <span class="g-section-subtitle">
@@ -56,7 +56,9 @@ switch ( $per_row ) {
         </p>
       <?php endif; ?>
 
+
     </<?php echo $card_tag; ?>>
+
 
   </div>
 </div>

@@ -38,6 +38,7 @@
                 "class": "",
                 "id": ""
             },
+            "relevanssi_exclude": 0,
             "layouts": {
                 "layout_68f144cb462dd": {
                     "key": "layout_68f144cb462dd",
@@ -516,7 +517,10 @@
                                 "id": ""
                             },
                             "default_value": "",
-                            "placeholder": "e.g. 6rem"
+                            "placeholder": "e.g. 6rem",
+                            "maxlength": "",
+                            "prepend": "",
+                            "append": ""
                         }
                     ],
                     "min": "",
@@ -591,6 +595,39 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_6a4d10d8eb9bb": {
+                    "key": "layout_6a4d10d8eb9bb",
+                    "name": "section_product_specs",
+                    "label": "Product Specs",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6a4d10e3eb9bd",
+                            "label": "Product Specs",
+                            "name": "product_specs",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "relevanssi_exclude": 0,
+                            "clone": [
+                                "group_6a4d0fd0a6a9d"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -617,5 +654,7 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1773583886
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1783435535
 }
