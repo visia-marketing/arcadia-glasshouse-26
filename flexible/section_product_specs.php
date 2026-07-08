@@ -16,7 +16,7 @@
             </div>
 
 
-            <div class="uk-width-expand uk-margin-bottom uk-flex uk-flex-row uk-flex-center">
+            <div class="uk-width-expand uk-margin-bottom uk-flex uk-flex-row uk-flex-center uk-padding-remove-left">
                 <?php $image2 = wp_get_attachment_image( $product['image_2'], 'medium', false, [ 'class' => ' uk-width-1-1 uk-margin-remove-right', 'loading' => 'lazy', 'style' => 'object-fit: contain;' ] ); ?>
                 <?php if ( $image2 ) : ?>
                         <?php echo $image2; ?>
@@ -24,7 +24,7 @@
             </div>
 
 
-             <div class="uk-width-2-5@m uk-width-1-1@m">
+             <div class="uk-width-1-3@m uk-width-1-1@m">
                 <h3 class=""><?php echo esc_html( $product['product_title'] ); ?></h3>
                 <p class="uk-margin-remove"><?php echo wp_kses_post( $product['product_text'] ); ?></p>
 
