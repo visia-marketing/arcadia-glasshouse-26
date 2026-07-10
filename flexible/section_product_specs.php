@@ -1,4 +1,7 @@
-<?php $products = get_sub_field('products'); ?>
+<?php
+$specs = get_sub_field('product_specs');
+$products = $specs['products'] ?? [];
+?>
 
 <div class="fc-section-product-specs">
 
